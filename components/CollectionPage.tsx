@@ -58,7 +58,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
         {/* Filter bar */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-12">
           <div className="flex items-center gap-4 flex-wrap">
-            <p className="text-[12px] text-warm-gray/40 font-sans">
+            <p className="text-[12px] text-warm-gray/70 font-sans">
               {filtered.length} piece{filtered.length !== 1 ? "s" : ""}
             </p>
 
@@ -66,8 +66,8 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
             <div className="flex gap-1">
               {(["all", "available", "sold"] as AvailFilter[]).map((f) => (
                 <button key={f} onClick={() => setAvailFilter(f)}
-                  className={`px-3 py-1.5 text-[9px] tracking-[0.2em] uppercase font-sans border transition-all ${
-                    availFilter === f ? "border-brass/30 text-brass bg-brass/[0.05]" : "border-white/[0.06] text-warm-gray/40 hover:text-ivory"
+                  className={`px-3 py-2.5 text-[9px] tracking-[0.2em] uppercase font-sans border transition-all ${
+                    availFilter === f ? "border-brass/30 text-brass bg-brass/[0.05]" : "border-white/[0.06] text-warm-gray/70 hover:text-ivory"
                   }`}>{f}</button>
               ))}
             </div>
@@ -75,7 +75,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
             {/* Origin dropdown */}
             {origins.length > 1 && (
               <select value={originFilter} onChange={(e) => setOriginFilter(e.target.value)}
-                className="bg-transparent border border-white/[0.08] px-3 py-1.5 text-[9px] tracking-[0.15em] uppercase text-warm-gray/50 font-sans outline-none focus:border-brass/30 appearance-none"
+                className="bg-transparent border border-white/[0.08] px-3 py-1.5 text-[9px] tracking-[0.15em] uppercase text-warm-gray/80 font-sans outline-none focus:border-brass/30 appearance-none"
               >
                 <option value="" className="bg-midnight">All Origins</option>
                 {origins.map((o) => <option key={o} value={o} className="bg-midnight">{o}</option>)}
@@ -93,7 +93,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
 
           {/* Sort */}
           <div className="flex items-center gap-3">
-            <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans">Sort:</span>
+            <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans">Sort:</span>
             {([
               { key: "newest", label: "Newest" },
               { key: "price-asc", label: "Price ↑" },
@@ -101,7 +101,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
             ] as { key: SortOption; label: string }[]).map((s) => (
               <button key={s.key} onClick={() => setSort(s.key)}
                 className={`text-[9px] tracking-[0.15em] uppercase font-sans transition-colors ${
-                  sort === s.key ? "text-brass/70" : "text-warm-gray/50 hover:text-ivory"
+                  sort === s.key ? "text-brass/70" : "text-warm-gray/80 hover:text-ivory"
                 }`}>{s.label}</button>
             ))}
           </div>
@@ -116,7 +116,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
           </div>
         ) : (
           <div className="text-center py-24">
-            <p className="text-warm-gray/40 font-sans mb-8 text-sm">No pieces match your current filters.</p>
+            <p className="text-warm-gray/70 font-sans mb-8 text-sm">No pieces match your current filters.</p>
             <button onClick={() => { setAvailFilter("all"); setOriginFilter(""); setSort("newest"); }}
               className="inline-flex items-center gap-3 border border-ivory/15 text-ivory/70 px-8 py-4 text-[10px] tracking-[0.3em] uppercase font-sans hover:border-brass/30 transition-all"
             >Clear All Filters</button>
@@ -173,7 +173,7 @@ export default function CollectionPage({
 
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 lg:px-16 pb-14 w-full">
           {/* Breadcrumbs */}
-          <div className="flex items-center gap-2 mb-5 text-[9px] tracking-[0.25em] uppercase text-warm-gray/40 font-sans flex-wrap">
+          <div className="flex items-center gap-2 mb-5 text-[9px] tracking-[0.25em] uppercase text-warm-gray/70 font-sans flex-wrap">
             <Link href="/" className="hover:text-brass transition-colors">Home</Link>
             {breadcrumbs.map((crumb) => (
               <span key={crumb.href} className="flex items-center gap-2">
@@ -198,7 +198,7 @@ export default function CollectionPage({
             {category.title}
           </h1>
 
-          <p className="text-[14px] text-pearl/50 max-w-2xl mt-6 leading-[1.8] font-sans">
+          <p className="text-[14px] text-pearl/75 max-w-2xl mt-6 leading-[1.8] font-sans">
             {category.heroDescription}
           </p>
         </div>
@@ -227,7 +227,7 @@ export default function CollectionPage({
                 <AnimateIn key={sub.slug} delay={i * 50}>
                   <Link
                     href={`/${category.slug}/${sub.slug}`}
-                    className="px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase font-sans border border-white/[0.08] text-warm-gray/60 hover:border-brass/25 hover:text-ivory hover:bg-white/[0.02] transition-all duration-500"
+                    className="px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase font-sans border border-white/[0.08] text-warm-gray/80 hover:border-brass/25 hover:text-ivory hover:bg-white/[0.02] transition-all duration-500"
                   >
                     {sub.title}
                   </Link>

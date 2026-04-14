@@ -100,49 +100,43 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Main headline — cinematic reveal */}
-          <div className="overflow-hidden pb-3 -mb-1">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "600ms" }}
-            >
-              Rare Antiques
-            </h1>
-          </div>
+          {/* Main headline — staggered fade-in reveal */}
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "600ms" }}
+          >
+            Rare Antiques
+          </h1>
 
-          <div className="overflow-hidden pb-3 -mb-1">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "800ms" }}
-            >
-              <span className="text-ivory">&amp; </span>
-              <span className="italic gold-text">Mother-of-Pearl</span>
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "800ms" }}
+          >
+            <span className="text-ivory">&amp; </span>
+            <span className="italic gold-text">Mother-of-Pearl</span>
+          </h1>
 
-          <div className="overflow-hidden pb-3">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory/40 leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "1000ms" }}
-            >
-              Masterpieces
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory/70 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "1000ms" }}
+          >
+            Masterpieces
+          </h1>
 
           {/* Subtitle */}
           <div
-            className={`mt-12 transition-all duration-1200 ${
+            className={`mt-8 lg:mt-12 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1400ms" }}
           >
-            <p className="text-[15px] lg:text-[17px] text-pearl/50 max-w-lg leading-[1.8] font-sans">
+            <p className="text-[14px] lg:text-[17px] text-pearl/75 max-w-lg leading-[1.8] font-sans">
               Five generations of expertise in handcrafted mother-of-pearl furniture,
               Islamic antiques, and museum-quality collector pieces for
               the world&apos;s most discerning collectors.
@@ -151,14 +145,14 @@ export default function Hero() {
 
           {/* CTAs */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 mt-14 transition-all duration-1200 ${
+            className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 lg:mt-14 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1800ms" }}
           >
             <Link
               href="/mother-of-pearl"
-              className="group relative inline-flex items-center gap-3 bg-brass text-midnight px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(184,151,47,0.2)]"
+              className="group relative inline-flex items-center justify-center gap-3 bg-brass text-midnight px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(184,151,47,0.2)]"
             >
               <span className="relative z-10">Explore Mother-of-Pearl</span>
               <svg
@@ -174,7 +168,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 border border-ivory/15 text-ivory/80 px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans transition-all duration-500 hover:border-brass/40 hover:text-ivory"
+              className="group inline-flex items-center justify-center gap-3 border border-ivory/15 text-ivory/80 px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans transition-all duration-500 hover:border-brass/40 hover:text-ivory"
             >
               <span>Private Inquiry</span>
             </Link>
@@ -186,12 +180,12 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-midnight to-transparent" />
 
       <div
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 transition-all duration-1000 ${
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-4 transition-all duration-1000 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         style={{ transitionDelay: "2500ms" }}
       >
-        <span className="text-[8px] tracking-[0.5em] uppercase text-warm-gray/40 font-sans">
+        <span className="text-[8px] tracking-[0.5em] uppercase text-warm-gray/70 font-sans">
           Discover
         </span>
         <div className="relative w-px h-12 overflow-hidden">
@@ -209,7 +203,7 @@ export default function Hero() {
         <div className="hidden lg:flex flex-col items-center gap-4">
           <div className="w-px h-16 bg-gradient-to-b from-transparent via-brass/20 to-transparent" />
           <span
-            className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans"
+            className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/75 font-sans"
             style={{ writingMode: "vertical-rl" }}
           >
             Since 1870

@@ -127,7 +127,7 @@ export default function Navigation() {
       >
         {/* Announcement bar */}
         <div
-          className={`hidden lg:flex justify-center items-center text-[8px] tracking-[0.5em] uppercase text-warm-gray/50 border-b border-white/[0.03] overflow-hidden transition-all duration-700 font-sans ${
+          className={`hidden lg:flex justify-center items-center text-[8px] tracking-[0.5em] uppercase text-warm-gray/80 border-b border-white/[0.03] overflow-hidden transition-all duration-700 font-sans ${
             scrolled ? "h-0 opacity-0" : "h-7 opacity-100"
           }`}
         >
@@ -176,7 +176,7 @@ export default function Navigation() {
                       className={`relative px-2.5 2xl:px-3.5 py-2 text-[10px] tracking-[0.18em] uppercase transition-all duration-500 group inline-flex items-center gap-1 font-sans ${
                         item.featured
                           ? "text-brass/90 hover:text-brass"
-                          : "text-warm-gray/60 hover:text-ivory/90"
+                          : "text-warm-gray/80 hover:text-ivory/90"
                       }`}
                     >
                       <span>{item.label}</span>
@@ -349,7 +349,7 @@ export default function Navigation() {
                             key={child.href}
                             href={child.href}
                             onClick={() => setMobileOpen(false)}
-                            className="block py-2 text-[15px] text-ivory/50 hover:text-brass transition-colors font-sans"
+                            className="block py-2 text-[15px] text-ivory/75 hover:text-brass transition-colors font-sans"
                           >
                             {child.label}
                           </Link>
@@ -370,7 +370,7 @@ export default function Navigation() {
             style={{ transitionDelay: mobileOpen ? "700ms" : "0ms" }}
           >
             <div className="w-12 h-px bg-brass/20 mx-auto mb-6" />
-            <div className="flex items-center justify-center gap-8 text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans">
+            <div className="flex items-center justify-center gap-8 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
               <span className="hover:text-brass transition-colors cursor-pointer">WhatsApp</span>
               <span className="hover:text-brass transition-colors cursor-pointer">Instagram</span>
               <span className="hover:text-brass transition-colors cursor-pointer">Email</span>

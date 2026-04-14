@@ -21,7 +21,7 @@ export default function NewArrivalsPage() {
             <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-serif text-ivory leading-[1.05]">
               New Arrivals
             </h1>
-            <p className="text-[14px] text-warm-gray/50 max-w-lg mt-6 leading-[1.8] font-sans">
+            <p className="text-[14px] text-warm-gray/80 max-w-lg mt-6 leading-[1.8] font-sans">
               The latest additions to our collection — freshly sourced pieces
               now available for acquisition or private inquiry.
             </p>

@@ -19,7 +19,7 @@ export default function WishlistPage() {
             <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">Saved Pieces</span>
           </div>
           <h1 className="text-3xl lg:text-4xl font-serif text-ivory mb-2">Your Wishlist</h1>
-          <p className="text-[12px] text-warm-gray/40 font-sans mb-12">
+          <p className="text-[12px] text-warm-gray/70 font-sans mb-12">
             {wishlistProducts.length} saved {wishlistProducts.length === 1 ? "piece" : "pieces"}
           </p>
         </AnimateIn>
@@ -27,7 +27,7 @@ export default function WishlistPage() {
         {wishlistProducts.length === 0 ? (
           <AnimateIn>
             <div className="text-center py-24 border border-white/[0.04]">
-              <p className="text-warm-gray/40 font-sans mb-8">You haven&apos;t saved any pieces yet</p>
+              <p className="text-warm-gray/70 font-sans mb-8">You haven&apos;t saved any pieces yet</p>
               <Link
                 href="/mother-of-pearl-furniture"
                 className="inline-flex items-center gap-3 border border-ivory/15 text-ivory/70 px-8 py-4 text-[10px] tracking-[0.3em] uppercase font-sans hover:border-brass/30 transition-all"

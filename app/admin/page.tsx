@@ -136,7 +136,7 @@ export default function AdminPage() {
       <div className="min-h-screen bg-midnight flex items-center justify-center px-6">
         <form onSubmit={handleAuth} className="w-full max-w-sm">
           <h1 className="text-2xl font-serif text-ivory mb-2 text-center">Admin Panel</h1>
-          <p className="text-[12px] text-warm-gray/40 font-sans text-center mb-8">The Orient Gates Product Management</p>
+          <p className="text-[12px] text-warm-gray/70 font-sans text-center mb-8">The Orient Gates Product Management</p>
           <input
             type="password"
             value={pin}
@@ -159,7 +159,7 @@ export default function AdminPage() {
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
           <div>
             <h1 className="text-2xl font-serif text-ivory">Product Management</h1>
-            <p className="text-[12px] text-warm-gray/40 font-sans mt-1">{products.length} products in database</p>
+            <p className="text-[12px] text-warm-gray/70 font-sans mt-1">{products.length} products in database</p>
           </div>
           <div className="flex gap-3 flex-wrap">
             <button
@@ -212,7 +212,7 @@ export default function AdminPage() {
                 <h2 className="text-lg font-serif text-ivory">
                   {editingId ? "Edit Product" : "Add New Product"}
                 </h2>
-                <button onClick={() => setShowForm(false)} className="text-warm-gray/40 hover:text-ivory text-lg">&times;</button>
+                <button onClick={() => setShowForm(false)} className="text-warm-gray/70 hover:text-ivory text-lg">&times;</button>
               </div>
 
               <div className="space-y-5">
@@ -404,7 +404,7 @@ export default function AdminPage() {
                         onChange={(e) => setFormData({ ...formData, [toggle.key]: e.target.checked })}
                         className="accent-brass"
                       />
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/60 font-sans">{toggle.label}</span>
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans">{toggle.label}</span>
                     </label>
                   ))}
                 </div>
@@ -436,9 +436,9 @@ export default function AdminPage() {
             <tbody>
               {filtered.map((p) => (
                 <tr key={p.id} className="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors">
-                  <td className="py-3 px-3 text-[11px] text-warm-gray/50 font-mono">{p.sku || "—"}</td>
+                  <td className="py-3 px-3 text-[11px] text-warm-gray/80 font-mono">{p.sku || "—"}</td>
                   <td className="py-3 px-3 text-sm text-ivory font-sans truncate max-w-[250px]">{p.title}</td>
-                  <td className="py-3 px-3 text-[11px] text-warm-gray/50 font-sans">{p.subcategory || p.category}</td>
+                  <td className="py-3 px-3 text-[11px] text-warm-gray/80 font-sans">{p.subcategory || p.category}</td>
                   <td className="py-3 px-3 text-sm text-ivory/70 font-sans">{p.priceDisplay}</td>
                   <td className="py-3 px-3">
                     <select
@@ -459,7 +459,7 @@ export default function AdminPage() {
                     <select
                       value={p.type}
                       onChange={(e) => handleToggle(p.id, "type", e.target.value)}
-                      className="bg-transparent text-[10px] text-ivory/50 font-sans border border-white/10 px-2 py-1 outline-none"
+                      className="bg-transparent text-[10px] text-ivory/75 font-sans border border-white/10 px-2 py-1 outline-none"
                     >
                       <option value="purchasable">Purchase</option>
                       <option value="inquiry">Inquiry</option>

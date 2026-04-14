@@ -50,13 +50,13 @@ export default function CraftsmanshipPreview() {
               <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05]">
                 Centuries
                 <br />
-                <span className="italic text-pearl/40">of Craft</span>
+                <span className="italic text-pearl/70">of Craft</span>
               </h2>
             </AnimateIn>
           </div>
           <div className="lg:col-span-6 flex items-end">
             <AnimateIn delay={200}>
-              <p className="text-[14px] text-warm-gray/50 leading-[1.9] font-sans max-w-md">
+              <p className="text-[14px] text-warm-gray/80 leading-[1.9] font-sans max-w-md">
                 Every piece is the result of techniques refined over centuries. From shell
                 selection to final polish, the process is an act of devotion to beauty.
               </p>
@@ -91,7 +91,7 @@ export default function CraftsmanshipPreview() {
                 <h3 className="text-lg font-serif text-ivory mb-3 group-hover:text-brass transition-colors duration-500">
                   {step.title}
                 </h3>
-                <p className="text-[13px] text-warm-gray/50 leading-relaxed font-sans">
+                <p className="text-[13px] text-warm-gray/80 leading-relaxed font-sans">
                   {step.description}
                 </p>
               </div>

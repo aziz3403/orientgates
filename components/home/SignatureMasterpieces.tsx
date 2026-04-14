@@ -35,7 +35,7 @@ export default function SignatureMasterpieces() {
               <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05] tracking-[-0.02em]">
                 Signature
                 <br />
-                <span className="italic text-pearl/40">Masterpieces</span>
+                <span className="italic text-pearl/70">Masterpieces</span>
               </h2>
             </AnimateIn>
           </div>
@@ -43,7 +43,7 @@ export default function SignatureMasterpieces() {
             <AnimateIn delay={200}>
               <Link
                 href="/collection/mother-of-pearl"
-                className="group inline-flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-warm-gray/50 hover:text-brass font-sans transition-colors duration-500"
+                className="group inline-flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-warm-gray/80 hover:text-brass font-sans transition-colors duration-500"
               >
                 <span>View All Pieces</span>
                 <svg
@@ -100,7 +100,7 @@ export default function SignatureMasterpieces() {
                           isEven ? "-right-4 lg:right-8" : "-left-4 lg:left-8"
                         }`}
                       >
-                        <span className="text-[80px] lg:text-[120px] font-serif gold-text opacity-[0.06] leading-none">
+                        <span className="text-[48px] sm:text-[80px] lg:text-[120px] font-serif gold-text opacity-[0.06] leading-none">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>
@@ -125,11 +125,11 @@ export default function SignatureMasterpieces() {
                         {product.title}
                       </h3>
 
-                      <p className="text-[13px] text-warm-gray/50 leading-[1.8] mb-6 line-clamp-3 font-sans">
+                      <p className="text-[13px] text-warm-gray/80 leading-[1.8] mb-6 line-clamp-3 font-sans">
                         {product.description}
                       </p>
 
-                      <div className="flex items-center gap-4 mb-8 text-[11px] text-pearl/30 font-sans">
+                      <div className="flex items-center gap-4 mb-8 text-[11px] text-pearl/60 font-sans">
                         {product.materials.slice(0, 3).map((m, mi) => (
                           <span key={m} className="flex items-center gap-4">
                             {mi > 0 && <span className="w-1 h-1 rounded-full bg-brass/20 -ml-2" />}

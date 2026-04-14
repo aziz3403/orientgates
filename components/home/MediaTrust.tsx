@@ -17,14 +17,14 @@ export default function MediaTrust() {
       <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
         <AnimateIn>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
-            <span className="text-[8px] tracking-[0.5em] uppercase text-warm-gray/50 font-sans md:mr-10 whitespace-nowrap">
+            <span className="text-[8px] tracking-[0.5em] uppercase text-warm-gray/80 font-sans md:mr-10 whitespace-nowrap">
               As Featured In
             </span>
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12">
               {publications.map((pub, i) => (
                 <span
                   key={pub}
-                  className="text-[11px] lg:text-[13px] tracking-[0.15em] uppercase text-warm-gray/40 font-serif hover:text-warm-gray/40 transition-colors duration-500 cursor-default"
+                  className="text-[11px] lg:text-[13px] tracking-[0.15em] uppercase text-warm-gray/70 font-serif hover:text-warm-gray/90 transition-colors duration-500 cursor-default"
                 >
                   {pub}
                 </span>

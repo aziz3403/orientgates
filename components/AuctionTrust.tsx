@@ -12,7 +12,7 @@ export default function AuctionTrust() {
   return (
     <section className="py-section bg-midnight border-y border-white/[0.04] overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
           {/* Left */}
           <div className="lg:col-span-5">
             <AnimateIn>
@@ -25,9 +25,9 @@ export default function AuctionTrust() {
               <h2 className="text-[clamp(2rem,4vw,3rem)] font-serif text-ivory leading-[1.05] mb-6">
                 We Buy & Sell at the
                 <br />
-                <span className="italic text-pearl/40">World&apos;s Leading Auctions</span>
+                <span className="italic text-pearl/70">World&apos;s Leading Auctions</span>
               </h2>
-              <p className="text-[14px] text-warm-gray/50 leading-[1.8] font-sans">
+              <p className="text-[14px] text-warm-gray/80 leading-[1.8] font-sans">
                 The Orient Gates actively participates in the world&apos;s most
                 prestigious auction houses, both as buyers sourcing extraordinary
                 pieces for our collection and as sellers placing important objects
@@ -45,7 +45,7 @@ export default function AuctionTrust() {
                     <span className="text-xl font-serif text-ivory group-hover:text-brass transition-colors duration-500">
                       {house.name}
                     </span>
-                    <span className="block text-[10px] text-warm-gray/40 font-sans mt-2 tracking-wider">
+                    <span className="block text-[10px] text-warm-gray/70 font-sans mt-2 tracking-wider">
                       {house.desc}
                     </span>
                   </div>
@@ -55,7 +55,7 @@ export default function AuctionTrust() {
 
             {/* Stats */}
             <AnimateIn delay={400}>
-              <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-4">
                 {[
                   { number: "200+", label: "Auction Acquisitions" },
                   { number: "50+", label: "Auction Consignments" },
@@ -63,7 +63,7 @@ export default function AuctionTrust() {
                 ].map((stat) => (
                   <div key={stat.label} className="p-5 border border-white/[0.04] text-center">
                     <span className="text-2xl font-serif gold-text">{stat.number}</span>
-                    <span className="block text-[9px] text-warm-gray/50 font-sans mt-1 tracking-wider uppercase">
+                    <span className="block text-[9px] text-warm-gray/80 font-sans mt-1 tracking-wider uppercase">
                       {stat.label}
                     </span>
                   </div>

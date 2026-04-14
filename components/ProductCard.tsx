@@ -87,7 +87,7 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
                 {product.title}
               </h3>
               {product.subtitle && (
-                <p className="text-[11px] text-warm-gray/40 font-sans mb-3 line-clamp-1">
+                <p className="text-[11px] text-warm-gray/70 font-sans mb-3 line-clamp-1">
                   {product.subtitle}
                 </p>
               )}
@@ -95,7 +95,7 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
                 <span className="text-[13px] font-serif italic text-ivory/70">
                   {product.priceDisplay}
                 </span>
-                <span className="text-[9px] text-warm-gray/50 font-sans">{product.origin}</span>
+                <span className="text-[9px] text-warm-gray/80 font-sans">{product.origin}</span>
               </div>
             </div>
           </div>

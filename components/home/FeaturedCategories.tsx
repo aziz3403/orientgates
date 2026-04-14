@@ -73,7 +73,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
         <div
           ref={cardRef}
           className={`group relative overflow-hidden cursor-pointer border border-white/[0.04] hover:border-brass/20 transition-all duration-700 ${
-            isHero ? "h-[500px] lg:h-full min-h-[500px] lg:min-h-[700px]" : "h-[350px] lg:h-[400px]"
+            isHero ? "h-[350px] sm:h-[500px] lg:h-full min-h-[350px] sm:min-h-[500px] lg:min-h-[700px]" : "h-[350px] lg:h-[400px]"
           }`}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -96,7 +96,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
           />
 
           <div className="absolute top-6 left-8 lg:top-8 lg:left-10">
-            <span className={`text-[80px] lg:text-[100px] font-serif leading-none transition-all duration-700 ${hovered ? "gold-text opacity-20" : "text-white/[0.04]"}`}>
+            <span className={`text-[48px] sm:text-[80px] lg:text-[100px] font-serif leading-none transition-all duration-700 ${hovered ? "gold-text opacity-20" : "text-white/[0.04]"}`}>
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -112,7 +112,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
             </h3>
 
             <div className={`overflow-hidden transition-all duration-700 ${hovered ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"}`}>
-              <p className={`text-[13px] text-pearl/50 leading-relaxed ${isHero ? "max-w-md" : "max-w-sm"}`}>{category.description}</p>
+              <p className={`text-[13px] text-pearl/75 leading-relaxed ${isHero ? "max-w-md" : "max-w-sm"}`}>{category.description}</p>
               <div className="flex items-center gap-2 mt-5">
                 <span className="text-[10px] tracking-[0.3em] uppercase text-brass font-sans">Explore Collection</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-500 group-hover:translate-x-1.5">
@@ -144,11 +144,11 @@ export default function FeaturedCategories() {
           </AnimateIn>
           <AnimateIn delay={100}>
             <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-serif text-ivory leading-[1.05] tracking-[-0.02em]">
-              Five Curated<br /><span className="italic text-pearl/40">Worlds of Beauty</span>
+              Five Curated<br /><span className="italic text-pearl/70">Worlds of Beauty</span>
             </h2>
           </AnimateIn>
           <AnimateIn delay={200}>
-            <p className="text-[14px] text-warm-gray/60 max-w-lg mt-8 leading-[1.9] font-sans">
+            <p className="text-[14px] text-warm-gray/80 max-w-lg mt-8 leading-[1.9] font-sans">
               Each collection represents a distinct tradition of artistry — from the luminous inlay of Damascus to the scholarly beauty of Islamic calligraphy.
             </p>
           </AnimateIn>

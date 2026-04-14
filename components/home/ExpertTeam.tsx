@@ -46,9 +46,9 @@ export default function ExpertTeam() {
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory leading-[1.05] mb-4">
             Decades of Expertise
             <br />
-            <span className="italic text-pearl/40">at Your Service</span>
+            <span className="italic text-pearl/70">at Your Service</span>
           </h2>
-          <p className="text-[14px] text-warm-gray/50 max-w-lg leading-[1.8] font-sans mb-16">
+          <p className="text-[14px] text-warm-gray/80 max-w-lg leading-[1.8] font-sans mb-16">
             Our team combines generations of family knowledge with formal training
             at the world&apos;s leading institutions and auction houses.
           </p>
@@ -71,8 +71,8 @@ export default function ExpertTeam() {
                 <div className="p-6">
                   <h3 className="text-[15px] font-serif text-ivory mb-1">{member.name}</h3>
                   <p className="text-[10px] tracking-[0.2em] uppercase text-brass/50 font-sans mb-3">{member.title}</p>
-                  <p className="text-[10px] tracking-[0.15em] uppercase text-warm-gray/40 font-sans mb-4">{member.specialization}</p>
-                  <p className="text-[11px] text-warm-gray/40 leading-relaxed font-sans">{member.experience}</p>
+                  <p className="text-[10px] tracking-[0.15em] uppercase text-warm-gray/70 font-sans mb-4">{member.specialization}</p>
+                  <p className="text-[11px] text-warm-gray/70 leading-relaxed font-sans">{member.experience}</p>
                 </div>
               </div>
             </AnimateIn>

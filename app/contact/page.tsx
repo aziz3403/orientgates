@@ -62,7 +62,7 @@ export default function ContactPage() {
                   <div className="text-center py-20 border border-white/[0.04] p-12">
                     <div className="w-12 h-px bg-brass/40 mx-auto mb-8" />
                     <h2 className="text-3xl font-serif text-ivory mb-4">Thank You</h2>
-                    <p className="text-[14px] text-warm-gray/50 leading-[1.8] font-sans max-w-md mx-auto">
+                    <p className="text-[14px] text-warm-gray/80 leading-[1.8] font-sans max-w-md mx-auto">
                       Your inquiry has been received. A specialist will respond within 24 hours.
                       All inquiries are handled with complete discretion and confidentiality.
                     </p>
@@ -71,7 +71,7 @@ export default function ContactPage() {
                   <form onSubmit={handleSubmit} className="space-y-8">
                     <div>
                       <h2 className="text-2xl font-serif text-ivory mb-2">How May We Assist You?</h2>
-                      <p className="text-[12px] text-warm-gray/40 font-sans mb-10">All inquiries are handled with complete discretion.</p>
+                      <p className="text-[12px] text-warm-gray/70 font-sans mb-10">All inquiries are handled with complete discretion.</p>
                     </div>
 
                     {/* Name + Email */}
@@ -109,7 +109,7 @@ export default function ContactPage() {
                         {inquiryTypes.map((type) => (
                           <button key={type} type="button" onClick={() => setFormData({ ...formData, inquiryType: type })}
                             className={`px-4 py-2.5 text-[10px] tracking-wider uppercase border font-sans transition-all duration-300 ${
-                              formData.inquiryType === type ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/50 hover:border-white/20 hover:text-ivory"
+                              formData.inquiryType === type ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80 hover:border-white/20 hover:text-ivory"
                             }`}>{type}</button>
                         ))}
                       </div>
@@ -143,7 +143,7 @@ export default function ContactPage() {
                           {contactMethods.map((m) => (
                             <button key={m} type="button" onClick={() => setFormData({ ...formData, preferredContact: m })}
                               className={`px-3 py-2 text-[10px] tracking-wider uppercase border font-sans transition-all ${
-                                formData.preferredContact === m ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/50"
+                                formData.preferredContact === m ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80"
                               }`}>{m}</button>
                           ))}
                         </div>
@@ -154,7 +154,7 @@ export default function ContactPage() {
                           {timelines.map((t) => (
                             <button key={t} type="button" onClick={() => setFormData({ ...formData, timeline: t })}
                               className={`px-3 py-2 text-[10px] tracking-wider uppercase border font-sans transition-all ${
-                                formData.timeline === t ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/50"
+                                formData.timeline === t ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80"
                               }`}>{t}</button>
                           ))}
                         </div>
@@ -181,7 +181,7 @@ export default function ContactPage() {
                     <label className="flex items-start gap-3 cursor-pointer">
                       <input type="checkbox" checked={formData.confidentiality} onChange={(e) => setFormData({ ...formData, confidentiality: e.target.checked })}
                         className="accent-brass mt-1" />
-                      <span className="text-[11px] text-warm-gray/40 font-sans leading-relaxed">
+                      <span className="text-[11px] text-warm-gray/70 font-sans leading-relaxed">
                         I understand that all communications with The Orient Gates are treated with complete confidentiality
                         and discretion. My information will not be shared with third parties.
                       </span>
@@ -210,15 +210,15 @@ export default function ContactPage() {
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 font-sans mb-6">Reach Us Directly</h3>
                     <div className="space-y-4">
                       <div>
-                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans mb-1">Email</p>
+                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans mb-1">Email</p>
                         <p className="text-ivory/70 text-sm font-sans">inquiries@theorientgates.com</p>
                       </div>
                       <div>
-                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans mb-1">WhatsApp</p>
+                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans mb-1">WhatsApp</p>
                         <p className="text-ivory/70 text-sm font-sans">+1 (000) 000-0000</p>
                       </div>
                       <div>
-                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans mb-1">Instagram</p>
+                        <p className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans mb-1">Instagram</p>
                         <p className="text-ivory/70 text-sm font-sans">@theorientgates</p>
                       </div>
                     </div>
@@ -228,7 +228,7 @@ export default function ContactPage() {
 
                   <div>
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 font-sans mb-6">Private Viewings</h3>
-                    <p className="text-[13px] text-warm-gray/40 leading-relaxed font-sans mb-4">
+                    <p className="text-[13px] text-warm-gray/70 leading-relaxed font-sans mb-4">
                       We welcome visitors by appointment. Private viewings allow you to experience
                       pieces in person, with our specialists on hand to provide context and guidance.
                     </p>
@@ -245,7 +245,7 @@ export default function ContactPage() {
                         "Authentication & valuation", "Restoration & conservation", "Custom MoP furniture commissions",
                         "Worldwide white-glove shipping", "Auction advisory",
                       ].map((s) => (
-                        <li key={s} className="flex items-center gap-3 text-[13px] text-warm-gray/40 font-sans">
+                        <li key={s} className="flex items-center gap-3 text-[13px] text-warm-gray/70 font-sans">
                           <div className="w-1.5 h-1.5 bg-brass/30 rounded-full" />{s}
                         </li>
                       ))}

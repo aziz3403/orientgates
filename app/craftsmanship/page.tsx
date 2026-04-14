@@ -144,7 +144,7 @@ export default function CraftsmanshipPage() {
                     <p className="text-warm-gray leading-relaxed mb-6">
                       {process.description}
                     </p>
-                    <p className="text-sm text-pearl/40 leading-relaxed italic">
+                    <p className="text-sm text-pearl/70 leading-relaxed italic">
                       {process.detail}
                     </p>
                   </AnimateIn>

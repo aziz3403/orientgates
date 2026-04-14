@@ -69,7 +69,7 @@ export default function MotherOfPearlFurniturePage() {
               <span className="italic gold-text">Furniture</span>
             </h1>
 
-            <p className="text-[15px] text-pearl/50 max-w-lg leading-[1.8] font-sans mb-12">
+            <p className="text-[15px] text-pearl/75 max-w-lg leading-[1.8] font-sans mb-12">
               Where light meets shell, where mathematics meets devotion. Each piece
               represents centuries of Levantine artistry embodied in luminous surfaces
               of extraordinary beauty.
@@ -111,7 +111,7 @@ export default function MotherOfPearlFurniturePage() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <h3 className="text-lg font-serif text-ivory mb-3 group-hover:text-brass transition-colors">{item.title}</h3>
-                  <p className="text-[13px] text-warm-gray/50 leading-relaxed font-sans">{item.text}</p>
+                  <p className="text-[13px] text-warm-gray/80 leading-relaxed font-sans">{item.text}</p>
                 </div>
               </AnimateIn>
             ))}
@@ -152,7 +152,7 @@ export default function MotherOfPearlFurniturePage() {
                       <h3 className="text-sm lg:text-base font-serif text-ivory tracking-wide group-hover:text-brass transition-colors">
                         {sub.title}
                       </h3>
-                      <span className="text-[8px] tracking-[0.3em] uppercase text-warm-gray/40 mt-1 font-sans">
+                      <span className="text-[8px] tracking-[0.3em] uppercase text-warm-gray/70 mt-1 font-sans">
                         {sub.subtitle}
                       </span>
                     </div>
@@ -177,7 +177,7 @@ export default function MotherOfPearlFurniturePage() {
                   The Full Collection
                 </h2>
               </div>
-              <p className="text-[12px] text-warm-gray/40 font-sans">
+              <p className="text-[12px] text-warm-gray/70 font-sans">
                 {products.length} pieces
               </p>
             </div>

@@ -67,12 +67,12 @@ export default function InquiryCTA() {
           <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory mt-6 mb-8 leading-[1.1]">
             Acquire Something
             <br />
-            <span className="italic text-pearl/40">Extraordinary</span>
+            <span className="italic text-pearl/70">Extraordinary</span>
           </h2>
         </AnimateIn>
 
         <AnimateIn delay={300}>
-          <p className="text-[14px] text-warm-gray/50 max-w-md mx-auto mb-14 leading-[1.9] font-sans">
+          <p className="text-[14px] text-warm-gray/80 max-w-md mx-auto mb-14 leading-[1.9] font-sans">
             Whether you seek a masterpiece, wish to explore our collection
             privately, or require bespoke sourcing — our specialists are at
             your service.
@@ -98,7 +98,7 @@ export default function InquiryCTA() {
         </AnimateIn>
 
         <AnimateIn delay={500}>
-          <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans">
+          <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
             <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
               WhatsApp
             </span>

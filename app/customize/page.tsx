@@ -79,7 +79,7 @@ export default function CustomizePage() {
         <div className="text-center max-w-md">
           <Logo size={56} className="mx-auto mb-8" />
           <h1 className="text-3xl font-serif text-ivory mb-4">Thank You</h1>
-          <p className="text-[14px] text-warm-gray/50 leading-[1.8] font-sans mb-8">
+          <p className="text-[14px] text-warm-gray/80 leading-[1.8] font-sans mb-8">
             Your custom furniture inquiry has been received. Our master craftsmen
             and design team will review your specifications and contact you within
             48 hours with a detailed consultation.
@@ -107,7 +107,7 @@ export default function CustomizePage() {
             <br />
             <span className="italic gold-text">Mother-of-Pearl Furniture</span>
           </h1>
-          <p className="text-[14px] text-warm-gray/50 max-w-lg mx-auto leading-[1.8] font-sans">
+          <p className="text-[14px] text-warm-gray/80 max-w-lg mx-auto leading-[1.8] font-sans">
             Our master craftsmen will bring your vision to life using centuries-old
             techniques. Configure your piece below and our team will provide a
             detailed consultation and quote.
@@ -133,7 +133,7 @@ export default function CustomizePage() {
             {step === 1 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Choose Furniture Type</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">What would you like us to create?</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">What would you like us to create?</p>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                   {furnitureTypes.map((type) => (
                     <button
@@ -155,7 +155,7 @@ export default function CustomizePage() {
             {step === 2 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Choose Size</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">Select the scale for your piece</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">Select the scale for your piece</p>
                 <div className="space-y-3">
                   {sizes.map((size) => (
                     <button
@@ -167,7 +167,7 @@ export default function CustomizePage() {
                     >
                       <div>
                         <span className="text-sm font-serif text-ivory block">{size.label}</span>
-                        <span className="text-[11px] text-warm-gray/40 font-sans">{size.desc}</span>
+                        <span className="text-[11px] text-warm-gray/70 font-sans">{size.desc}</span>
                       </div>
                       <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="text-brass/40">
                         <path d="M6 4l4 4-4 4" stroke="currentColor" strokeWidth="1" />
@@ -194,7 +194,7 @@ export default function CustomizePage() {
             {step === 3 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Choose Pattern Style</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">Select the inlay pattern for your piece</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">Select the inlay pattern for your piece</p>
                 <div className="grid grid-cols-2 gap-3">
                   {patterns.map((pattern) => (
                     <button
@@ -216,7 +216,7 @@ export default function CustomizePage() {
             {step === 4 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Choose Wood</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">Select the primary wood for your piece</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">Select the primary wood for your piece</p>
                 <div className="grid grid-cols-2 gap-3">
                   {woods.map((wood) => (
                     <button
@@ -229,7 +229,7 @@ export default function CustomizePage() {
                       <div className="w-10 h-10 rounded-sm flex-shrink-0" style={{ backgroundColor: wood.hex }} />
                       <div>
                         <span className="text-sm font-serif text-ivory block">{wood.label}</span>
-                        <span className="text-[10px] text-warm-gray/40 font-sans">{wood.desc}</span>
+                        <span className="text-[10px] text-warm-gray/70 font-sans">{wood.desc}</span>
                       </div>
                     </button>
                   ))}
@@ -241,7 +241,7 @@ export default function CustomizePage() {
             {step === 5 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Choose Accent Materials</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">Select one or more accent materials</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">Select one or more accent materials</p>
                 <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
                   {accents.map((accent) => (
                     <button
@@ -265,7 +265,7 @@ export default function CustomizePage() {
             {step === 6 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Additional Notes</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">Any specific requests, inspirations, or requirements?</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">Any specific requests, inspirations, or requirements?</p>
                 <textarea
                   value={config.notes}
                   onChange={(e) => setConfig({ ...config, notes: e.target.value })}
@@ -283,7 +283,7 @@ export default function CustomizePage() {
             {step === 7 && (
               <AnimateIn>
                 <h2 className="text-xl font-serif text-ivory mb-2">Your Contact Information</h2>
-                <p className="text-[12px] text-warm-gray/40 font-sans mb-8">We will contact you within 48 hours with a consultation</p>
+                <p className="text-[12px] text-warm-gray/70 font-sans mb-8">We will contact you within 48 hours with a consultation</p>
                 <div className="space-y-6 mb-8">
                   <div>
                     <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">Full Name</label>
@@ -319,7 +319,7 @@ export default function CustomizePage() {
 
             {/* Back button */}
             {step > 1 && (
-              <button onClick={() => setStep(step - 1)} className="mt-6 text-[10px] tracking-[0.2em] uppercase text-warm-gray/40 hover:text-ivory transition-colors font-sans">
+              <button onClick={() => setStep(step - 1)} className="mt-6 text-[10px] tracking-[0.2em] uppercase text-warm-gray/70 hover:text-ivory transition-colors font-sans">
                 &larr; Back
               </button>
             )}
@@ -363,7 +363,7 @@ export default function CustomizePage() {
                     {/* Type label */}
                     {config.type && (
                       <div className="absolute bottom-4 left-4 right-4 text-center">
-                        <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/40 font-sans">
+                        <span className="text-[9px] tracking-[0.3em] uppercase text-ivory/70 font-sans">
                           {furnitureTypes.find((t) => t.id === config.type)?.label}
                         </span>
                       </div>
@@ -381,7 +381,7 @@ export default function CustomizePage() {
                     ].map((item) =>
                       item.value ? (
                         <div key={item.label} className="flex justify-between">
-                          <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/40 font-sans">{item.label}</span>
+                          <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/70 font-sans">{item.label}</span>
                           <span className="text-[12px] text-ivory/70 font-sans">{item.value}</span>
                         </div>
                       ) : null
@@ -389,7 +389,7 @@ export default function CustomizePage() {
                   </div>
 
                   {!config.type && (
-                    <p className="text-[12px] text-warm-gray/50 font-sans text-center mt-4 italic">
+                    <p className="text-[12px] text-warm-gray/80 font-sans text-center mt-4 italic">
                       Begin selecting options to see your configuration
                     </p>
                   )}
@@ -397,7 +397,7 @@ export default function CustomizePage() {
 
                 {/* Trust note */}
                 <div className="mt-6 p-5 border border-white/[0.04]">
-                  <p className="text-[11px] text-warm-gray/40 leading-relaxed font-sans">
+                  <p className="text-[11px] text-warm-gray/70 leading-relaxed font-sans">
                     Custom pieces are handcrafted by our master artisans in Damascus using
                     traditional techniques. Typical lead time is 8-16 weeks depending on
                     complexity. Starting from $5,000 for accessories to $80,000+ for grand

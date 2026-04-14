@@ -20,7 +20,7 @@ export default function TrustSection() {
               <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory leading-[1.05]">
                 A Standard
                 <br />
-                <span className="italic text-pearl/40">of Excellence</span>
+                <span className="italic text-pearl/70">of Excellence</span>
               </h2>
             </AnimateIn>
           </div>
@@ -36,7 +36,7 @@ export default function TrustSection() {
                 </p>
                 <footer className="mt-6 flex items-center gap-4">
                   <div className="w-8 h-px bg-brass/30" />
-                  <span className="text-[11px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans">
+                  <span className="text-[11px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans">
                     A Private Collector, London
                   </span>
                 </footer>
@@ -77,7 +77,7 @@ export default function TrustSection() {
                 <span className="block text-[10px] tracking-[0.3em] uppercase text-brass/60 font-sans mb-4">
                   {item.label}
                 </span>
-                <p className="text-[13px] text-warm-gray/50 leading-relaxed font-sans">
+                <p className="text-[13px] text-warm-gray/80 leading-relaxed font-sans">
                   {item.text}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function TrustSection() {
           <span className="hidden sm:block w-1 h-1 rounded-full bg-brass/20" />
           <Link
             href="/heritage"
-            className="group inline-flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans hover:text-ivory transition-colors duration-500"
+            className="group inline-flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans hover:text-ivory transition-colors duration-500"
           >
             <span>Our Heritage</span>
             <svg

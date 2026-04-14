@@ -31,7 +31,7 @@ export default function HeritageStory() {
               {/* Floating stat card */}
               <div className="absolute -bottom-10 -right-4 lg:right-[-30px] bg-midnight border border-brass/15 px-8 py-7">
                 <span className="block text-5xl font-serif gold-text leading-none">150+</span>
-                <span className="text-[9px] tracking-[0.4em] uppercase text-warm-gray/50 mt-2 block font-sans">
+                <span className="text-[9px] tracking-[0.4em] uppercase text-warm-gray/80 mt-2 block font-sans">
                   Years of Heritage
                 </span>
               </div>
@@ -53,7 +53,7 @@ export default function HeritageStory() {
               <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05] mb-10">
                 A Family Tradition
                 <br />
-                <span className="italic text-pearl/40">Since 1870</span>
+                <span className="italic text-pearl/70">Since 1870</span>
               </h2>
             </AnimateIn>
 
@@ -67,7 +67,7 @@ export default function HeritageStory() {
             </AnimateIn>
 
             <AnimateIn delay={300}>
-              <p className="text-[14px] text-warm-gray/50 leading-[1.9] mb-14 font-sans max-w-xl">
+              <p className="text-[14px] text-warm-gray/80 leading-[1.9] mb-14 font-sans max-w-xl">
                 Today, we continue this legacy — sourcing museum-quality pieces
                 from across the Islamic world and Europe, preserving the art of
                 shell inlay, and connecting collectors worldwide with objects that
@@ -86,7 +86,7 @@ export default function HeritageStory() {
                     <span className="block text-3xl font-serif gold-text leading-none">
                       {stat.number}
                     </span>
-                    <span className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 mt-2 block font-sans">
+                    <span className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 mt-2 block font-sans">
                       {stat.label}
                     </span>
                   </div>

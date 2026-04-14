@@ -12,7 +12,7 @@ export default function CheckoutPage() {
       <section className="pt-36 pb-section bg-midnight min-h-screen">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h1 className="text-3xl font-serif text-ivory mb-4">Checkout</h1>
-          <p className="text-warm-gray/40 font-sans mb-8">Your cart is empty.</p>
+          <p className="text-warm-gray/70 font-sans mb-8">Your cart is empty.</p>
           <Link href="/" className="text-brass text-sm font-sans hover:underline">
             Continue Shopping
           </Link>
@@ -40,20 +40,20 @@ export default function CheckoutPage() {
                   <div className="space-y-5">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">First Name</label>
+                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">First Name</label>
                         <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                       </div>
                       <div>
-                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">Last Name</label>
+                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Last Name</label>
                         <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                       </div>
                     </div>
                     <div>
-                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">Email</label>
+                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Email</label>
                       <input type="email" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                     </div>
                     <div>
-                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">Phone</label>
+                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Phone</label>
                       <input type="tel" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                     </div>
                   </div>
@@ -65,16 +65,16 @@ export default function CheckoutPage() {
                   </h2>
                   <div className="space-y-5">
                     <div>
-                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">Address</label>
+                      <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Address</label>
                       <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">City</label>
+                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">City</label>
                         <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                       </div>
                       <div>
-                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/40 font-sans mb-2">Country</label>
+                        <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Country</label>
                         <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
                       </div>
                     </div>
@@ -92,7 +92,7 @@ export default function CheckoutPage() {
                   />
                 </div>
 
-                <p className="text-[11px] text-warm-gray/50 font-sans leading-relaxed">
+                <p className="text-[11px] text-warm-gray/80 font-sans leading-relaxed">
                   White-glove delivery and specialist fine art shipping available worldwide.
                   A member of our team will contact you to arrange delivery details and confirm your order.
                 </p>
@@ -120,7 +120,7 @@ export default function CheckoutPage() {
                     <div key={item.product.id} className="flex justify-between items-start">
                       <div>
                         <p className="text-sm font-serif text-ivory">{item.product.title}</p>
-                        <p className="text-[11px] text-warm-gray/50 font-sans">Qty: {item.quantity}</p>
+                        <p className="text-[11px] text-warm-gray/80 font-sans">Qty: {item.quantity}</p>
                       </div>
                       <span className="text-sm text-ivory/70 font-sans">
                         {item.product.price
@@ -132,7 +132,7 @@ export default function CheckoutPage() {
                 </div>
                 <div className="border-t border-white/[0.06] pt-4">
                   <div className="flex justify-between">
-                    <span className="text-sm font-sans text-warm-gray/50">Total</span>
+                    <span className="text-sm font-sans text-warm-gray/80">Total</span>
                     <span className="text-lg font-serif text-ivory">${totalPrice.toLocaleString()}</span>
                   </div>
                 </div>

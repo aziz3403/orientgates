@@ -112,7 +112,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
             </h3>
 
             <div className={`overflow-hidden transition-all duration-700 ${hovered ? "max-h-40 opacity-100 mt-4" : "max-h-0 opacity-0 mt-0"}`}>
-              <p className={`text-[13px] text-pearl/50 leading-relaxed ${isHero ? "max-w-md" : "max-w-sm"}`}>{category.description}</p>
+              <p className={`text-[13px] text-pearl/75 leading-relaxed ${isHero ? "max-w-md" : "max-w-sm"}`}>{category.description}</p>
               <div className="flex items-center gap-2 mt-5">
                 <span className="text-[10px] tracking-[0.3em] uppercase text-brass font-sans">Explore Collection</span>
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-500 group-hover:translate-x-1.5">
@@ -144,7 +144,7 @@ export default function FeaturedCategories() {
           </AnimateIn>
           <AnimateIn delay={100}>
             <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-serif text-ivory leading-[1.05] tracking-[-0.02em]">
-              Five Curated<br /><span className="italic text-pearl/40">Worlds of Beauty</span>
+              Five Curated<br /><span className="italic text-pearl/70">Worlds of Beauty</span>
             </h2>
           </AnimateIn>
           <AnimateIn delay={200}>

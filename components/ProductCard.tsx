@@ -95,7 +95,7 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
                 <span className="text-[13px] font-serif italic text-ivory/70">
                   {product.priceDisplay}
                 </span>
-                <span className="text-[9px] text-warm-gray/30 font-sans">{product.origin}</span>
+                <span className="text-[9px] text-warm-gray/50 font-sans">{product.origin}</span>
               </div>
             </div>
           </div>
@@ -139,11 +139,13 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
 
         {/* COA badge */}
         {product.certificateOfAuthenticity && (
-          <div className="absolute bottom-[calc(100%-3.5rem)] left-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#b8972f" strokeWidth="1.5">
+          <div className={`absolute top-4 left-4 flex items-center gap-1.5 bg-midnight/60 backdrop-blur-sm px-2 py-1 border border-brass/20 transition-opacity duration-500 ${
+            hovered ? "opacity-100" : "opacity-0"
+          }`}>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#b8972f" strokeWidth="1.5">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
             </svg>
-            <span className="text-[8px] tracking-[0.2em] uppercase text-brass/60 font-sans">COA</span>
+            <span className="text-[7px] tracking-[0.2em] uppercase text-brass font-sans">COA</span>
           </div>
         )}
       </div>

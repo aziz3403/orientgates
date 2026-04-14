@@ -63,7 +63,7 @@ export default function MotherOfPearlFurniturePage() {
               </span>
             </div>
 
-            <h1 className="text-[clamp(3rem,7vw,6.5rem)] font-serif text-ivory leading-[0.9] mb-8">
+            <h1 className="text-[clamp(3rem,7vw,6.5rem)] font-serif text-ivory leading-[1.05] mb-8">
               Mother of Pearl
               <br />
               <span className="italic gold-text">Furniture</span>
@@ -129,7 +129,7 @@ export default function MotherOfPearlFurniturePage() {
                 Browse by Type
               </span>
             </div>
-            <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory leading-[1]">
+            <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory leading-[1.1]">
               Explore the Collection
             </h2>
           </AnimateIn>

@@ -59,6 +59,12 @@ export interface Product {
   auctionHistory?: AuctionRecord[];
   tags?: string[];
   relatedIds?: string[];
+  restorationHistory?: string;
+  exhibitionHistory?: string;
+  literatureReferences?: string;
+  comparableSales?: string;
+  insuranceValuation?: number;
+  videoUrl?: string;
 }
 
 // Auto-generate SKU from product ID if not set
@@ -302,6 +308,11 @@ export const products: Product[] = [
     ],
     tags: ["museum-quality", "damascene", "geometric", "walnut", "statement-piece"],
     relatedIds: ["mop-2", "mop-3", "mop-4"],
+    restorationHistory: "Conserved in 2017 by Atelier Farouk, Beirut. Stabilization of 23 loose inlay fragments on left door panel. Original brass hardware cleaned and lacquered. No replacements made — 100% original material preserved.",
+    exhibitionHistory: "Exhibited at 'Treasures of the Levant', Sharjah Museum of Islamic Civilization, 2019. Previously displayed at the Beirut Art Center, 2016.",
+    literatureReferences: "Referenced in 'The Art of Syrian Inlay: A Study of Damascene Furniture' by Dr. K. Rashid (2020), p. 142-145. Illustrated in Sotheby's 'Arts of the Islamic World' catalogue, October 2018.",
+    comparableSales: "A comparable Damascus cabinet of similar period sold at Christie's London in 2021 for £62,000. A smaller example from the same workshop tradition sold at Bonhams in 2020 for $48,000.",
+    insuranceValuation: 95000,
   },
   {
     id: "mop-2",

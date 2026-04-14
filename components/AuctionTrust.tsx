@@ -63,7 +63,7 @@ export default function AuctionTrust() {
                 ].map((stat) => (
                   <div key={stat.label} className="p-5 border border-white/[0.04] text-center">
                     <span className="text-2xl font-serif gold-text">{stat.number}</span>
-                    <span className="block text-[9px] text-warm-gray/30 font-sans mt-1 tracking-wider uppercase">
+                    <span className="block text-[9px] text-warm-gray/50 font-sans mt-1 tracking-wider uppercase">
                       {stat.label}
                     </span>
                   </div>

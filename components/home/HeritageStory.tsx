@@ -50,7 +50,7 @@ export default function HeritageStory() {
             </AnimateIn>
 
             <AnimateIn delay={100}>
-              <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[0.95] mb-10">
+              <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05] mb-10">
                 A Family Tradition
                 <br />
                 <span className="italic text-pearl/40">Since 1870</span>

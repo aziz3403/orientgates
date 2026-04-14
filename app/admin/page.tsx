@@ -351,6 +351,45 @@ export default function AdminPage() {
                   />
                 </div>
 
+                {/* Expert Appraisal */}
+                <div>
+                  <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">Expert Appraisal</label>
+                  <textarea
+                    value={(formData as any).expertAppraisal || ""}
+                    onChange={(e) => setFormData({ ...formData, expertAppraisal: e.target.value })}
+                    rows={2}
+                    className="w-full bg-transparent border border-white/10 p-3 text-ivory text-sm font-sans focus:border-brass outline-none resize-none"
+                    placeholder="Expert authentication quote or assessment..."
+                  />
+                </div>
+
+                {/* Auction History */}
+                <div>
+                  <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">
+                    Auction History (JSON array of records)
+                  </label>
+                  <textarea
+                    value={JSON.stringify((formData as any).auctionHistory || [], null, 2)}
+                    onChange={(e) => {
+                      try { setFormData({ ...formData, auctionHistory: JSON.parse(e.target.value) }); } catch {}
+                    }}
+                    rows={3}
+                    className="w-full bg-transparent border border-white/10 p-3 text-ivory text-xs font-mono focus:border-brass outline-none resize-none"
+                    placeholder={'[{"house": "Sothebys", "date": "2020", "lot": "Lot 42"}]'}
+                  />
+                </div>
+
+                {/* Insurance Valuation */}
+                <div>
+                  <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">Insurance Valuation ($)</label>
+                  <input
+                    type="number"
+                    value={(formData as any).insuranceValuation || ""}
+                    onChange={(e) => setFormData({ ...formData, insuranceValuation: e.target.value ? Number(e.target.value) : undefined })}
+                    className="w-full bg-transparent border-b border-white/15 pb-2 text-ivory text-sm font-sans focus:border-brass outline-none"
+                  />
+                </div>
+
                 {/* Toggles */}
                 <div className="flex gap-6 pt-4">
                   {[

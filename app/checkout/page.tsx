@@ -92,7 +92,7 @@ export default function CheckoutPage() {
                   />
                 </div>
 
-                <p className="text-[11px] text-warm-gray/30 font-sans leading-relaxed">
+                <p className="text-[11px] text-warm-gray/50 font-sans leading-relaxed">
                   White-glove delivery and specialist fine art shipping available worldwide.
                   A member of our team will contact you to arrange delivery details and confirm your order.
                 </p>
@@ -120,7 +120,7 @@ export default function CheckoutPage() {
                     <div key={item.product.id} className="flex justify-between items-start">
                       <div>
                         <p className="text-sm font-serif text-ivory">{item.product.title}</p>
-                        <p className="text-[11px] text-warm-gray/30 font-sans">Qty: {item.quantity}</p>
+                        <p className="text-[11px] text-warm-gray/50 font-sans">Qty: {item.quantity}</p>
                       </div>
                       <span className="text-sm text-ivory/70 font-sans">
                         {item.product.price

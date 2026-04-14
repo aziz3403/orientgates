@@ -101,9 +101,9 @@ export default function Hero() {
           </div>
 
           {/* Main headline — cinematic reveal */}
-          <div className="overflow-hidden mb-4">
+          <div className="overflow-hidden pb-3 -mb-1">
             <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory leading-[0.9] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "600ms" }}
@@ -112,9 +112,9 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="overflow-hidden mb-4">
+          <div className="overflow-hidden pb-3 -mb-1">
             <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif leading-[0.9] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[clamp(3rem,9vw,8rem)] font-serif leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "800ms" }}
@@ -124,9 +124,9 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="overflow-hidden">
+          <div className="overflow-hidden pb-3">
             <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory/40 leading-[0.9] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory/40 leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "1000ms" }}
@@ -209,7 +209,7 @@ export default function Hero() {
         <div className="hidden lg:flex flex-col items-center gap-4">
           <div className="w-px h-16 bg-gradient-to-b from-transparent via-brass/20 to-transparent" />
           <span
-            className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/30 font-sans"
+            className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans"
             style={{ writingMode: "vertical-rl" }}
           >
             Since 1870

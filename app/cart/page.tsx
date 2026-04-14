@@ -81,7 +81,7 @@ export default function CartPage() {
                           </div>
                           <button
                             onClick={() => removeItem(item.product.id)}
-                            className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/30 hover:text-red-400 transition-colors font-sans"
+                            className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/50 hover:text-red-400 transition-colors font-sans"
                           >
                             Remove
                           </button>
@@ -129,7 +129,7 @@ export default function CartPage() {
 
                   <button
                     onClick={clearCart}
-                    className="w-full mt-3 text-[10px] tracking-[0.2em] uppercase text-warm-gray/30 hover:text-warm-gray/60 transition-colors font-sans py-2"
+                    className="w-full mt-3 text-[10px] tracking-[0.2em] uppercase text-warm-gray/50 hover:text-warm-gray/60 transition-colors font-sans py-2"
                   >
                     Clear Selection
                   </button>

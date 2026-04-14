@@ -47,7 +47,7 @@ export default function CraftsmanshipPreview() {
               </div>
             </AnimateIn>
             <AnimateIn delay={100}>
-              <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[0.95]">
+              <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05]">
                 Centuries
                 <br />
                 <span className="italic text-pearl/40">of Craft</span>

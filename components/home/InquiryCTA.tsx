@@ -64,7 +64,7 @@ export default function InquiryCTA() {
         </AnimateIn>
 
         <AnimateIn delay={200}>
-          <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory mt-6 mb-8 leading-[1]">
+          <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory mt-6 mb-8 leading-[1.1]">
             Acquire Something
             <br />
             <span className="italic text-pearl/40">Extraordinary</span>
@@ -98,7 +98,7 @@ export default function InquiryCTA() {
         </AnimateIn>
 
         <AnimateIn delay={500}>
-          <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/30 font-sans">
+          <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans">
             <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
               WhatsApp
             </span>

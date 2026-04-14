@@ -1,11 +1,131 @@
 "use client";
 
+import { useState, useMemo } from "react";
 import Link from "next/link";
 import { Category, Product } from "@/lib/data";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import ProductCard from "@/components/ProductCard";
 import { useMousePosition } from "@/lib/hooks";
+
+type SortOption = "newest" | "price-asc" | "price-desc" | "period";
+type AvailFilter = "all" | "available" | "sold";
+
+function CollectionGrid({ products, productBasePath }: { products: Product[]; productBasePath?: string }) {
+  const [sort, setSort] = useState<SortOption>("newest");
+  const [availFilter, setAvailFilter] = useState<AvailFilter>("all");
+  const [originFilter, setOriginFilter] = useState("");
+
+  // Get unique origins for filter
+  const origins = useMemo(() => Array.from(new Set(products.map((p) => p.origin))).sort(), [products]);
+
+  const filtered = useMemo(() => {
+    let result = [...products];
+
+    // Availability filter
+    if (availFilter !== "all") {
+      result = result.filter((p) => p.availability === availFilter);
+    }
+
+    // Origin filter
+    if (originFilter) {
+      result = result.filter((p) => p.origin === originFilter);
+    }
+
+    // Sort
+    switch (sort) {
+      case "price-asc":
+        result.sort((a, b) => (a.price || 999999) - (b.price || 999999));
+        break;
+      case "price-desc":
+        result.sort((a, b) => (b.price || 0) - (a.price || 0));
+        break;
+      case "period":
+        result.sort((a, b) => a.period.localeCompare(b.period));
+        break;
+      default:
+        result.sort((a, b) => new Date(b.dateAdded).getTime() - new Date(a.dateAdded).getTime());
+    }
+
+    return result;
+  }, [products, sort, availFilter, originFilter]);
+
+  const hasActiveFilters = availFilter !== "all" || originFilter !== "";
+
+  return (
+    <section className="py-section bg-charcoal">
+      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        {/* Filter bar */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-12">
+          <div className="flex items-center gap-4 flex-wrap">
+            <p className="text-[12px] text-warm-gray/40 font-sans">
+              {filtered.length} piece{filtered.length !== 1 ? "s" : ""}
+            </p>
+
+            {/* Availability */}
+            <div className="flex gap-1">
+              {(["all", "available", "sold"] as AvailFilter[]).map((f) => (
+                <button key={f} onClick={() => setAvailFilter(f)}
+                  className={`px-3 py-1.5 text-[9px] tracking-[0.2em] uppercase font-sans border transition-all ${
+                    availFilter === f ? "border-brass/30 text-brass bg-brass/[0.05]" : "border-white/[0.06] text-warm-gray/40 hover:text-ivory"
+                  }`}>{f}</button>
+              ))}
+            </div>
+
+            {/* Origin dropdown */}
+            {origins.length > 1 && (
+              <select value={originFilter} onChange={(e) => setOriginFilter(e.target.value)}
+                className="bg-transparent border border-white/[0.08] px-3 py-1.5 text-[9px] tracking-[0.15em] uppercase text-warm-gray/50 font-sans outline-none focus:border-brass/30 appearance-none"
+              >
+                <option value="" className="bg-midnight">All Origins</option>
+                {origins.map((o) => <option key={o} value={o} className="bg-midnight">{o}</option>)}
+              </select>
+            )}
+
+            {/* Clear filters */}
+            {hasActiveFilters && (
+              <button onClick={() => { setAvailFilter("all"); setOriginFilter(""); }}
+                className="text-[9px] tracking-[0.2em] uppercase text-red-400/50 hover:text-red-400 font-sans transition-colors">
+                Clear Filters
+              </button>
+            )}
+          </div>
+
+          {/* Sort */}
+          <div className="flex items-center gap-3">
+            <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 font-sans">Sort:</span>
+            {([
+              { key: "newest", label: "Newest" },
+              { key: "price-asc", label: "Price ↑" },
+              { key: "price-desc", label: "Price ↓" },
+            ] as { key: SortOption; label: string }[]).map((s) => (
+              <button key={s.key} onClick={() => setSort(s.key)}
+                className={`text-[9px] tracking-[0.15em] uppercase font-sans transition-colors ${
+                  sort === s.key ? "text-brass/70" : "text-warm-gray/50 hover:text-ivory"
+                }`}>{s.label}</button>
+            ))}
+          </div>
+        </div>
+
+        {/* Grid */}
+        {filtered.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
+            {filtered.map((product, i) => (
+              <ProductCard key={product.id} product={product} index={i} basePath={productBasePath} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-24">
+            <p className="text-warm-gray/40 font-sans mb-8 text-sm">No pieces match your current filters.</p>
+            <button onClick={() => { setAvailFilter("all"); setOriginFilter(""); setSort("newest"); }}
+              className="inline-flex items-center gap-3 border border-ivory/15 text-ivory/70 px-8 py-4 text-[10px] tracking-[0.3em] uppercase font-sans hover:border-brass/30 transition-all"
+            >Clear All Filters</button>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
 
 interface CollectionPageProps {
   category: Category;
@@ -74,7 +194,7 @@ export default function CollectionPage({
             </span>
           </div>
 
-          <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-serif text-ivory leading-[0.95]">
+          <h1 className="text-[clamp(2.5rem,5vw,4.5rem)] font-serif text-ivory leading-[1.05]">
             {category.title}
           </h1>
 
@@ -118,49 +238,8 @@ export default function CollectionPage({
         </section>
       )}
 
-      {/* Product Grid */}
-      <section className="py-section bg-charcoal">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
-          {/* Count + filters bar */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-12">
-            <p className="text-[12px] text-warm-gray/40 font-sans">
-              Showing {products.length} piece{products.length !== 1 ? "s" : ""}
-            </p>
-            <div className="flex items-center gap-5 text-[9px] tracking-[0.2em] uppercase text-warm-gray/40 font-sans">
-              <span className="text-brass/60 cursor-pointer">All</span>
-              <span className="cursor-pointer hover:text-ivory transition-colors">Available</span>
-              <span className="cursor-pointer hover:text-ivory transition-colors">Price: Low–High</span>
-              <span className="cursor-pointer hover:text-ivory transition-colors">Price: High–Low</span>
-            </div>
-          </div>
-
-          {/* Grid */}
-          {products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
-              {products.map((product, i) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  index={i}
-                  basePath={productBasePath}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-24">
-              <p className="text-warm-gray/40 font-sans mb-8 text-sm">
-                New pieces are being added to this collection.
-              </p>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-3 border border-ivory/15 text-ivory/70 px-8 py-4 text-[10px] tracking-[0.3em] uppercase font-sans hover:border-brass/30 transition-all duration-500"
-              >
-                Inquire About Available Pieces
-              </Link>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Product Grid with Filters */}
+      <CollectionGrid products={products} productBasePath={productBasePath} />
     </>
   );
 }

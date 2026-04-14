@@ -143,7 +143,7 @@ export default function FeaturedCategories() {
             </div>
           </AnimateIn>
           <AnimateIn delay={100}>
-            <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-serif text-ivory leading-[0.95] tracking-[-0.02em]">
+            <h2 className="text-[clamp(2.5rem,5vw,5.5rem)] font-serif text-ivory leading-[1.05] tracking-[-0.02em]">
               Five Curated<br /><span className="italic text-pearl/40">Worlds of Beauty</span>
             </h2>
           </AnimateIn>

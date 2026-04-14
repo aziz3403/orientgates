@@ -389,7 +389,7 @@ export default function CustomizePage() {
                   </div>
 
                   {!config.type && (
-                    <p className="text-[12px] text-warm-gray/30 font-sans text-center mt-4 italic">
+                    <p className="text-[12px] text-warm-gray/50 font-sans text-center mt-4 italic">
                       Begin selecting options to see your configuration
                     </p>
                   )}

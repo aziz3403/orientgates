@@ -62,7 +62,7 @@ export default function Footer() {
               </p>
               <div className="flex gap-8 mt-10">
                 {["Instagram", "WhatsApp"].map((s) => (
-                  <span key={s} className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/30 hover:text-brass transition-colors duration-500 cursor-pointer font-sans">{s}</span>
+                  <span key={s} className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 hover:text-brass transition-colors duration-500 cursor-pointer font-sans">{s}</span>
                 ))}
               </div>
             </div>
@@ -93,8 +93,8 @@ export default function Footer() {
 
       <div className="border-t border-white/[0.03] py-6 px-6 lg:px-16">
         <div className="max-w-[1800px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[9px] tracking-[0.2em] text-warm-gray/25 font-sans">&copy; {new Date().getFullYear()} The Orient Gates. All rights reserved.</p>
-          <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/25 font-sans">
+          <p className="text-[9px] tracking-[0.2em] text-warm-gray/45 font-sans">&copy; {new Date().getFullYear()} The Orient Gates. All rights reserved.</p>
+          <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/45 font-sans">
             <span className="hover:text-warm-gray/50 transition-colors cursor-pointer">Privacy</span>
             <span className="hover:text-warm-gray/50 transition-colors cursor-pointer">Terms</span>
           </div>

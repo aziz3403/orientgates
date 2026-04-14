@@ -154,7 +154,7 @@ export default function Navigation() {
                 <span className="text-[14px] lg:text-[15px] tracking-[0.2em] uppercase font-serif text-ivory group-hover:text-brass transition-colors duration-500">
                   The Orient Gates
                 </span>
-                <span className="text-[7px] tracking-[0.45em] uppercase text-warm-gray/40 mt-px font-sans">
+                <span className="text-[7px] tracking-[0.45em] uppercase text-warm-gray/55 mt-px font-sans">
                   Rare Antiques &bull; Mother-of-Pearl
                 </span>
               </div>
@@ -321,7 +321,7 @@ export default function Navigation() {
                         onClick={() =>
                           setExpandedMobile(isExpanded ? null : item.label)
                         }
-                        className="p-2 text-warm-gray/40"
+                        className="p-2 text-warm-gray/55"
                       >
                         <svg
                           width="12"
@@ -370,7 +370,7 @@ export default function Navigation() {
             style={{ transitionDelay: mobileOpen ? "700ms" : "0ms" }}
           >
             <div className="w-12 h-px bg-brass/20 mx-auto mb-6" />
-            <div className="flex items-center justify-center gap-8 text-[9px] tracking-[0.3em] uppercase text-warm-gray/30 font-sans">
+            <div className="flex items-center justify-center gap-8 text-[9px] tracking-[0.3em] uppercase text-warm-gray/50 font-sans">
               <span className="hover:text-brass transition-colors cursor-pointer">WhatsApp</span>
               <span className="hover:text-brass transition-colors cursor-pointer">Instagram</span>
               <span className="hover:text-brass transition-colors cursor-pointer">Email</span>

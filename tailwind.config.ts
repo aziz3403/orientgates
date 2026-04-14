@@ -18,7 +18,7 @@ const config: Config = {
         "brass-light": "#d4b44a",
         pearl: "#e8e0d4",
         "pearl-highlight": "#f0ebe3",
-        "warm-gray": "#8a8178",
+        "warm-gray": "#a89f94",
         "deep-brown": "#3d2b1f",
       },
       fontFamily: {
@@ -26,9 +26,9 @@ const config: Config = {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
       fontSize: {
-        "display-xl": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "0.95", letterSpacing: "-0.02em" }],
-        "display": ["clamp(2.5rem, 5vw, 5rem)", { lineHeight: "1", letterSpacing: "-0.02em" }],
-        "heading": ["clamp(1.75rem, 3vw, 3rem)", { lineHeight: "1.1", letterSpacing: "-0.01em" }],
+        "display-xl": ["clamp(3rem, 8vw, 7rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "display": ["clamp(2.5rem, 5vw, 5rem)", { lineHeight: "1.1", letterSpacing: "-0.02em" }],
+        "heading": ["clamp(1.75rem, 3vw, 3rem)", { lineHeight: "1.15", letterSpacing: "-0.01em" }],
         "subheading": ["clamp(1.25rem, 2vw, 1.75rem)", { lineHeight: "1.2" }],
       },
       spacing: {

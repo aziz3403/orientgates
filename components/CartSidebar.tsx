@@ -98,7 +98,7 @@ export default function CartSidebar() {
                         </div>
                         <button
                           onClick={() => removeItem(item.product.id)}
-                          className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/30 hover:text-red-400 transition-colors font-sans"
+                          className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/50 hover:text-red-400 transition-colors font-sans"
                         >
                           Remove
                         </button>
@@ -121,7 +121,7 @@ export default function CartSidebar() {
                   ${totalPrice.toLocaleString()}
                 </span>
               </div>
-              <p className="text-[11px] text-warm-gray/30 font-sans">
+              <p className="text-[11px] text-warm-gray/50 font-sans">
                 Shipping and taxes calculated at checkout
               </p>
               <Link

@@ -32,12 +32,6 @@ export default function LuxuryImage({
       className={`object-cover ${className}`}
       loading={priority ? "eager" : "lazy"}
       onError={() => setError(true)}
-      // Fallback immediately since we're using placeholder images
-      ref={(el) => {
-        if (el && !el.naturalWidth && !error) {
-          setError(true);
-        }
-      }}
     />
   );
 }

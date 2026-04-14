@@ -8,7 +8,7 @@ export default function TrustSection() {
     <section className="relative py-section bg-midnight overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
         {/* Editorial quote layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 mb-section">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 mb-section">
           <div className="lg:col-span-5">
             <AnimateIn>
               <div className="flex items-center gap-5 mb-6">

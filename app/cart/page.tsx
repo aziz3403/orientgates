@@ -65,7 +65,7 @@ export default function CartPage() {
                           <div className="flex items-center gap-3">
                             <button
                               onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                              className="w-7 h-7 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 text-xs transition-all"
+                              className="w-9 h-9 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 text-xs transition-all"
                             >
                               -
                             </button>
@@ -74,7 +74,7 @@ export default function CartPage() {
                             </span>
                             <button
                               onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                              className="w-7 h-7 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 text-xs transition-all"
+                              className="w-9 h-9 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 text-xs transition-all"
                             >
                               +
                             </button>
@@ -96,7 +96,7 @@ export default function CartPage() {
             {/* Summary */}
             <div className="lg:col-span-4">
               <AnimateIn delay={200}>
-                <div className="border border-white/[0.06] p-8 sticky top-28">
+                <div className="border border-white/[0.06] p-6 sm:p-8 lg:sticky lg:top-28">
                   <h3 className="text-[10px] tracking-[0.4em] uppercase text-brass/50 font-sans mb-6">
                     Order Summary
                   </h3>

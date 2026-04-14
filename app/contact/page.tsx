@@ -55,7 +55,7 @@ export default function ContactPage() {
       {/* Form */}
       <section className="py-section bg-midnight">
         <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
             <div className="lg:col-span-7">
               <AnimateIn>
                 {submitted ? (
@@ -79,12 +79,12 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Full Name *</label>
                         <input type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors" placeholder="Your name" />
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors" placeholder="Your name" />
                       </div>
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Email Address *</label>
                         <input type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors" placeholder="your@email.com" />
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors" placeholder="your@email.com" />
                       </div>
                     </div>
 
@@ -93,12 +93,12 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Phone</label>
                         <input type="tel" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors" placeholder="+1 (000) 000-0000" />
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors" placeholder="+1 (000) 000-0000" />
                       </div>
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Country / Region</label>
                         <input type="text" value={formData.country} onChange={(e) => setFormData({ ...formData, country: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors" placeholder="For shipping context" />
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors" placeholder="For shipping context" />
                       </div>
                     </div>
 
@@ -108,7 +108,7 @@ export default function ContactPage() {
                       <div className="flex flex-wrap gap-2">
                         {inquiryTypes.map((type) => (
                           <button key={type} type="button" onClick={() => setFormData({ ...formData, inquiryType: type })}
-                            className={`px-4 py-2.5 text-[10px] tracking-wider uppercase border font-sans transition-all duration-300 ${
+                            className={`px-4 py-3 text-[10px] tracking-wider uppercase border font-sans transition-all duration-300 ${
                               formData.inquiryType === type ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80 hover:border-white/20 hover:text-ivory"
                             }`}>{type}</button>
                         ))}
@@ -120,7 +120,7 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">I Am a...</label>
                         <select value={formData.collectorType} onChange={(e) => setFormData({ ...formData, collectorType: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none appearance-none">
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none appearance-none">
                           <option value="" className="bg-midnight">Select...</option>
                           {collectorTypes.map((t) => <option key={t} value={t} className="bg-midnight">{t}</option>)}
                         </select>
@@ -128,7 +128,7 @@ export default function ContactPage() {
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Budget Range</label>
                         <select value={formData.budgetRange} onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none appearance-none">
+                          className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none appearance-none">
                           <option value="" className="bg-midnight">Select...</option>
                           {budgetRanges.map((b) => <option key={b} value={b} className="bg-midnight">{b}</option>)}
                         </select>
@@ -142,7 +142,7 @@ export default function ContactPage() {
                         <div className="flex flex-wrap gap-2">
                           {contactMethods.map((m) => (
                             <button key={m} type="button" onClick={() => setFormData({ ...formData, preferredContact: m })}
-                              className={`px-3 py-2 text-[10px] tracking-wider uppercase border font-sans transition-all ${
+                              className={`px-4 py-3 text-[10px] tracking-wider uppercase border font-sans transition-all ${
                                 formData.preferredContact === m ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80"
                               }`}>{m}</button>
                           ))}
@@ -153,7 +153,7 @@ export default function ContactPage() {
                         <div className="flex flex-wrap gap-2">
                           {timelines.map((t) => (
                             <button key={t} type="button" onClick={() => setFormData({ ...formData, timeline: t })}
-                              className={`px-3 py-2 text-[10px] tracking-wider uppercase border font-sans transition-all ${
+                              className={`px-4 py-3 text-[10px] tracking-wider uppercase border font-sans transition-all ${
                                 formData.timeline === t ? "border-brass text-brass bg-brass/[0.06]" : "border-white/10 text-warm-gray/80"
                               }`}>{t}</button>
                           ))}
@@ -165,7 +165,7 @@ export default function ContactPage() {
                     <div>
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Inquiring About a Specific Piece? (Name or SKU)</label>
                       <input type="text" value={formData.pieceName} onChange={(e) => setFormData({ ...formData, pieceName: e.target.value })}
-                        className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors"
+                        className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors"
                         placeholder="e.g., Grand Damascus Cabinet or TOG-MOP-001" />
                     </div>
 
@@ -173,7 +173,7 @@ export default function ContactPage() {
                     <div>
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Your Message *</label>
                       <textarea required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-sm font-sans focus:border-brass outline-none transition-colors resize-none"
+                        className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors resize-none"
                         placeholder="Tell us about your interest, the piece you're seeking, or how we can help..." />
                     </div>
 

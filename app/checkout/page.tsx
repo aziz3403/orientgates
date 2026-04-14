@@ -28,7 +28,7 @@ export default function CheckoutPage() {
           <h1 className="text-3xl lg:text-4xl font-serif text-ivory mb-12">Checkout</h1>
         </AnimateIn>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
           {/* Form */}
           <div className="lg:col-span-7">
             <AnimateIn>
@@ -41,20 +41,20 @@ export default function CheckoutPage() {
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">First Name</label>
-                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                       </div>
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Last Name</label>
-                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                       </div>
                     </div>
                     <div>
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Email</label>
-                      <input type="email" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                      <input type="email" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                     </div>
                     <div>
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Phone</label>
-                      <input type="tel" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                      <input type="tel" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                     </div>
                   </div>
                 </div>
@@ -66,16 +66,16 @@ export default function CheckoutPage() {
                   <div className="space-y-5">
                     <div>
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Address</label>
-                      <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                      <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">City</label>
-                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                       </div>
                       <div>
                         <label className="block text-[9px] tracking-[0.3em] uppercase text-warm-gray/70 font-sans mb-2">Country</label>
-                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans" />
+                        <input type="text" className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans" />
                       </div>
                     </div>
                   </div>
@@ -87,7 +87,7 @@ export default function CheckoutPage() {
                   </h2>
                   <textarea
                     rows={3}
-                    className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-sm font-sans resize-none"
+                    className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory focus:border-brass outline-none transition-colors text-base font-sans resize-none"
                     placeholder="Special delivery instructions, preferred contact time..."
                   />
                 </div>
@@ -111,7 +111,7 @@ export default function CheckoutPage() {
           {/* Order Summary */}
           <div className="lg:col-span-5">
             <AnimateIn delay={200}>
-              <div className="border border-white/[0.06] p-8 sticky top-28">
+              <div className="border border-white/[0.06] p-6 sm:p-8 lg:sticky lg:top-28">
                 <h3 className="text-[10px] tracking-[0.4em] uppercase text-brass/50 font-sans mb-6">
                   Your Order
                 </h3>

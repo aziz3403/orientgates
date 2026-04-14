@@ -176,7 +176,7 @@ export default function Navigation() {
                       className={`relative px-2.5 2xl:px-3.5 py-2 text-[10px] tracking-[0.18em] uppercase transition-all duration-500 group inline-flex items-center gap-1 font-sans ${
                         item.featured
                           ? "text-brass/90 hover:text-brass"
-                          : "text-warm-gray/60 hover:text-ivory/90"
+                          : "text-warm-gray/80 hover:text-ivory/90"
                       }`}
                     >
                       <span>{item.label}</span>

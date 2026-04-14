@@ -208,10 +208,10 @@ export default function ProductPage() {
                   </div>
                 </div>
                 {product.images.length > 1 && (
-                  <div className="flex gap-3 mt-4">
+                  <div className="flex gap-2 sm:gap-3 mt-4 overflow-x-auto pb-2">
                     {product.images.map((img, i) => (
                       <button key={i} onClick={() => setActiveImage(i)}
-                        className={`aspect-square w-20 overflow-hidden transition-all duration-500 ${activeImage === i ? "border border-brass/40 opacity-100" : "border border-white/[0.04] opacity-40 hover:opacity-70"}`}
+                        className={`aspect-square w-16 sm:w-20 flex-shrink-0 overflow-hidden transition-all duration-500 ${activeImage === i ? "border border-brass/40 opacity-100" : "border border-white/[0.04] opacity-40 hover:opacity-70"}`}
                       >
                         <LuxuryImage src={img} alt={`View ${i + 1}`} width={160} height={160} className="w-full h-full" label={`${i + 1}`} />
                       </button>
@@ -230,11 +230,11 @@ export default function ProductPage() {
                     <div className="w-8 h-px bg-brass/30" />
                     <span className="text-[9px] tracking-[0.4em] uppercase text-brass/60 font-sans">{catDisplay?.title}</span>
                   </div>
-                  <span className="text-[9px] tracking-[0.15em] text-warm-gray/45 font-mono">{sku}</span>
+                  <span className="text-[9px] tracking-[0.15em] text-warm-gray/65 font-mono">{sku}</span>
                 </div>
 
                 {/* Title */}
-                <h1 className="text-3xl lg:text-[2.5rem] font-serif text-ivory leading-[1.1] mb-3">{product.title}</h1>
+                <h1 className="text-2xl sm:text-3xl lg:text-[2.5rem] font-serif text-ivory leading-[1.1] mb-3">{product.title}</h1>
                 {product.subtitle && <p className="text-[14px] text-warm-gray/80 italic font-sans mb-6">{product.subtitle}</p>}
 
                 {/* COA + Wishlist + Share row */}
@@ -319,19 +319,19 @@ export default function ProductPage() {
                   {/* Description */}
                   <div>
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 mb-4 font-sans">Description</h3>
-                    <p className="text-[13px] text-warm-gray/60 leading-[1.8] font-sans">{product.description}</p>
+                    <p className="text-[13px] text-warm-gray/80 leading-[1.8] font-sans">{product.description}</p>
                   </div>
 
                   {/* Craftsmanship */}
                   <div>
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 mb-4 font-sans">Craftsmanship</h3>
-                    <p className="text-[13px] text-warm-gray/60 leading-[1.8] font-sans">{product.craftsmanship}</p>
+                    <p className="text-[13px] text-warm-gray/80 leading-[1.8] font-sans">{product.craftsmanship}</p>
                   </div>
 
                   {/* Condition */}
                   <div>
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 mb-4 font-sans">Condition</h3>
-                    <p className="text-[13px] text-warm-gray/60 leading-[1.8] font-sans">{product.condition}</p>
+                    <p className="text-[13px] text-warm-gray/80 leading-[1.8] font-sans">{product.condition}</p>
                     {product.restorationHistory && (
                       <div className="mt-4 p-4 border border-white/[0.04] bg-white/[0.01]">
                         <h4 className="text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans mb-2">Restoration History</h4>

@@ -12,7 +12,7 @@ export default function AuctionTrust() {
   return (
     <section className="py-section bg-midnight border-y border-white/[0.04] overflow-hidden">
       <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
           {/* Left */}
           <div className="lg:col-span-5">
             <AnimateIn>
@@ -55,7 +55,7 @@ export default function AuctionTrust() {
 
             {/* Stats */}
             <AnimateIn delay={400}>
-              <div className="grid grid-cols-3 gap-4 mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mt-4">
                 {[
                   { number: "200+", label: "Auction Acquisitions" },
                   { number: "50+", label: "Auction Consignments" },

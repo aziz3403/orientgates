@@ -100,7 +100,7 @@ export default function SignatureMasterpieces() {
                           isEven ? "-right-4 lg:right-8" : "-left-4 lg:left-8"
                         }`}
                       >
-                        <span className="text-[80px] lg:text-[120px] font-serif gold-text opacity-[0.06] leading-none">
+                        <span className="text-[48px] sm:text-[80px] lg:text-[120px] font-serif gold-text opacity-[0.06] leading-none">
                           {String(i + 1).padStart(2, "0")}
                         </span>
                       </div>

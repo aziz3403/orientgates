@@ -14,7 +14,7 @@ export default function HeritageStory() {
       </div>
 
       <div className="relative max-w-[1800px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-28 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-28 items-center">
           {/* Image side */}
           <AnimateIn direction="left" className="lg:col-span-5">
             <div className="relative">
@@ -29,7 +29,7 @@ export default function HeritageStory() {
                 />
               </div>
               {/* Floating stat card */}
-              <div className="absolute -bottom-10 -right-4 lg:right-[-30px] bg-midnight border border-brass/15 px-8 py-7">
+              <div className="relative sm:absolute mt-4 sm:mt-0 sm:-bottom-10 sm:-right-4 lg:right-[-30px] bg-midnight border border-brass/15 px-8 py-7 inline-block">
                 <span className="block text-5xl font-serif gold-text leading-none">150+</span>
                 <span className="text-[9px] tracking-[0.4em] uppercase text-warm-gray/80 mt-2 block font-sans">
                   Years of Heritage
@@ -58,7 +58,7 @@ export default function HeritageStory() {
             </AnimateIn>
 
             <AnimateIn delay={200}>
-              <p className="text-[14px] text-warm-gray/60 leading-[1.9] mb-6 font-sans max-w-xl">
+              <p className="text-[14px] text-warm-gray/80 leading-[1.9] mb-6 font-sans max-w-xl">
                 For over 150 years, The Orient Gates has been a guardian of rare
                 antiques and the finest mother-of-pearl craftsmanship. Our story
                 begins in the ancient workshops of Damascus, where master artisans
@@ -76,7 +76,7 @@ export default function HeritageStory() {
             </AnimateIn>
 
             <AnimateIn delay={400}>
-              <div className="flex gap-16 mb-14">
+              <div className="flex gap-8 sm:gap-16 mb-14">
                 {[
                   { number: "5", label: "Generations" },
                   { number: "1000+", label: "Pieces Curated" },

@@ -19,7 +19,7 @@ export default function CartSidebar() {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 right-0 bottom-0 z-[61] w-full max-w-md bg-midnight/98 backdrop-blur-xl border-l border-white/[0.06] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-[61] w-full max-w-[calc(100vw-2rem)] sm:max-w-md bg-midnight/98 backdrop-blur-xl border-l border-white/[0.06] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -34,7 +34,7 @@ export default function CartSidebar() {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="w-8 h-8 flex items-center justify-center text-warm-gray/70 hover:text-ivory transition-colors"
+              className="w-10 h-10 flex items-center justify-center text-warm-gray/70 hover:text-ivory transition-colors"
               aria-label="Close cart"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -82,7 +82,7 @@ export default function CartSidebar() {
                         <div className="flex items-center gap-3">
                           <button
                             onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
-                            className="w-6 h-6 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 hover:text-ivory transition-all text-xs"
+                            className="w-8 h-8 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 hover:text-ivory transition-all text-xs"
                           >
                             -
                           </button>
@@ -91,7 +91,7 @@ export default function CartSidebar() {
                           </span>
                           <button
                             onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
-                            className="w-6 h-6 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 hover:text-ivory transition-all text-xs"
+                            className="w-8 h-8 flex items-center justify-center border border-white/10 text-warm-gray/80 hover:border-brass/30 hover:text-ivory transition-all text-xs"
                           >
                             +
                           </button>

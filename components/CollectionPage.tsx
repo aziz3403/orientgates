@@ -66,7 +66,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
             <div className="flex gap-1">
               {(["all", "available", "sold"] as AvailFilter[]).map((f) => (
                 <button key={f} onClick={() => setAvailFilter(f)}
-                  className={`px-3 py-1.5 text-[9px] tracking-[0.2em] uppercase font-sans border transition-all ${
+                  className={`px-3 py-2.5 text-[9px] tracking-[0.2em] uppercase font-sans border transition-all ${
                     availFilter === f ? "border-brass/30 text-brass bg-brass/[0.05]" : "border-white/[0.06] text-warm-gray/70 hover:text-ivory"
                   }`}>{f}</button>
               ))}
@@ -227,7 +227,7 @@ export default function CollectionPage({
                 <AnimateIn key={sub.slug} delay={i * 50}>
                   <Link
                     href={`/${category.slug}/${sub.slug}`}
-                    className="px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase font-sans border border-white/[0.08] text-warm-gray/60 hover:border-brass/25 hover:text-ivory hover:bg-white/[0.02] transition-all duration-500"
+                    className="px-5 py-2.5 text-[10px] tracking-[0.2em] uppercase font-sans border border-white/[0.08] text-warm-gray/80 hover:border-brass/25 hover:text-ivory hover:bg-white/[0.02] transition-all duration-500"
                   >
                     {sub.title}
                   </Link>

@@ -48,7 +48,7 @@ export default function Footer() {
 
       <div className="border-t border-white/[0.04]">
         <div className="max-w-[1800px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3 mb-8">
                 <Logo size={36} />
@@ -93,8 +93,8 @@ export default function Footer() {
 
       <div className="border-t border-white/[0.03] py-6 px-6 lg:px-16">
         <div className="max-w-[1800px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-[9px] tracking-[0.2em] text-warm-gray/45 font-sans">&copy; {new Date().getFullYear()} The Orient Gates. All rights reserved.</p>
-          <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/45 font-sans">
+          <p className="text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">&copy; {new Date().getFullYear()} The Orient Gates. All rights reserved.</p>
+          <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">
             <span className="hover:text-warm-gray/80 transition-colors cursor-pointer">Privacy</span>
             <span className="hover:text-warm-gray/80 transition-colors cursor-pointer">Terms</span>
           </div>

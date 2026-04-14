@@ -404,7 +404,7 @@ export default function AdminPage() {
                         onChange={(e) => setFormData({ ...formData, [toggle.key]: e.target.checked })}
                         className="accent-brass"
                       />
-                      <span className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/60 font-sans">{toggle.label}</span>
+                      <span className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/80 font-sans">{toggle.label}</span>
                     </label>
                   ))}
                 </div>

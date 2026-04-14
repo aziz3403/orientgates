@@ -14,7 +14,7 @@ export default function NewArrivalsPage() {
           <AnimateIn>
             <div className="flex items-center gap-5 mb-6">
               <div className="w-16 h-px bg-brass/40" />
-              <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">
+              <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">
                 Recently Added
               </span>
             </div>

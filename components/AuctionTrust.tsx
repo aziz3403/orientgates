@@ -18,7 +18,7 @@ export default function AuctionTrust() {
             <AnimateIn>
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-12 h-px bg-brass/40" />
-                <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">
+                <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">
                   Auction Partners
                 </span>
               </div>

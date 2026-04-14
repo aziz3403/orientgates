@@ -28,7 +28,7 @@ export default function Footer() {
       {/* Pre-footer CTA */}
       <div className="py-section text-center px-6 border-t border-white/[0.04]">
         <div className="w-px h-12 bg-gradient-to-b from-transparent via-brass/20 to-transparent mx-auto mb-8" />
-        <p className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans mb-5">Begin Your Journey</p>
+        <p className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans mb-5">Begin Your Journey</p>
         <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory mb-6 max-w-xl mx-auto leading-[1.05]">
           Discover Rare &<br /><span className="italic text-pearl/70">Extraordinary Pieces</span>
         </h2>

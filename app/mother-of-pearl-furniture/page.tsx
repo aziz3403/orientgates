@@ -58,7 +58,7 @@ export default function MotherOfPearlFurniturePage() {
           <div className="max-w-3xl">
             <div className="flex items-center gap-5 mb-8">
               <div className="w-16 h-px bg-brass" />
-              <span className="text-[10px] tracking-[0.5em] uppercase text-brass/80 font-sans">
+              <span className="text-[10px] tracking-[0.35em] uppercase text-brass/80 font-sans">
                 The Signature Collection
               </span>
             </div>

@@ -41,7 +41,7 @@ export default function ExpertTeam() {
         <AnimateIn>
           <div className="flex items-center gap-5 mb-6">
             <div className="w-12 h-px bg-brass/40" />
-            <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">Our Specialists</span>
+            <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">Our Specialists</span>
           </div>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory leading-[1.05] mb-4">
             Decades of Expertise

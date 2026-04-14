@@ -28,7 +28,7 @@ html {
 
 body {
   background: var(--midnight);
-  color: var(--ivory);
+  color: rgba(245, 240, 232, 0.9); /* ivory at 90% — softer baseline */
   font-family: var(--font-inter), system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -96,10 +96,8 @@ body {
   }
 
   .gold-text {
-    background: linear-gradient(135deg, #b8972f 0%, #d4b44a 50%, #b8972f 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #c9a84c;
+    -webkit-text-fill-color: #c9a84c;
   }
 
   .line-reveal {
@@ -169,6 +167,15 @@ body {
   .stagger-3 { transition-delay: 0.3s; }
   .stagger-4 { transition-delay: 0.4s; }
   .stagger-5 { transition-delay: 0.5s; }
+
+  @keyframes scroll-down {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(8px); opacity: 0.3; }
+    100% { transform: translateY(16px); opacity: 0; }
+  }
+  .animate-scroll-down {
+    animation: scroll-down 2s ease-in-out infinite;
+  }
 
   /* Luxury button styles */
   .btn-luxury {

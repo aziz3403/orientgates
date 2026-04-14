@@ -13,7 +13,7 @@ export default function TrustSection() {
             <AnimateIn>
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-12 h-px bg-brass/40" />
-                <span className="text-[10px] tracking-[0.5em] uppercase text-brass/70 font-sans">
+                <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">
                   Trusted Worldwide
                 </span>
               </div>
@@ -46,7 +46,7 @@ export default function TrustSection() {
         </div>
 
         {/* Trust pillars — horizontal editorial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
           {[
             {
               number: "150+",

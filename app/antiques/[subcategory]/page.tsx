@@ -1,13 +1,13 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { redirect } from "next/navigation";
-import { getCategory, getProductsByCategory, getChildCategories } from "@/lib/data";
+import Link from "next/link";
+import { getCategory, getProductsByCategory } from "@/lib/data";
 import CollectionPage from "@/components/CollectionPage";
 
-export default function LegacyCategoryPage() {
+export default function AntiquesSubcategoryPage() {
   const params = useParams();
-  const slug = params.category as string;
+  const slug = params.subcategory as string;
   const category = getCategory(slug);
 
   if (!category) {
@@ -15,22 +15,22 @@ export default function LegacyCategoryPage() {
       <div className="min-h-screen flex items-center justify-center bg-midnight pt-32">
         <div className="text-center">
           <h1 className="text-3xl font-serif text-ivory mb-4">Collection Not Found</h1>
-          <a href="/" className="text-brass text-sm font-sans hover:underline">Return Home</a>
+          <Link href="/antiques" className="text-brass text-sm font-sans hover:underline">
+            Back to Antiques
+          </Link>
         </div>
       </div>
     );
   }
 
   const products = getProductsByCategory(slug);
-  const subcategories = getChildCategories(slug);
 
   return (
     <CollectionPage
       category={category}
       products={products}
-      subcategories={subcategories}
-      breadcrumbs={category.parent ? [{ label: getCategory(category.parent)?.title || "", href: `/${category.parent}` }] : []}
-      productBasePath={`/collection/${slug}`}
+      breadcrumbs={[{ label: "Antiques", href: "/antiques" }]}
+      productBasePath="/collection/antiques"
     />
   );
 }

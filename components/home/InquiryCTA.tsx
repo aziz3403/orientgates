@@ -58,7 +58,7 @@ export default function InquiryCTA() {
         </AnimateIn>
 
         <AnimateIn delay={100}>
-          <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">
+          <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">
             Private Inquiry
           </span>
         </AnimateIn>

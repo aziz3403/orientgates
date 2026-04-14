@@ -16,7 +16,7 @@ export default function WishlistPage() {
         <AnimateIn>
           <div className="flex items-center gap-5 mb-6">
             <div className="w-12 h-px bg-brass/40" />
-            <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">Saved Pieces</span>
+            <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">Saved Pieces</span>
           </div>
           <h1 className="text-3xl lg:text-4xl font-serif text-ivory mb-2">Your Wishlist</h1>
           <p className="text-[12px] text-warm-gray/70 font-sans mb-12">

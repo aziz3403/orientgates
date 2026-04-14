@@ -96,7 +96,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
           />
 
           <div className="absolute top-6 left-8 lg:top-8 lg:left-10">
-            <span className={`text-[48px] sm:text-[80px] lg:text-[100px] font-serif leading-none transition-all duration-700 ${hovered ? "gold-text opacity-20" : "text-white/[0.04]"}`}>
+            <span className={`text-[48px] sm:text-[80px] lg:text-[100px] font-serif leading-none transition-all duration-700 ${hovered ? "text-white/[0.06]" : "text-white/[0.03]"}`}>
               {String(index + 1).padStart(2, "0")}
             </span>
           </div>
@@ -122,9 +122,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
             </div>
           </div>
 
-          <div className={`absolute top-6 right-6 transition-all duration-700 ${hovered ? "opacity-100 scale-100" : "opacity-0 scale-90"}`}>
-            <div className="w-8 h-8 border-t border-r border-brass/25" />
-          </div>
+          {/* Clean — no corner decoration needed */}
         </div>
       </Link>
     </AnimateIn>
@@ -139,7 +137,7 @@ export default function FeaturedCategories() {
           <AnimateIn>
             <div className="flex items-center gap-5 mb-6">
               <div className="w-16 h-px bg-brass/40" />
-              <span className="text-[10px] tracking-[0.5em] uppercase text-brass/70 font-sans">The Collection</span>
+              <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">The Collection</span>
             </div>
           </AnimateIn>
           <AnimateIn delay={100}>

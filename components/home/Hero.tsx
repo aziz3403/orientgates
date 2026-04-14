@@ -95,38 +95,23 @@ export default function Hero() {
               }`}
               style={{ transitionDelay: "800ms" }}
             />
-            <span className="text-[10px] tracking-[0.5em] uppercase text-brass/80 font-sans">
+            <span className="text-[10px] tracking-[0.35em] uppercase text-brass/80 font-sans">
               A Family Legacy Since 1870
             </span>
           </div>
 
-          {/* Main headline — staggered fade-in reveal */}
+          {/* Main headline — single cohesive statement */}
           <h1
-            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+            className={`text-[clamp(2.5rem,7.5vw,7rem)] font-serif text-ivory/90 leading-[1.15] tracking-[-0.02em] transition-all duration-[1400ms] ${
               loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
             }`}
             style={{ transitionDelay: "600ms" }}
           >
-            Rare Antiques
-          </h1>
-
-          <h1
-            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
-              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-            style={{ transitionDelay: "800ms" }}
-          >
-            <span className="text-ivory">&amp; </span>
-            <span className="italic gold-text">Mother-of-Pearl</span>
-          </h1>
-
-          <h1
-            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory/70 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
-              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-            }`}
-            style={{ transitionDelay: "1000ms" }}
-          >
-            Masterpieces
+            Rare Antiques &amp;
+            <br />
+            <span className="italic text-brass/80">Mother-of-Pearl</span>
+            <br />
+            <span className="text-ivory/50">Masterpieces</span>
           </h1>
 
           {/* Subtitle */}
@@ -145,30 +130,29 @@ export default function Hero() {
 
           {/* CTAs */}
           <div
-            className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 lg:mt-14 transition-all duration-1200 ${
+            className={`flex flex-col sm:flex-row gap-4 sm:gap-6 mt-10 lg:mt-14 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1800ms" }}
           >
             <Link
               href="/mother-of-pearl"
-              className="group relative inline-flex items-center justify-center gap-3 bg-brass text-midnight px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(184,151,47,0.2)]"
+              className="group inline-flex items-center justify-center gap-3 border border-brass/50 text-ivory/90 px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.25em] uppercase font-sans transition-all duration-500 hover:border-brass/80 hover:text-ivory"
             >
-              <span className="relative z-10">Explore Mother-of-Pearl</span>
+              <span>Explore the Collection</span>
               <svg
                 width="14"
                 height="14"
                 viewBox="0 0 16 16"
                 fill="none"
-                className="relative z-10 transition-transform duration-500 group-hover:translate-x-1"
+                className="transition-transform duration-500 group-hover:translate-x-1"
               >
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
               </svg>
-              <div className="absolute inset-0 bg-brass-light translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
             </Link>
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-3 border border-ivory/15 text-ivory/80 px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans transition-all duration-500 hover:border-brass/40 hover:text-ivory"
+              className="group inline-flex items-center justify-center gap-3 border border-ivory/10 text-ivory/60 px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.25em] uppercase font-sans transition-all duration-500 hover:border-ivory/25 hover:text-ivory/80"
             >
               <span>Private Inquiry</span>
             </Link>
@@ -185,11 +169,11 @@ export default function Hero() {
         }`}
         style={{ transitionDelay: "2500ms" }}
       >
-        <span className="text-[8px] tracking-[0.5em] uppercase text-warm-gray/70 font-sans">
-          Discover
+        <span className="text-[8px] tracking-[0.35em] uppercase text-warm-gray/50 font-sans">
+          Scroll
         </span>
         <div className="relative w-px h-12 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brass/60 to-transparent animate-pulse" />
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-brass/50 to-transparent animate-scroll-down" />
         </div>
       </div>
 

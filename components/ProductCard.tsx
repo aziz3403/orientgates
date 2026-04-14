@@ -83,7 +83,7 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
                   {product.period}
                 </span>
               </div>
-              <h3 className="text-[15px] font-serif text-ivory leading-tight mb-1.5 group-hover:text-brass transition-colors duration-500 line-clamp-2">
+              <h3 className="text-[15px] font-serif text-ivory/90 leading-tight mb-1.5 line-clamp-2">
                 {product.title}
               </h3>
               {product.subtitle && (

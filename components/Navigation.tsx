@@ -127,7 +127,7 @@ export default function Navigation() {
       >
         {/* Announcement bar */}
         <div
-          className={`hidden lg:flex justify-center items-center text-[8px] tracking-[0.5em] uppercase text-warm-gray/80 border-b border-white/[0.03] overflow-hidden transition-all duration-700 font-sans ${
+          className={`hidden lg:flex justify-center items-center text-[8px] tracking-[0.35em] uppercase text-warm-gray/80 border-b border-white/[0.03] overflow-hidden transition-all duration-700 font-sans ${
             scrolled ? "h-0 opacity-0" : "h-7 opacity-100"
           }`}
         >

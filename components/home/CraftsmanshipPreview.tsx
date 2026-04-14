@@ -41,7 +41,7 @@ export default function CraftsmanshipPreview() {
             <AnimateIn>
               <div className="flex items-center gap-5 mb-6">
                 <div className="w-16 h-px bg-brass/40" />
-                <span className="text-[10px] tracking-[0.5em] uppercase text-brass/70 font-sans">
+                <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">
                   The Art Behind the Art
                 </span>
               </div>
@@ -91,7 +91,7 @@ export default function CraftsmanshipPreview() {
                 <h3 className="text-lg font-serif text-ivory mb-3 group-hover:text-brass transition-colors duration-500">
                   {step.title}
                 </h3>
-                <p className="text-[13px] text-warm-gray/80 leading-relaxed font-sans">
+                <p className="text-[14px] text-warm-gray/80 leading-relaxed font-sans">
                   {step.description}
                 </p>
               </div>

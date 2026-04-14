@@ -97,7 +97,7 @@ export default function CustomizePage() {
         <AnimateIn className="text-center mb-16">
           <div className="flex items-center justify-center gap-5 mb-6">
             <div className="w-12 h-px bg-brass/40" />
-            <span className="text-[10px] tracking-[0.5em] uppercase text-brass/60 font-sans">
+            <span className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans">
               Bespoke Commission
             </span>
             <div className="w-12 h-px bg-brass/40" />

@@ -100,41 +100,34 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Main headline — cinematic reveal */}
-          {/* Using clip-path instead of overflow-hidden to prevent horizontal clipping of italic text */}
-          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
-            <h1
-              className={`text-[1em] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "600ms" }}
-            >
-              Rare Antiques
-            </h1>
-          </div>
+          {/* Main headline — staggered fade-in reveal */}
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "600ms" }}
+          >
+            Rare Antiques
+          </h1>
 
-          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
-            <h1
-              className={`text-[1em] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "800ms" }}
-            >
-              <span className="text-ivory">&amp; </span>
-              <span className="italic gold-text">Mother-of-Pearl</span>
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "800ms" }}
+          >
+            <span className="text-ivory">&amp; </span>
+            <span className="italic gold-text">Mother-of-Pearl</span>
+          </h1>
 
-          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
-            <h1
-              className={`text-[1em] font-serif text-ivory/70 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "1000ms" }}
-            >
-              Masterpieces
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(2.5rem,8vw,8rem)] font-serif text-ivory/70 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+            }`}
+            style={{ transitionDelay: "1000ms" }}
+          >
+            Masterpieces
+          </h1>
 
           {/* Subtitle */}
           <div
@@ -187,7 +180,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-midnight to-transparent" />
 
       <div
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-4 transition-all duration-1000 ${
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-4 transition-all duration-1000 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         style={{ transitionDelay: "2500ms" }}

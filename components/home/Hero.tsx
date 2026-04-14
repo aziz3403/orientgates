@@ -101,9 +101,10 @@ export default function Hero() {
           </div>
 
           {/* Main headline — cinematic reveal */}
-          <div className="overflow-hidden pb-[0.15em] -mb-[0.05em]" style={{ fontSize: 'clamp(3rem,9vw,8rem)' }}>
+          {/* Using clip-path instead of overflow-hidden to prevent horizontal clipping of italic text */}
+          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
             <h1
-              className={`text-[1em] font-serif text-ivory leading-[1.1] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[1em] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "600ms" }}
@@ -112,9 +113,9 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="overflow-hidden pb-[0.15em] -mb-[0.05em]" style={{ fontSize: 'clamp(3rem,9vw,8rem)' }}>
+          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
             <h1
-              className={`text-[1em] font-serif leading-[1.1] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[1em] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "800ms" }}
@@ -124,9 +125,9 @@ export default function Hero() {
             </h1>
           </div>
 
-          <div className="overflow-hidden pb-[0.15em]" style={{ fontSize: 'clamp(3rem,9vw,8rem)' }}>
+          <div style={{ fontSize: 'clamp(2.5rem,8vw,8rem)', clipPath: 'inset(-0.1em -0.5em -0.15em -0.5em)' }}>
             <h1
-              className={`text-[1em] font-serif text-ivory/70 leading-[1.1] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              className={`text-[1em] font-serif text-ivory/70 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
                 loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
               }`}
               style={{ transitionDelay: "1000ms" }}
@@ -137,12 +138,12 @@ export default function Hero() {
 
           {/* Subtitle */}
           <div
-            className={`mt-12 transition-all duration-1200 ${
+            className={`mt-8 lg:mt-12 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1400ms" }}
           >
-            <p className="text-[15px] lg:text-[17px] text-pearl/75 max-w-lg leading-[1.8] font-sans">
+            <p className="text-[14px] lg:text-[17px] text-pearl/75 max-w-lg leading-[1.8] font-sans">
               Five generations of expertise in handcrafted mother-of-pearl furniture,
               Islamic antiques, and museum-quality collector pieces for
               the world&apos;s most discerning collectors.
@@ -151,14 +152,14 @@ export default function Hero() {
 
           {/* CTAs */}
           <div
-            className={`flex flex-col sm:flex-row gap-4 mt-14 transition-all duration-1200 ${
+            className={`flex flex-col sm:flex-row gap-3 sm:gap-4 mt-8 lg:mt-14 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
             }`}
             style={{ transitionDelay: "1800ms" }}
           >
             <Link
               href="/mother-of-pearl"
-              className="group relative inline-flex items-center gap-3 bg-brass text-midnight px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(184,151,47,0.2)]"
+              className="group relative inline-flex items-center justify-center gap-3 bg-brass text-midnight px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(184,151,47,0.2)]"
             >
               <span className="relative z-10">Explore Mother-of-Pearl</span>
               <svg
@@ -174,7 +175,7 @@ export default function Hero() {
             </Link>
             <Link
               href="/contact"
-              className="group inline-flex items-center gap-3 border border-ivory/15 text-ivory/80 px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans transition-all duration-500 hover:border-brass/40 hover:text-ivory"
+              className="group inline-flex items-center justify-center gap-3 border border-ivory/15 text-ivory/80 px-8 sm:px-10 py-4 sm:py-5 text-[11px] tracking-[0.3em] uppercase font-sans transition-all duration-500 hover:border-brass/40 hover:text-ivory"
             >
               <span>Private Inquiry</span>
             </Link>
@@ -186,7 +187,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-midnight to-transparent" />
 
       <div
-        className={`absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 transition-all duration-1000 ${
+        className={`absolute bottom-10 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-4 transition-all duration-1000 ${
           loaded ? "opacity-100" : "opacity-0"
         }`}
         style={{ transitionDelay: "2500ms" }}

@@ -5,7 +5,6 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
-import { topCategories } from "@/lib/data";
 
 const navLinks = [
   { href: "/", label: "Home" },

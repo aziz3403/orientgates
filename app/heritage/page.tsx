@@ -1,10 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import { useMousePosition } from "@/lib/hooks";
-import type { Metadata } from "next";
 
 const milestones = [
   { year: "1870", title: "The Beginning", description: "The Orient Gates is founded in Damascus, rooted in generations of artisan heritage and a deep reverence for craftsmanship." },

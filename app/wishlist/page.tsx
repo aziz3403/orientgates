@@ -7,7 +7,7 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import ProductCard from "@/components/ProductCard";
 
 export default function WishlistPage() {
-  const { items, removeFromWishlist } = useWishlist();
+  const { items } = useWishlist();
   const wishlistProducts = products.filter((p) => items.includes(p.id));
 
   return (

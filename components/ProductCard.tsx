@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Product, getProductSKU } from "@/lib/data";
+import { Product } from "@/lib/data";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
 import LuxuryImage from "@/components/ui/LuxuryImage";

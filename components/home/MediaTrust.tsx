@@ -21,7 +21,7 @@ export default function MediaTrust() {
               As Featured In
             </span>
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 md:gap-x-12">
-              {publications.map((pub, i) => (
+              {publications.map((pub) => (
                 <span
                   key={pub}
                   className="text-[11px] lg:text-[13px] tracking-[0.15em] uppercase text-warm-gray/70 font-serif hover:text-warm-gray/90 transition-colors duration-500 cursor-default"

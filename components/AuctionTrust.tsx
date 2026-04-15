@@ -11,7 +11,7 @@ const auctionHouses = [
 export default function AuctionTrust() {
   return (
     <section className="py-section bg-midnight border-y border-white/[0.04] overflow-hidden">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 items-center">
           {/* Left */}
           <div className="lg:col-span-5">

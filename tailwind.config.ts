@@ -32,7 +32,7 @@ const config: Config = {
         "subheading": ["clamp(1.25rem, 2vw, 1.75rem)", { lineHeight: "1.2" }],
       },
       spacing: {
-        "section": "clamp(5rem, 12vw, 10rem)",
+        "section": "clamp(6rem, 14vw, 12rem)",
       },
       transitionDuration: {
         "700": "700ms",

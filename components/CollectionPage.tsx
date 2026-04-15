@@ -54,7 +54,7 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
 
   return (
     <section className="py-section bg-charcoal">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         {/* Filter bar */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-12">
           <div className="flex items-center gap-4 flex-wrap">
@@ -171,7 +171,7 @@ export default function CollectionPage({
         <div className={`absolute inset-0 bg-gradient-to-t ${category.accent} opacity-40`} />
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/40 to-midnight/20" />
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-6 lg:px-16 pb-14 w-full">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-16 pb-14 w-full">
           {/* Breadcrumbs */}
           <div className="flex items-center gap-2 mb-5 text-[9px] tracking-[0.25em] uppercase text-warm-gray/70 font-sans flex-wrap">
             <Link href="/" className="hover:text-brass transition-colors">Home</Link>
@@ -207,7 +207,7 @@ export default function CollectionPage({
       {/* Subcategory navigation (if any) */}
       {subcategories && subcategories.length > 0 && (
         <section className="py-16 bg-midnight border-b border-white/[0.04]">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
             <AnimateIn>
               <div className="flex items-center gap-5 mb-8">
                 <div className="w-10 h-px bg-brass/30" />

@@ -25,29 +25,8 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="relative bg-midnight">
-      {/* Pre-footer CTA */}
-      <div className="py-section text-center px-6 border-t border-white/[0.04]">
-        <div className="w-px h-12 bg-gradient-to-b from-transparent via-brass/20 to-transparent mx-auto mb-8" />
-        <p className="text-[10px] tracking-[0.35em] uppercase text-brass/60 font-sans mb-5">Begin Your Journey</p>
-        <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-serif text-ivory mb-6 max-w-xl mx-auto leading-[1.05]">
-          Discover Rare &<br /><span className="italic text-pearl/70">Extraordinary Pieces</span>
-        </h2>
-        <p className="text-[13px] text-warm-gray/80 max-w-md mx-auto mb-12 leading-[1.8] font-sans">
-          Whether you are a collector, designer, or connoisseur — we welcome your inquiry.
-        </p>
-        <Link
-          href="/contact"
-          className="group inline-flex items-center gap-3 border border-ivory/15 text-ivory/70 px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans hover:border-brass/30 hover:text-ivory transition-all duration-500"
-        >
-          Speak With Our Team
-          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-transform duration-500 group-hover:translate-x-1">
-            <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1" />
-          </svg>
-        </Link>
-      </div>
-
       <div className="border-t border-white/[0.04]">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">
               <div className="flex items-center gap-3 mb-8">
@@ -92,7 +71,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-white/[0.03] py-6 px-6 lg:px-16">
-        <div className="max-w-[1800px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">&copy; {new Date().getFullYear()} The Orient Gates. All rights reserved.</p>
           <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">
             <span className="hover:text-warm-gray/80 transition-colors cursor-pointer">Privacy</span>

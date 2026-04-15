@@ -19,7 +19,7 @@ export default function SignatureMasterpieces() {
         }}
       />
 
-      <div className="relative max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         {/* Header — editorial asymmetric */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-24">
           <div className="lg:col-span-8">

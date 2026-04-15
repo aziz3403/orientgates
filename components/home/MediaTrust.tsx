@@ -14,7 +14,7 @@ const publications = [
 export default function MediaTrust() {
   return (
     <section className="py-12 bg-midnight border-y border-white/[0.03]">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         <AnimateIn>
           <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-0">
             <span className="text-[8px] tracking-[0.35em] uppercase text-warm-gray/80 font-sans md:mr-10 whitespace-nowrap">

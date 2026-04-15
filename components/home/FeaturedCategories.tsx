@@ -132,7 +132,7 @@ function CategoryCard({ category, index }: { category: typeof homeCategories[0];
 export default function FeaturedCategories() {
   return (
     <section className="relative py-section bg-midnight overflow-hidden">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         <div className="mb-20 lg:mb-28">
           <AnimateIn>
             <div className="flex items-center gap-5 mb-6">

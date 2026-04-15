@@ -37,7 +37,7 @@ const team = [
 export default function ExpertTeam() {
   return (
     <section className="py-section bg-charcoal overflow-hidden">
-      <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         <AnimateIn>
           <div className="flex items-center gap-5 mb-6">
             <div className="w-12 h-px bg-brass/40" />

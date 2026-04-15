@@ -34,7 +34,7 @@ const craftSteps = [
 export default function CraftsmanshipPreview() {
   return (
     <section className="relative py-section bg-charcoal overflow-hidden">
-      <div className="relative max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
           <div className="lg:col-span-6">

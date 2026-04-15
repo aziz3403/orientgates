@@ -9,34 +9,37 @@ import { useWishlist } from "@/lib/wishlist";
 const navLinks = [
   { href: "/", label: "Home" },
   {
+    label: "Mother of Pearl",
+    href: "/mother-of-pearl-furniture",
+    featured: true,
+    children: [
+      { href: "/mother-of-pearl-furniture/mop-mirrors", label: "Mirrors & Wall Decor" },
+      { href: "/mother-of-pearl-furniture/mop-tables", label: "Tables" },
+      { href: "/mother-of-pearl-furniture/mop-consoles-cabinets", label: "Consoles & Cabinets" },
+      { href: "/mother-of-pearl-furniture/mop-game-tables", label: "Game Tables" },
+    ],
+  },
+  {
     label: "Antiques",
     href: "/antiques",
     children: [
       { href: "/antiques/islamic-antiques", label: "Islamic Antiques" },
       { href: "/antiques/european-antiques", label: "European Antiques" },
       { href: "/antiques/asian-antiques", label: "Asian Antiques" },
-    ],
-  },
-  { href: "/carpets-textiles", label: "Carpets & Textiles" },
-  {
-    label: "Mother of Pearl Furniture",
-    href: "/mother-of-pearl-furniture",
-    featured: true,
-    children: [
-      { href: "/mother-of-pearl-furniture/mop-mirrors", label: "Mirrors & Wall Decor" },
-      { href: "/mother-of-pearl-furniture/mop-tables", label: "Tables" },
-      { href: "/mother-of-pearl-furniture/mop-seating", label: "Seating" },
-      { href: "/mother-of-pearl-furniture/mop-consoles-cabinets", label: "Consoles & Cabinets" },
-      { href: "/mother-of-pearl-furniture/mop-chest-of-drawers", label: "Chest of Drawers" },
-      { href: "/mother-of-pearl-furniture/mop-accessories", label: "Accessories" },
-      { href: "/mother-of-pearl-furniture/mop-game-tables", label: "Game Tables" },
+      { href: "/carpets-textiles", label: "Carpets & Textiles" },
     ],
   },
   { href: "/new-arrivals", label: "New Arrivals" },
-  { href: "/customize", label: "Custom" },
-  { href: "/heritage", label: "Heritage" },
-  { href: "/craftsmanship", label: "Craftsmanship" },
-  { href: "/designers-collectors", label: "Designers & Collectors" },
+  {
+    label: "The House",
+    href: "/heritage",
+    children: [
+      { href: "/heritage", label: "Our Heritage" },
+      { href: "/craftsmanship", label: "Craftsmanship" },
+      { href: "/designers-collectors", label: "For Designers" },
+    ],
+  },
+  { href: "/customize", label: "Bespoke" },
   { href: "/contact", label: "Inquire" },
 ];
 
@@ -133,7 +136,7 @@ export default function Navigation() {
           <span>Est. 1870 &mdash; Over 150 Years of Heritage in Rare Antiques & Mother-of-Pearl Artistry</span>
         </div>
 
-        <div className="max-w-[1800px] mx-auto px-5 lg:px-12">
+        <div className="max-w-[1600px] mx-auto px-5 lg:px-12">
           <div
             className={`flex items-center justify-between transition-all duration-700 ${
               scrolled ? "h-16" : "h-20 lg:h-[88px]"

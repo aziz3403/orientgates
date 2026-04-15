@@ -10,7 +10,7 @@ export default function NewArrivalsPage() {
   return (
     <>
       <section className="pt-36 pb-12 bg-midnight">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <AnimateIn>
             <div className="flex items-center gap-5 mb-6">
               <div className="w-16 h-px bg-brass/40" />
@@ -30,7 +30,7 @@ export default function NewArrivalsPage() {
       </section>
 
       <section className="py-section bg-charcoal">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
             {products.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} />

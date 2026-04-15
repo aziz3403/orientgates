@@ -168,7 +168,7 @@ export default function ProductPage() {
 
       {/* Breadcrumb */}
       <div className="bg-midnight pt-36 pb-6">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <div className="flex items-center gap-2 text-[9px] tracking-[0.25em] uppercase text-warm-gray/70 font-sans flex-wrap">
             <Link href="/" className="hover:text-brass transition-colors">Home</Link>
             <span className="text-white/10">/</span>
@@ -185,7 +185,7 @@ export default function ProductPage() {
 
       {/* Product Detail */}
       <section className="bg-midnight pb-section">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             {/* Image Gallery */}
             <div className="lg:col-span-7">
@@ -422,7 +422,7 @@ export default function ProductPage() {
       {/* Related pieces */}
       {relatedProducts.length > 0 && (
         <section className="py-section bg-charcoal border-t border-white/[0.04]">
-          <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+          <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
             <AnimateIn className="mb-14">
               <span className="text-[10px] tracking-[0.4em] uppercase text-brass/60 font-sans">From the Same Collection</span>
               <h2 className="text-3xl font-serif text-ivory mt-3">Related Pieces</h2>

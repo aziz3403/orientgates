@@ -13,7 +13,7 @@ export default function HeritageStory() {
         <Logo size={600} />
       </div>
 
-      <div className="relative max-w-[1800px] mx-auto px-6 lg:px-16">
+      <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-28 items-center">
           {/* Image side */}
           <AnimateIn direction="left" className="lg:col-span-5">

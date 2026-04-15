@@ -54,7 +54,7 @@ export default function MotherOfPearlFurniturePage() {
           <Logo size={600} />
         </div>
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-6 lg:px-16 w-full">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-16 w-full">
           <div className="max-w-3xl">
             <div className="flex items-center gap-5 mb-8">
               <div className="w-16 h-px bg-brass" />
@@ -98,7 +98,7 @@ export default function MotherOfPearlFurniturePage() {
 
       {/* Storytelling */}
       <section className="py-section bg-midnight">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {[
               { title: "The Shell", text: "Each fragment is harvested from shells found in the Red Sea and Persian Gulf, prized for their extraordinary iridescence." },
@@ -121,7 +121,7 @@ export default function MotherOfPearlFurniturePage() {
 
       {/* Subcategory Navigation */}
       <section className="py-section bg-charcoal">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <AnimateIn className="mb-16">
             <div className="flex items-center gap-5 mb-6">
               <div className="w-12 h-px bg-brass/30" />
@@ -166,7 +166,7 @@ export default function MotherOfPearlFurniturePage() {
 
       {/* All products */}
       <section id="collection" className="py-section bg-midnight">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <AnimateIn className="mb-14">
             <div className="flex items-center justify-between">
               <div>

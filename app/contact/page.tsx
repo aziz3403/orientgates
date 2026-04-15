@@ -43,7 +43,7 @@ export default function ContactPage() {
           <LuxuryImage src="/images/contact-hero.jpg" alt="Private consultation" width={1920} height={1080} className="w-full h-full" label="Private Inquiry" priority />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/60 to-midnight/30" />
-        <div className="relative z-10 max-w-[1800px] mx-auto px-6 lg:px-16 pb-12 w-full">
+        <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-16 pb-12 w-full">
           <div className="flex items-center gap-4 mb-4">
             <div className="w-12 h-px bg-brass/40" />
             <span className="text-[10px] tracking-[0.4em] uppercase text-brass/60 font-sans">Get in Touch</span>
@@ -54,7 +54,7 @@ export default function ContactPage() {
 
       {/* Form */}
       <section className="py-section bg-midnight">
-        <div className="max-w-[1800px] mx-auto px-6 lg:px-16">
+        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
             <div className="lg:col-span-7">
               <AnimateIn>

@@ -34,3 +34,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pricing tool
+pricing-tool/data/*.db
+pricing-tool/data/*.db-journal
+pricing-tool/data/*.db-wal
+pricing-tool/data/cookies.json
+pricing-tool/logs/
+__pycache__/
+*.pyc
+.venv/

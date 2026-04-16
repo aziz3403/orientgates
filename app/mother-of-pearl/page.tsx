@@ -24,7 +24,7 @@ export default function MotherOfPearlPage() {
           }}
         >
           <LuxuryImage
-            src="/images/mother-of-pearl-hero.jpg"
+            src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1600&q=80&fit=crop"
             alt="Mother-of-Pearl Masterpiece"
             width={1920}
             height={1080}
@@ -117,7 +117,7 @@ export default function MotherOfPearlPage() {
               <div className="relative">
                 <div className="aspect-[3/4] overflow-hidden luxury-border">
                   <LuxuryImage
-                    src="/images/mop-detail-1.jpg"
+                    src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fit=crop"
                     alt="Mother-of-pearl detail"
                     width={800}
                     height={1067}
@@ -153,17 +153,17 @@ export default function MotherOfPearlPage() {
               {
                 title: "The Shell",
                 description: "Mother-of-pearl shells are harvested from the waters of the Red Sea and Persian Gulf. Each is selected for its exceptional iridescence, thickness, and luminous quality.",
-                image: "/images/mop-process-1.jpg",
+                image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop",
               },
               {
                 title: "The Pattern",
                 description: "Drawing on centuries of Islamic geometric art, master draughtsmen create patterns of breathtaking complexity — mathematical perfection rendered in organic material.",
-                image: "/images/mop-process-2.jpg",
+                image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80&fit=crop",
               },
               {
                 title: "The Light",
                 description: "When complete, the surface comes alive. As light shifts across thousands of shell fragments, each catches and refracts it differently, creating an ever-changing luminescence.",
-                image: "/images/mop-process-3.jpg",
+                image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80&fit=crop",
               },
             ].map((item, i) => (
               <AnimateIn key={item.title} delay={i * 150}>

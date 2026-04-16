@@ -24,6 +24,7 @@ export default function LuxuryImage({
 }: LuxuryImageProps) {
   const [error, setError] = useState(false);
   const placeholder = placeholderImage(width, height, label || alt);
+  const isExternal = src.startsWith("http");
 
   return (
     <img
@@ -32,9 +33,9 @@ export default function LuxuryImage({
       className={`object-cover ${className}`}
       loading={priority ? "eager" : "lazy"}
       onError={() => setError(true)}
-      // Fallback immediately since we're using placeholder images
       ref={(el) => {
-        if (el && !el.naturalWidth && !error) {
+        // Only fallback to placeholder for local images that don't exist
+        if (el && !isExternal && !el.naturalWidth && !error) {
           setError(true);
         }
       }}

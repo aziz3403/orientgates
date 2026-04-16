@@ -10,37 +10,37 @@ const processes = [
     title: "Design & Drawing",
     description: "Every piece begins with a master drawing (rasmi). Using compasses, rulers, and centuries-old mathematical principles, the artisan creates intricate geometric and floral patterns on paper that will guide every cut and placement.",
     detail: "The designs draw on the rich vocabulary of Islamic geometric art — star patterns, arabesques, and interlacing forms that have been refined over a thousand years of artistic tradition.",
-    image: "/images/craft-design.jpg",
+    image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80&fit=crop",
   },
   {
     title: "Wood Preparation",
     description: "Only the finest aged walnut and hardwoods are selected for their grain, density, and stability. The wood is seasoned naturally over years, then carefully shaped and joined using traditional joinery methods that require no nails or screws.",
     detail: "The choice of wood is crucial — it must be stable enough to hold thousands of tiny inlay pieces securely for centuries, while being workable enough to carve the intricate channels that receive them.",
-    image: "/images/craft-wood.jpg",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80&fit=crop",
   },
   {
     title: "Shell Cutting",
     description: "Mother-of-pearl shells are hand-selected for their iridescence and quality. Using fine saws and files, artisans cut each piece of shell individually — shaping thousands of tiny fragments that will form the inlay pattern.",
     detail: "A single cabinet may require over 15,000 individual pieces of shell, each cut to precise dimensions. The artisan must account for the natural variations in shell thickness and colour to create a harmonious whole.",
-    image: "/images/craft-cutting.jpg",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&fit=crop",
   },
   {
     title: "Carving & Channel Work",
     description: "Using chisels and gouges, the artisan carves precise channels into the wood surface. Each channel must be exactly the right depth and width to receive its corresponding piece of shell — a tolerance measured in fractions of a millimetre.",
     detail: "This is perhaps the most demanding stage, requiring absolute steadiness of hand and an understanding of how wood and shell will interact over time as they expand and contract with changes in temperature and humidity.",
-    image: "/images/craft-channels.jpg",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=1200&q=80&fit=crop",
   },
   {
     title: "Inlay Setting",
     description: "Each shell fragment is set into its channel using traditional adhesives and pressed firmly into place. The artisan works section by section, building up the pattern gradually — checking alignment, fit, and visual harmony at every stage.",
     detail: "The setting process alone may take weeks or months for a major piece. Each fragment must sit perfectly flush with its neighbours and with the wood surface, creating a seamless expanse of pattern.",
-    image: "/images/craft-setting.jpg",
+    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200&q=80&fit=crop",
   },
   {
     title: "Polishing & Finishing",
     description: "Multiple rounds of hand sanding and polishing bring the surface to a glass-like smoothness. The natural wax finish allows the mother-of-pearl to catch and refract light, creating the ethereal glow that makes these pieces so extraordinary.",
     detail: "The final polish is what transforms the piece from remarkable to magical. As light plays across the surface, each shell fragment catches it differently, creating an ever-shifting display of soft iridescence.",
-    image: "/images/craft-finishing.jpg",
+    image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80&fit=crop",
   },
 ];
 
@@ -61,7 +61,7 @@ export default function CraftsmanshipPage() {
           }}
         >
           <LuxuryImage
-            src="/images/craftsmanship-hero.jpg"
+            src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1600&q=80&fit=crop"
             alt="Master craftsman at work"
             width={1920}
             height={1080}

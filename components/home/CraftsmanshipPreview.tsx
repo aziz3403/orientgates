@@ -9,25 +9,25 @@ const craftSteps = [
     title: "Shell Selection",
     description:
       "Each fragment of mother-of-pearl is carefully selected for its iridescence, thickness, and quality.",
-    image: "/images/craft-shell.jpg",
+    image: "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80&fit=crop",
   },
   {
     title: "Hand Carving",
     description:
       "Master artisans carve intricate geometric patterns into walnut using traditional tools.",
-    image: "/images/craft-carving.jpg",
+    image: "https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=800&q=80&fit=crop",
   },
   {
     title: "Inlay Setting",
     description:
       "Thousands of individual shell fragments are precisely cut and set into carved channels.",
-    image: "/images/craft-inlay.jpg",
+    image: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=80&fit=crop",
   },
   {
     title: "Polishing",
     description:
       "Multiple stages of hand polishing reveal the natural luminescence of the shell.",
-    image: "/images/craft-polish.jpg",
+    image: "https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80&fit=crop",
   },
 ];
 

@@ -20,7 +20,7 @@ export default function HeritageStory() {
             <div className="relative">
               <div className="aspect-[3/4] overflow-hidden border border-white/[0.04]">
                 <LuxuryImage
-                  src="/images/heritage-workshop.jpg"
+                  src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=1200&q=80&fit=crop"
                   alt="Traditional craftsman workshop"
                   width={800}
                   height={1067}

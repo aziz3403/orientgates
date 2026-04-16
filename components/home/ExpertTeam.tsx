@@ -9,28 +9,28 @@ const team = [
     title: "Principal & Director",
     specialization: "Mother-of-Pearl Furniture, Levantine Decorative Arts",
     experience: "5th generation. Over 30 years of personal expertise in authentication, sourcing, and conservation of Damascene furniture and Islamic decorative arts.",
-    image: "/images/team-1.jpg",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop&crop=face",
   },
   {
     name: "Head of Antiques",
     title: "Senior Specialist",
     specialization: "Islamic Art, Ottoman Calligraphy, Mamluk Metalwork",
     experience: "Former specialist at a leading international auction house. 20+ years in Islamic art authentication. Published scholar with contributions to major exhibition catalogues.",
-    image: "/images/team-2.jpg",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&q=80&fit=crop&crop=face",
   },
   {
     name: "Head of European Collection",
     title: "Senior Specialist",
     specialization: "European Furniture, Decorative Arts, Grand Tour Objects",
     experience: "Trained at the Wallace Collection, London. Specialist in 17th-19th century European furniture with expertise in French ormolu and Italian giltwood.",
-    image: "/images/team-3.jpg",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&fit=crop&crop=face",
   },
   {
     name: "Master Craftsman",
     title: "Head of Workshop",
     specialization: "Mother-of-Pearl Inlay, Conservation, Custom Commissions",
     experience: "Trained in Damascus in the traditional atelier system. 25+ years mastering the art of shell inlay, geometric pattern design, and antique furniture conservation.",
-    image: "/images/team-4.jpg",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80&fit=crop&crop=face",
   },
 ];
 

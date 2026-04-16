@@ -32,7 +32,7 @@ export default function HeritagePage() {
           }}
         >
           <LuxuryImage
-            src="/images/heritage-hero.jpg"
+            src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1600&q=80&fit=crop"
             alt="Heritage workshop"
             width={1920}
             height={1080}
@@ -66,7 +66,7 @@ export default function HeritagePage() {
             <AnimateIn>
               <div className="aspect-[3/4] overflow-hidden luxury-border">
                 <LuxuryImage
-                  src="/images/heritage-family.jpg"
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1200&q=80&fit=crop"
                   alt="Family legacy"
                   width={800}
                   height={1067}

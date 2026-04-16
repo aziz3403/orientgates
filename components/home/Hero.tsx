@@ -100,40 +100,34 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Main headline — cinematic reveal */}
-          <div className="overflow-hidden pb-3 -mb-1">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "600ms" }}
-            >
-              Rare Antiques
-            </h1>
-          </div>
+          {/* Main headline */}
+          <h1
+            className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+            style={{ transitionDelay: "600ms" }}
+          >
+            Rare Antiques
+          </h1>
 
-          <div className="overflow-hidden pb-3 -mb-1">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "800ms" }}
-            >
-              <span className="text-ivory">&amp; </span>
-              <span className="italic gold-text">Mother-of-Pearl</span>
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(3rem,9vw,8rem)] font-serif leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+            style={{ transitionDelay: "800ms" }}
+          >
+            <span className="text-ivory">&amp; </span>
+            <span className="italic gold-text">Mother-of-Pearl</span>
+          </h1>
 
-          <div className="overflow-hidden pb-3">
-            <h1
-              className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory/40 leading-[1.05] tracking-[-0.03em] transition-all duration-[1400ms] ${
-                loaded ? "translate-y-0 opacity-100" : "translate-y-[120%] opacity-0"
-              }`}
-              style={{ transitionDelay: "1000ms" }}
-            >
-              Masterpieces
-            </h1>
-          </div>
+          <h1
+            className={`text-[clamp(3rem,9vw,8rem)] font-serif text-ivory/40 leading-[1.15] tracking-[-0.03em] transition-all duration-[1400ms] mb-2 ${
+              loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+            }`}
+            style={{ transitionDelay: "1000ms" }}
+          >
+            Masterpieces
+          </h1>
 
           {/* Subtitle */}
           <div

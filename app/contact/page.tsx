@@ -40,7 +40,7 @@ export default function ContactPage() {
       <section ref={ref} className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
         <div className="absolute inset-0 transition-transform duration-[2000ms] ease-out"
           style={{ transform: `scale(1.05) translate(${(position.x - 0.5) * -8}px, ${(position.y - 0.5) * -8}px)` }}>
-          <LuxuryImage src="/images/contact-hero.jpg" alt="Private consultation" width={1920} height={1080} className="w-full h-full" label="Private Inquiry" priority />
+          <LuxuryImage src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&fit=crop" alt="Private consultation" width={1920} height={1080} className="w-full h-full" label="Private Inquiry" priority />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/60 to-midnight/30" />
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 lg:px-16 pb-12 w-full">
@@ -253,7 +253,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="aspect-[4/3] overflow-hidden border border-white/[0.04]">
-                    <LuxuryImage src="/images/contact-showroom.jpg" alt="Showroom" width={600} height={450} className="w-full h-full" label="Our Showroom" />
+                    <LuxuryImage src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80&fit=crop" alt="Showroom" width={600} height={450} className="w-full h-full" label="Our Showroom" />
                   </div>
                 </div>
               </AnimateIn>

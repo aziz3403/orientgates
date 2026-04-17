@@ -3,25 +3,136 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d0a07;
+  --foreground: #e8dcc8;
+  --gold: #c9a84c;
+  --gold-light: #e8c96a;
+  --gold-dark: #8a6f2e;
+  --cream: #f5ede0;
+  --charcoal: #1a1410;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), 'Georgia', serif;
+  -webkit-font-smoothing: antialiased;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .bg-luxury {
+    background: var(--background);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  .gradient-gold {
+    background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #c9a84c 100%);
+  }
+}
+
+/* Arabic-style decorative separator */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--gold);
+}
+
+.ornament::before,
+.ornament::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* Card hover effects */
+.product-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(201, 168, 76, 0.15);
+}
+
+/* Image overlay fade */
+.image-overlay {
+  background: linear-gradient(to top, rgba(13, 10, 7, 0.9) 0%, rgba(13, 10, 7, 0.2) 60%, transparent 100%);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0a07;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-dark);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold);
+}
+
+/* Luxury button */
+.btn-luxury {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 0.75rem 2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-luxury:hover {
+  background: var(--gold);
+  color: var(--background);
+}
+
+/* Gold text shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, #c9a84c 0%, #f0d97a 25%, #c9a84c 50%, #f0d97a 75%, #c9a84c 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* Navigation blur */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

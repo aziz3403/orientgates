@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import Link from "next/link";
 import { getCategory, getChildCategories, getProductsByCategory } from "@/lib/data";
 import AnimateIn from "@/components/ui/AnimateIn";

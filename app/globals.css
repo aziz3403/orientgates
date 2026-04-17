@@ -3,25 +3,157 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-primary: #1A2530;
+  --bg-secondary: #243040;
+  --bg-dark: #141D27;
+  --gold: #C5973E;
+  --gold-light: #D4AF37;
+  --text-primary: #F5F0E8;
+  --text-secondary: #8A8578;
+  --teal: #2F4F4F;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
+html,
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+/* Islamic geometric pattern for CSS backgrounds */
+.islamic-pattern {
+  background-color: transparent;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 40px,
+      rgba(197, 151, 62, 0.03) 40px,
+      rgba(197, 151, 62, 0.03) 41px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 40px,
+      rgba(197, 151, 62, 0.03) 40px,
+      rgba(197, 151, 62, 0.03) 41px
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 28px,
+      rgba(197, 151, 62, 0.02) 28px,
+      rgba(197, 151, 62, 0.02) 29px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 28px,
+      rgba(197, 151, 62, 0.02) 28px,
+      rgba(197, 151, 62, 0.02) 29px
+    );
+}
+
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.gold-divider-left {
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--gold);
+  border-radius: 3px;
+}
+
+/* Selection color */
+::selection {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+
+.font-cormorant {
+  font-family: var(--font-cormorant), 'Georgia', serif;
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Gold button styles */
+.btn-gold {
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  padding: 12px 32px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-gold:hover {
+  background: var(--gold);
+  color: var(--bg-primary);
+}
+
+.btn-gold-filled {
+  background: var(--gold);
+  color: var(--bg-primary);
+  padding: 12px 32px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.btn-gold-filled:hover {
+  background: var(--gold-light);
+}
+
+/* Product card hover */
+.product-card .product-image {
+  overflow: hidden;
+}
+
+.product-card:hover .product-image img {
+  transform: scale(1.05);
 }

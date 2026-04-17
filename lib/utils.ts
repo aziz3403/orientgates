@@ -1,10 +1,8 @@
-import { type ClassValue } from "clsx";
-
-export function cn(...inputs: ClassValue[]) {
+export function cn(...inputs: (string | undefined | null | false)[]) {
   return inputs.filter(Boolean).join(" ");
 }
 
-// Placeholder image generator using a luxurious gradient
+
 export function placeholderImage(
   width: number,
   height: number,

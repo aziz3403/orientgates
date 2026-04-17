@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Hero() {
   const [loaded, setLoaded] = useState(false);
@@ -13,19 +14,27 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100svh] min-h-[700px] flex items-center bg-midnight overflow-hidden">
-      {/* Minimal background — just a subtle warm gradient, no patterns */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-midnight via-[#110e0a] to-midnight" />
-        <div
-          className="absolute inset-0 transition-opacity duration-[3000ms]"
-          style={{ opacity: loaded ? 0.4 : 0 }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(44,24,16,0.4),transparent_70%)]" />
-        </div>
+      {/* Hero image — Damascus Room, 1707 CE */}
+      <div
+        className="absolute inset-0 transition-opacity duration-[3000ms]"
+        style={{ opacity: loaded ? 1 : 0 }}
+      >
+        <Image
+          src="/images/hero-1.jpg"
+          alt="The Damascus Room, 1707 CE — The Metropolitan Museum of Art"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
       </div>
 
+      {/* Overlays for readability */}
+      <div className="absolute inset-0 bg-gradient-to-r from-midnight/95 via-midnight/60 to-midnight/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-midnight/80 via-transparent to-midnight/30" />
+
       {/* Single horizontal accent line */}
-      <div className="absolute top-[45%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/[0.05] to-transparent" />
+      <div className="absolute top-[45%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/[0.08] to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-20 w-full">

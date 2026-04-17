@@ -19,11 +19,11 @@ export default function Hero() {
           src="/images/hero-1.jpg"
           alt=""
           className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ${
-            loaded ? "opacity-30 scale-105" : "opacity-0 scale-110"
+            loaded ? "opacity-60 scale-105" : "opacity-0 scale-110"
           }`}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/80 to-midnight/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-midnight/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight/90 via-midnight/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/20" />
       </div>
 
       {/* Content */}

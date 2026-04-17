@@ -32,23 +32,15 @@ export const metadata: Metadata = {
   },
 };
 
-const MAINTENANCE_MODE = true;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body style={{ fontFamily: 'var(--font-inter), sans-serif', background: '#1A2530', margin: 0 }}>
         <Providers>
-          {MAINTENANCE_MODE ? (
-            <main>{children}</main>
-          ) : (
-            <>
-              <Navbar />
-              <main>{children}</main>
-              <Footer />
-              <WhatsAppButton />
-            </>
-          )}
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppButton />
         </Providers>
       </body>
     </html>

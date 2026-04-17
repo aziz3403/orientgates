@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Logo from "./Logo";
+import GeometricFrieze from "./ui/GeometricFrieze";
 
 const footerLinks = {
   Collections: [
@@ -25,7 +26,8 @@ const footerLinks = {
 export default function Footer() {
   return (
     <footer className="relative bg-midnight">
-      <div className="border-t border-white/[0.04]">
+      <GeometricFrieze />
+      <div>
         <div className="max-w-[1600px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
             <div className="lg:col-span-4">

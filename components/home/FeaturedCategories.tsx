@@ -4,6 +4,7 @@ import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import { useRef, useState } from "react";
+import StarOrnament from "@/components/ui/StarOrnament";
 
 const homeCategories = [
   {
@@ -137,9 +138,12 @@ export default function FeaturedCategories() {
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         <div className="mb-20 lg:mb-28">
           <AnimateIn>
-            <div className="flex items-center gap-5 mb-6">
-              <div className="w-16 h-px bg-brass/40" />
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-px bg-brass/40" />
+              <StarOrnament size={14} />
               <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">The Collection</span>
+              <StarOrnament size={14} />
+              <div className="w-12 h-px bg-brass/40" />
             </div>
           </AnimateIn>
           <AnimateIn delay={100}>

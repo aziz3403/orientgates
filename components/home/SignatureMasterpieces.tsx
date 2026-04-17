@@ -74,7 +74,7 @@ export default function SignatureMasterpieces() {
                         isEven ? "lg:col-span-7" : "lg:col-start-6 lg:col-span-7"
                       }`}
                     >
-                      <div className="relative aspect-[4/3] overflow-hidden border border-white/[0.04] group-hover:border-brass/15 transition-all duration-700">
+                      <div className="relative aspect-[4/3] overflow-hidden border border-brass/[0.12] group-hover:border-brass/25 transition-all duration-700 ornament-corner">
                         <LuxuryImage
                           src={product.images[0]}
                           alt={product.title}
@@ -83,7 +83,6 @@ export default function SignatureMasterpieces() {
                           className="w-full h-full transition-transform duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                           label={product.title}
                         />
-                        {/* Overlay on hover */}
                         <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/10 transition-colors duration-700" />
                       </div>
 

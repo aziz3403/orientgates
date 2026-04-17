@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import Providers from './providers';
 
 const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
@@ -31,22 +32,16 @@ export const metadata: Metadata = {
   },
 };
 
-const MAINTENANCE_MODE = true;
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body style={{ fontFamily: 'var(--font-inter), sans-serif', background: '#1A2530', margin: 0 }}>
-        {MAINTENANCE_MODE ? (
+        <Providers>
+          <Navbar />
           <main>{children}</main>
-        ) : (
-          <>
-            <Navbar />
-            <main>{children}</main>
-            <Footer />
-            <WhatsAppButton />
-          </>
-        )}
+          <Footer />
+          <WhatsAppButton />
+        </Providers>
       </body>
     </html>
   );

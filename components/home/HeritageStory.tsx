@@ -8,6 +8,8 @@ import Logo from "@/components/Logo";
 export default function HeritageStory() {
   return (
     <section className="relative py-section bg-midnight overflow-hidden">
+      {/* Arabesque pattern background */}
+      <div className="absolute inset-0 pattern-arabesque" />
       {/* Background watermark */}
       <div className="absolute left-[-10%] top-1/2 -translate-y-1/2 opacity-[0.015]">
         <Logo size={600} />

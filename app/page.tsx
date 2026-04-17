@@ -5,18 +5,19 @@ import HeritageStory from "@/components/home/HeritageStory";
 import CraftsmanshipPreview from "@/components/home/CraftsmanshipPreview";
 import TrustSection from "@/components/home/TrustSection";
 import InquiryCTA from "@/components/home/InquiryCTA";
+import ArabesqueDivider from "@/components/ui/ArabescqueDivider";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-brass/[0.08] to-transparent" />
+      <ArabesqueDivider />
       <FeaturedCategories />
       <SignatureMasterpieces />
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-brass/[0.08] to-transparent" />
+      <ArabesqueDivider />
       <HeritageStory />
       <CraftsmanshipPreview />
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-brass/[0.08] to-transparent" />
+      <ArabesqueDivider />
       <TrustSection />
       <InquiryCTA />
     </>

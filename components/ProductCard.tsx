@@ -33,7 +33,7 @@ export default function ProductCard({ product, index = 0, basePath }: ProductCar
         onMouseLeave={() => setHovered(false)}
       >
         <Link href={detailPath}>
-          <div className="relative overflow-hidden border border-white/[0.04] group-hover:border-brass/15 transition-all duration-700">
+          <div className="relative overflow-hidden border border-white/[0.04] group-hover:border-brass/15 transition-all duration-700 ornament-corner">
             {/* Image */}
             <div className="aspect-[3/4] overflow-hidden relative">
               <LuxuryImage

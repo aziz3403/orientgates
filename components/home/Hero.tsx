@@ -26,10 +26,29 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/20" />
       </div>
 
+      {/* Islamic geometric overlay — mashrabiya lattice */}
+      <div className="absolute inset-0 pattern-mashrabiya opacity-40" />
+
+      {/* Ornamental corner frames */}
+      <div className="absolute top-8 left-8 lg:top-16 lg:left-16 w-20 h-20 lg:w-32 lg:h-32">
+        <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2000ms" }}>
+          <path d="M0 30 L0 0 L30 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          <path d="M0 20 L0 0 L20 0" stroke="rgba(184,151,47,0.1)" strokeWidth="0.5" />
+          <circle cx="0" cy="0" r="3" fill="rgba(184,151,47,0.15)" />
+        </svg>
+      </div>
+      <div className="absolute bottom-8 right-8 lg:bottom-16 lg:right-16 w-20 h-20 lg:w-32 lg:h-32 rotate-180">
+        <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2200ms" }}>
+          <path d="M0 30 L0 0 L30 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          <path d="M0 20 L0 0 L20 0" stroke="rgba(184,151,47,0.1)" strokeWidth="0.5" />
+          <circle cx="0" cy="0" r="3" fill="rgba(184,151,47,0.15)" />
+        </svg>
+      </div>
+
       {/* Content */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-20 w-full">
         <div className="max-w-3xl">
-          {/* Overline */}
+          {/* Overline with geometric diamond */}
           <div
             className={`flex items-center gap-4 mb-12 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -42,12 +61,15 @@ export default function Hero() {
               }`}
               style={{ transitionDelay: "800ms" }}
             />
+            <svg width="8" height="8" viewBox="0 0 8 8" className="flex-shrink-0">
+              <rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.5)" strokeWidth="0.5" fill="none" />
+            </svg>
             <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">
               Est. 1870
             </span>
           </div>
 
-          {/* Headline — one powerful statement */}
+          {/* Headline */}
           <h1
             className={`text-[clamp(2.8rem,7vw,6.5rem)] font-serif text-ivory/95 leading-[1.08] tracking-[-0.02em] transition-all duration-[1600ms] ${
               loaded ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
@@ -74,7 +96,7 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Single CTA — confidence is one choice, not two */}
+          {/* CTA */}
           <div
             className={`mt-12 lg:mt-16 transition-all duration-1200 ${
               loaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
@@ -92,7 +114,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator — desktop only, minimal */}
+      {/* Scroll indicator */}
       <div
         className={`absolute bottom-12 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-3 transition-all duration-1000 ${
           loaded ? "opacity-100" : "opacity-0"

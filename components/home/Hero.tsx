@@ -30,20 +30,45 @@ export default function Hero() {
       <div className="absolute inset-0 pattern-mashrabiya opacity-70" />
 
       {/* Ornamental corner frames */}
-      <div className="absolute top-6 left-6 lg:top-12 lg:left-12 w-24 h-24 lg:w-40 lg:h-40">
-        <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2000ms" }}>
-          <path d="M0 40 L0 0 L40 0" stroke="rgba(184,151,47,0.4)" strokeWidth="0.8" />
-          <path d="M0 25 L0 0 L25 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
-          <rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.3)" strokeWidth="0.5" fill="none" />
-          <circle cx="0" cy="0" r="2" fill="rgba(184,151,47,0.35)" />
+      {/* Top-left carved corner ornament */}
+      <div className={`absolute top-4 left-4 lg:top-10 lg:left-10 w-28 h-28 lg:w-44 lg:h-44 transition-all duration-[2500ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "1800ms" }}>
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 50 L0 0 L50 0" stroke="rgba(184,151,47,0.35)" strokeWidth="0.8" />
+          <path d="M0 35 L0 0 L35 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          {/* Palmette at corner */}
+          <path d="M4 4 C10 -2 18 -2 22 4" stroke="rgba(184,151,47,0.25)" strokeWidth="0.5" />
+          <path d="M4 4 C-2 10 -2 18 4 22" stroke="rgba(184,151,47,0.25)" strokeWidth="0.5" />
+          <path d="M8 8 C12 4 16 4 20 8" stroke="rgba(184,151,47,0.15)" strokeWidth="0.4" />
+          <path d="M8 8 C4 12 4 16 8 20" stroke="rgba(184,151,47,0.15)" strokeWidth="0.4" />
+          {/* Star at intersection */}
+          <path d="M3 3L5 7L1 5L5 5L3 1L5 5L9 3L7 5Z" stroke="rgba(184,151,47,0.3)" strokeWidth="0.4" />
+          <circle cx="5" cy="5" r="1" fill="rgba(184,151,47,0.3)" />
+          {/* Decorative dots along arms */}
+          <circle cx="18" cy="0" r="0.8" fill="rgba(184,151,47,0.2)" />
+          <circle cx="30" cy="0" r="0.8" fill="rgba(184,151,47,0.15)" />
+          <circle cx="42" cy="0" r="0.8" fill="rgba(184,151,47,0.1)" />
+          <circle cx="0" cy="18" r="0.8" fill="rgba(184,151,47,0.2)" />
+          <circle cx="0" cy="30" r="0.8" fill="rgba(184,151,47,0.15)" />
+          <circle cx="0" cy="42" r="0.8" fill="rgba(184,151,47,0.1)" />
         </svg>
       </div>
-      <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 w-24 h-24 lg:w-40 lg:h-40 rotate-180">
-        <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2200ms" }}>
-          <path d="M0 40 L0 0 L40 0" stroke="rgba(184,151,47,0.4)" strokeWidth="0.8" />
-          <path d="M0 25 L0 0 L25 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
-          <rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.3)" strokeWidth="0.5" fill="none" />
-          <circle cx="0" cy="0" r="2" fill="rgba(184,151,47,0.35)" />
+      {/* Bottom-right carved corner ornament */}
+      <div className={`absolute bottom-4 right-4 lg:bottom-10 lg:right-10 w-28 h-28 lg:w-44 lg:h-44 rotate-180 transition-all duration-[2500ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2000ms" }}>
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 50 L0 0 L50 0" stroke="rgba(184,151,47,0.35)" strokeWidth="0.8" />
+          <path d="M0 35 L0 0 L35 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          <path d="M4 4 C10 -2 18 -2 22 4" stroke="rgba(184,151,47,0.25)" strokeWidth="0.5" />
+          <path d="M4 4 C-2 10 -2 18 4 22" stroke="rgba(184,151,47,0.25)" strokeWidth="0.5" />
+          <path d="M8 8 C12 4 16 4 20 8" stroke="rgba(184,151,47,0.15)" strokeWidth="0.4" />
+          <path d="M8 8 C4 12 4 16 8 20" stroke="rgba(184,151,47,0.15)" strokeWidth="0.4" />
+          <path d="M3 3L5 7L1 5L5 5L3 1L5 5L9 3L7 5Z" stroke="rgba(184,151,47,0.3)" strokeWidth="0.4" />
+          <circle cx="5" cy="5" r="1" fill="rgba(184,151,47,0.3)" />
+          <circle cx="18" cy="0" r="0.8" fill="rgba(184,151,47,0.2)" />
+          <circle cx="30" cy="0" r="0.8" fill="rgba(184,151,47,0.15)" />
+          <circle cx="42" cy="0" r="0.8" fill="rgba(184,151,47,0.1)" />
+          <circle cx="0" cy="18" r="0.8" fill="rgba(184,151,47,0.2)" />
+          <circle cx="0" cy="30" r="0.8" fill="rgba(184,151,47,0.15)" />
+          <circle cx="0" cy="42" r="0.8" fill="rgba(184,151,47,0.1)" />
         </svg>
       </div>
 

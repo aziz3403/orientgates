@@ -60,28 +60,36 @@ body {
     -webkit-text-fill-color: #c9a84c;
   }
 
-  /* ── Islamic 8-Point Star Pattern ── */
+  /* ═══ GIRIH — Islamic Star & Cross Tessellation ═══
+     Classic 8-point star with interlocking cross shapes,
+     the fundamental pattern of Islamic geometric art */
   .pattern-stars {
-    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0L48 16L64 8L56 24L72 24L60 36L72 40L60 44L72 56L56 56L64 72L48 64L40 80L32 64L16 72L24 56L8 56L20 44L8 40L20 36L8 24L24 24L16 8L32 16Z' fill='none' stroke='rgba(184,151,47,0.25)' stroke-width='0.5'/%3E%3C/svg%3E");
-    background-size: 80px 80px;
-  }
-
-  /* ── Mashrabiya Lattice Pattern ── */
-  .pattern-mashrabiya {
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='30' cy='30' r='12' fill='none' stroke='rgba(184,151,47,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='0' r='12' fill='none' stroke='rgba(184,151,47,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='0' r='12' fill='none' stroke='rgba(184,151,47,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='0' cy='60' r='12' fill='none' stroke='rgba(184,151,47,0.15)' stroke-width='0.5'/%3E%3Ccircle cx='60' cy='60' r='12' fill='none' stroke='rgba(184,151,47,0.15)' stroke-width='0.5'/%3E%3Cline x1='18' y1='18' x2='42' y2='42' stroke='rgba(184,151,47,0.1)' stroke-width='0.5'/%3E%3Cline x1='42' y1='18' x2='18' y2='42' stroke='rgba(184,151,47,0.1)' stroke-width='0.5'/%3E%3C/svg%3E");
-    background-size: 60px 60px;
-  }
-
-  /* ── Arabesque Interlace Pattern ── */
-  .pattern-arabesque {
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 50 Q25 25 50 50 Q75 75 100 50' fill='none' stroke='rgba(184,151,47,0.18)' stroke-width='0.8'/%3E%3Cpath d='M0 50 Q25 75 50 50 Q75 25 100 50' fill='none' stroke='rgba(184,151,47,0.18)' stroke-width='0.8'/%3E%3Cpath d='M50 0 Q25 25 50 50 Q75 75 50 100' fill='none' stroke='rgba(184,151,47,0.12)' stroke-width='0.8'/%3E%3Cpath d='M50 0 Q75 25 50 50 Q25 75 50 100' fill='none' stroke='rgba(184,151,47,0.12)' stroke-width='0.8'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(184,151,47,0.18)' fill='none' stroke-width='0.6'%3E%3Cpath d='M50 10L60 25L75 15L70 32L90 32L77 42L90 50L77 58L90 68L70 68L75 85L60 75L50 90L40 75L25 85L30 68L10 68L23 58L10 50L23 42L10 32L30 32L25 15L40 25Z'/%3E%3Cpath d='M50 20L57 30L67 24L64 35L78 35L69 42L78 48L69 54L78 62L64 62L67 73L57 67L50 78L43 67L33 73L36 62L22 62L31 54L22 48L31 42L22 35L36 35L33 24L43 30Z' stroke='rgba(184,151,47,0.1)'/%3E%3Ccircle cx='50' cy='50' r='4' stroke='rgba(184,151,47,0.12)'/%3E%3Ccircle cx='0' cy='0' r='4' stroke='rgba(184,151,47,0.08)'/%3E%3Ccircle cx='100' cy='0' r='4' stroke='rgba(184,151,47,0.08)'/%3E%3Ccircle cx='0' cy='100' r='4' stroke='rgba(184,151,47,0.08)'/%3E%3Ccircle cx='100' cy='100' r='4' stroke='rgba(184,151,47,0.08)'/%3E%3Cline x1='0' y1='0' x2='22' y2='35' stroke='rgba(184,151,47,0.07)'/%3E%3Cline x1='100' y1='0' x2='78' y2='35' stroke='rgba(184,151,47,0.07)'/%3E%3Cline x1='0' y1='100' x2='22' y2='62' stroke='rgba(184,151,47,0.07)'/%3E%3Cline x1='100' y1='100' x2='78' y2='62' stroke='rgba(184,151,47,0.07)'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 100px 100px;
   }
 
-  /* ── Hexagonal Zellige Tile Pattern ── */
+  /* ═══ MASHRABIYA — Octagonal Lattice Screen ═══
+     Interlocking octagons and squares, the carved wooden
+     screens of Cairo and Damascus */
+  .pattern-mashrabiya {
+    background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(184,151,47,0.14)' fill='none' stroke-width='0.6'%3E%3Cpath d='M16 0L0 16L0 64L16 80L64 80L80 64L80 16L64 0Z'/%3E%3Cpath d='M24 8L8 24L8 56L24 72L56 72L72 56L72 24L56 8Z' stroke='rgba(184,151,47,0.08)'/%3E%3Cpath d='M32 16L16 32L16 48L32 64L48 64L64 48L64 32L48 16Z' stroke='rgba(184,151,47,0.06)'/%3E%3Cline x1='16' y1='0' x2='0' y2='16' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='64' y1='0' x2='80' y2='16' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='0' y1='64' x2='16' y2='80' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='80' y1='64' x2='64' y2='80' stroke='rgba(184,151,47,0.1)'/%3E%3Crect x='36' y='36' width='8' height='8' transform='rotate(45 40 40)' stroke='rgba(184,151,47,0.12)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 80px 80px;
+  }
+
+  /* ═══ ARABESQUE — Vine & Palmette Interlace ═══
+     Organic flowing forms with split-leaf palmettes,
+     the living counterpart to geometric patterns */
+  .pattern-arabesque {
+    background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(184,151,47,0.15)' fill='none' stroke-width='0.7'%3E%3Cpath d='M60 0 C40 20 20 20 0 40'/%3E%3Cpath d='M60 0 C80 20 100 20 120 40'/%3E%3Cpath d='M0 40 C20 60 20 80 0 100'/%3E%3Cpath d='M120 40 C100 60 100 80 120 100'/%3E%3Cpath d='M0 100 C20 100 40 100 60 120'/%3E%3Cpath d='M120 100 C100 100 80 100 60 120'/%3E%3Cpath d='M60 0 C60 15 55 25 45 30' stroke='rgba(184,151,47,0.1)'/%3E%3Cpath d='M60 0 C60 15 65 25 75 30' stroke='rgba(184,151,47,0.1)'/%3E%3Cpath d='M60 120 C60 105 55 95 45 90' stroke='rgba(184,151,47,0.1)'/%3E%3Cpath d='M60 120 C60 105 65 95 75 90' stroke='rgba(184,151,47,0.1)'/%3E%3Ccircle cx='60' cy='60' r='8' stroke='rgba(184,151,47,0.1)'/%3E%3Ccircle cx='60' cy='60' r='3' stroke='rgba(184,151,47,0.08)'/%3E%3Cpath d='M52 60 Q56 52 60 52 Q64 52 68 60 Q64 68 60 68 Q56 68 52 60Z' stroke='rgba(184,151,47,0.12)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 120px 120px;
+  }
+
+  /* ═══ ZELLIGE — Moroccan Star Mosaic ═══
+     Interlocking 6-point stars and hexagons,
+     the hand-cut tile work of Fez */
   .pattern-zellige {
-    background-image: url("data:image/svg+xml,%3Csvg width='56' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M28 0L56 16V48L28 64L0 48V16Z' fill='none' stroke='rgba(184,151,47,0.18)' stroke-width='0.5'/%3E%3Cpath d='M28 36L56 52V84L28 100L0 84V52Z' fill='none' stroke='rgba(184,151,47,0.18)' stroke-width='0.5'/%3E%3C/svg%3E");
-    background-size: 56px 100px;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='86' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(184,151,47,0.15)' fill='none' stroke-width='0.6'%3E%3Cpath d='M50 0L63 7.5L63 22.5L50 30L37 22.5L37 7.5Z'/%3E%3Cpath d='M50 56L63 63.5L63 78.5L50 86L37 78.5L37 63.5Z'/%3E%3Cpath d='M0 28L13 35.5L13 50.5L0 58L-13 50.5L-13 35.5Z'/%3E%3Cpath d='M100 28L113 35.5L113 50.5L100 58L87 50.5L87 35.5Z'/%3E%3Cpath d='M50 0L63 7.5L63 22.5L50 30L37 22.5L37 7.5Z' transform='translate(0 56)'/%3E%3Cline x1='50' y1='30' x2='63' y2='35.5' stroke='rgba(184,151,47,0.08)'/%3E%3Cline x1='50' y1='30' x2='37' y2='35.5' stroke='rgba(184,151,47,0.08)'/%3E%3Cline x1='50' y1='56' x2='63' y2='50.5' stroke='rgba(184,151,47,0.08)'/%3E%3Cline x1='50' y1='56' x2='37' y2='50.5' stroke='rgba(184,151,47,0.08)'/%3E%3Ccircle cx='50' cy='43' r='3' stroke='rgba(184,151,47,0.1)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 100px 86px;
   }
 
   /* ── Corner Ornament ── */

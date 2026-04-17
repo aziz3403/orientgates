@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
 import { useCart } from "@/lib/cart";
 import AnimateIn from "@/components/ui/AnimateIn";

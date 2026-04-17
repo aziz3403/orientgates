@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import { useParams } from "next/navigation";
 import { getCategory, getProductsByCategory, getChildCategories } from "@/lib/data";
 import CollectionPage from "@/components/CollectionPage";

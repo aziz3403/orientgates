@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import { getCategory, getProductsByCategory } from "@/lib/data";
 import CollectionPage from "@/components/CollectionPage";
 

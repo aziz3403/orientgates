@@ -1,47 +1,51 @@
-import type { Metadata } from 'next';
-import { Cormorant_Garamond, Inter } from 'next/font/google';
-import './globals.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
-import Providers from './providers';
+import type { Metadata } from "next";
+import { Playfair_Display, Inter } from "next/font/google";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import CartSidebar from "@/components/CartSidebar";
+import { CartProvider } from "@/lib/cart";
+import { WishlistProvider } from "@/lib/wishlist";
+import "./globals.css";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-cormorant',
-  display: 'swap',
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  display: "swap",
 });
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'The Orient Gates — Handcrafted Luxury Furniture',
-  description: 'Bespoke mother of pearl furniture and antiques handcrafted in Damascus since 1975. Each piece is a unique work of art.',
-  keywords: 'mother of pearl furniture, Damascus furniture, luxury furniture, Syrian antiques, inlay furniture, handcrafted',
-  openGraph: {
-    title: 'The Orient Gates — Handcrafted Luxury Furniture',
-    description: 'Bespoke mother of pearl furniture and antiques handcrafted in Damascus since 1975.',
-    siteName: 'The Orient Gates',
-    type: 'website',
+  title: {
+    default: "The Orient Gates | Rare Antiques & Mother-of-Pearl Furniture",
+    template: "%s | The Orient Gates",
   },
+  description:
+    "A family legacy of over 150 years in rare antiques and handcrafted mother-of-pearl furniture. Islamic, European, and Asian antiques for collectors and designers worldwide. Trusted auction partner of Sotheby's and Christie's.",
+  keywords: [
+    "antiques", "mother-of-pearl furniture", "Islamic antiques", "European antiques",
+    "luxury furniture", "Damascus furniture", "antique collector", "rare antiques",
+    "Sotheby's", "Christie's", "auction antiques", "custom furniture",
+  ],
+  metadataBase: new URL("https://theorientgates.com"),
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
-      <body style={{ fontFamily: 'var(--font-inter), sans-serif', background: '#1A2530', margin: 0 }}>
-        <Providers>
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-          <WhatsAppButton />
-        </Providers>
+    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <body className="antialiased">
+        <CartProvider>
+          <WishlistProvider>
+            <Navigation />
+            <main>{children}</main>
+            <CartSidebar />
+            <Footer />
+          </WishlistProvider>
+        </CartProvider>
       </body>
     </html>
   );

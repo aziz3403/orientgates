@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getCategory, getProductsByCategory } from "@/lib/data";

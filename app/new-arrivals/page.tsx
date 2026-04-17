@@ -1,7 +1,5 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
 import { getNewArrivals } from "@/lib/data";
 import AnimateIn from "@/components/ui/AnimateIn";
 import ProductCard from "@/components/ProductCard";

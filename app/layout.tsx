@@ -1,51 +1,35 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
-import Navigation from "@/components/Navigation";
-import Footer from "@/components/Footer";
-import CartSidebar from "@/components/CartSidebar";
-import { CartProvider } from "@/lib/cart";
-import { WishlistProvider } from "@/lib/wishlist";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
 });
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
 });
 
 export const metadata: Metadata = {
-  title: {
-    default: "The Orient Gates | Rare Antiques & Mother-of-Pearl Furniture",
-    template: "%s | The Orient Gates",
-  },
+  title: "The Orient Gates — Syrian & Islamic Antiques",
   description:
-    "A family legacy of over 150 years in rare antiques and handcrafted mother-of-pearl furniture. Islamic, European, and Asian antiques for collectors and designers worldwide. Trusted auction partner of Sotheby's and Christie's.",
-  keywords: [
-    "antiques", "mother-of-pearl furniture", "Islamic antiques", "European antiques",
-    "luxury furniture", "Damascus furniture", "antique collector", "rare antiques",
-    "Sotheby's", "Christie's", "auction antiques", "custom furniture",
-  ],
-  metadataBase: new URL("https://theorientgates.com"),
+    "Museum-calibre Syrian mother-of-pearl furniture and Islamic antiques. Damascus, Cairo, Istanbul. Private acquisitions $10,000–$100,000.",
 };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="antialiased">
-        <CartProvider>
-          <WishlistProvider>
-            <Navigation />
-            <main>{children}</main>
-            <CartSidebar />
-            <Footer />
-          </WishlistProvider>
-        </CartProvider>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
   );

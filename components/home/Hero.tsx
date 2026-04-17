@@ -27,21 +27,23 @@ export default function Hero() {
       </div>
 
       {/* Islamic geometric overlay — mashrabiya lattice */}
-      <div className="absolute inset-0 pattern-mashrabiya opacity-40" />
+      <div className="absolute inset-0 pattern-mashrabiya opacity-70" />
 
       {/* Ornamental corner frames */}
-      <div className="absolute top-8 left-8 lg:top-16 lg:left-16 w-20 h-20 lg:w-32 lg:h-32">
+      <div className="absolute top-6 left-6 lg:top-12 lg:left-12 w-24 h-24 lg:w-40 lg:h-40">
         <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2000ms" }}>
-          <path d="M0 30 L0 0 L30 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
-          <path d="M0 20 L0 0 L20 0" stroke="rgba(184,151,47,0.1)" strokeWidth="0.5" />
-          <circle cx="0" cy="0" r="3" fill="rgba(184,151,47,0.15)" />
+          <path d="M0 40 L0 0 L40 0" stroke="rgba(184,151,47,0.4)" strokeWidth="0.8" />
+          <path d="M0 25 L0 0 L25 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          <rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.3)" strokeWidth="0.5" fill="none" />
+          <circle cx="0" cy="0" r="2" fill="rgba(184,151,47,0.35)" />
         </svg>
       </div>
-      <div className="absolute bottom-8 right-8 lg:bottom-16 lg:right-16 w-20 h-20 lg:w-32 lg:h-32 rotate-180">
+      <div className="absolute bottom-6 right-6 lg:bottom-12 lg:right-12 w-24 h-24 lg:w-40 lg:h-40 rotate-180">
         <svg viewBox="0 0 100 100" fill="none" className={`w-full h-full transition-all duration-[2000ms] ${loaded ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "2200ms" }}>
-          <path d="M0 30 L0 0 L30 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
-          <path d="M0 20 L0 0 L20 0" stroke="rgba(184,151,47,0.1)" strokeWidth="0.5" />
-          <circle cx="0" cy="0" r="3" fill="rgba(184,151,47,0.15)" />
+          <path d="M0 40 L0 0 L40 0" stroke="rgba(184,151,47,0.4)" strokeWidth="0.8" />
+          <path d="M0 25 L0 0 L25 0" stroke="rgba(184,151,47,0.2)" strokeWidth="0.5" />
+          <rect x="0" y="0" width="8" height="8" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.3)" strokeWidth="0.5" fill="none" />
+          <circle cx="0" cy="0" r="2" fill="rgba(184,151,47,0.35)" />
         </svg>
       </div>
 

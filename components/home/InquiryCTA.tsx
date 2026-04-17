@@ -29,7 +29,7 @@ export default function InquiryCTA() {
       className="relative py-section overflow-hidden bg-midnight"
     >
       {/* Islamic star pattern */}
-      <div className="absolute inset-0 pattern-stars opacity-60" />
+      <div className="absolute inset-0 pattern-stars" />
       {/* Animated background */}
       <div
         className="absolute inset-0"

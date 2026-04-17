@@ -13,19 +13,18 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100svh] min-h-[700px] flex items-center bg-midnight overflow-hidden">
-      {/* Minimal background — just a subtle warm gradient, no patterns */}
+      {/* Damascus Room background */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-midnight via-[#110e0a] to-midnight" />
-        <div
-          className="absolute inset-0 transition-opacity duration-[3000ms]"
-          style={{ opacity: loaded ? 0.4 : 0 }}
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(44,24,16,0.4),transparent_70%)]" />
-        </div>
+        <img
+          src="/images/hero-1.jpg"
+          alt=""
+          className={`absolute inset-0 w-full h-full object-cover transition-all duration-[2000ms] ${
+            loaded ? "opacity-30 scale-105" : "opacity-0 scale-110"
+          }`}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/80 to-midnight/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-midnight/30" />
       </div>
-
-      {/* Single horizontal accent line */}
-      <div className="absolute top-[45%] left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/[0.05] to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-20 w-full">

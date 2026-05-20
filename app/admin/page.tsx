@@ -37,6 +37,16 @@ function generateId(): string {
   return `prod-${Date.now()}-${Math.random().toString(36).substring(2, 7)}`;
 }
 
+function slugify(input: string): string {
+  return input
+    .normalize("NFKD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80);
+}
+
 function generateSKU(category: string, subcategory?: string): string {
   const prefix =
     category === "mother-of-pearl-furniture"
@@ -107,15 +117,26 @@ export default function AdminPage() {
   };
 
   const handleSave = async () => {
-    if (!formData.title || !formData.slug) {
-      showError("Title and slug are required");
+    const title = (formData.title || "").trim();
+    if (!title) {
+      showError("Title is required");
       return;
     }
+    // Auto-derive slug from title when blank. Append a short random tail so
+    // two products with the same title don't collide on the URL.
+    let slug = (formData.slug || "").trim();
+    if (!slug) {
+      const base = slugify(title);
+      const tail = Math.random().toString(36).slice(2, 6);
+      slug = base ? `${base}-${tail}` : `item-${tail}`;
+    }
+    const normalized: Partial<Product> = { ...formData, title, slug };
+
     setSaving(true);
     setErrorMessage(null);
     try {
       if (editingId) {
-        const full = { ...formData, id: editingId } as Product;
+        const full = { ...normalized, id: editingId } as Product;
         const res = await fetch("/api/admin/products", {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -129,12 +150,12 @@ export default function AdminPage() {
         showStatus("Updated ✓");
       } else {
         const id = generateId();
-        const baseSku = generateSKU(formData.category || "", formData.subcategory);
+        const baseSku = generateSKU(normalized.category || "", normalized.subcategory);
         const candidate = {
           ...emptyProduct,
-          ...formData,
+          ...normalized,
           id,
-          sku: formData.sku || baseSku,
+          sku: normalized.sku || baseSku,
         } as Product;
         candidate.sku = candidate.sku || getProductSKU(candidate);
         const res = await fetch("/api/admin/products", {

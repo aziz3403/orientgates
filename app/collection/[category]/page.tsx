@@ -1,13 +1,15 @@
 "use client";
 
 import { useParams } from "next/navigation";
-import { getCategory, getProductsByCategory, getChildCategories } from "@/lib/data";
+import { getCategory, getChildCategories } from "@/lib/data";
+import { useProducts, productMatchers } from "@/lib/products-client";
 import CollectionPage from "@/components/CollectionPage";
 
 export default function LegacyCategoryPage() {
   const params = useParams();
   const slug = params.category as string;
   const category = getCategory(slug);
+  const { products, loading } = useProducts(productMatchers.byCategoryOrSubcategory(slug));
 
   if (!category) {
     return (
@@ -20,13 +22,13 @@ export default function LegacyCategoryPage() {
     );
   }
 
-  const products = getProductsByCategory(slug);
   const subcategories = getChildCategories(slug);
 
   return (
     <CollectionPage
       category={category}
       products={products}
+      loading={loading}
       subcategories={subcategories}
       breadcrumbs={category.parent ? [{ label: getCategory(category.parent)?.title || "", href: `/${category.parent}` }] : []}
       productBasePath={`/collection/${slug}`}

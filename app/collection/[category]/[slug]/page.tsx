@@ -2,7 +2,8 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { getProduct, getCategory, getProductsByCategory, getProductSKU } from "@/lib/data";
+import { getCategory, getProductSKU } from "@/lib/data";
+import { useProducts, productMatchers } from "@/lib/products-client";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
 import AnimateIn from "@/components/ui/AnimateIn";
@@ -77,7 +78,8 @@ export default function ProductPage() {
   const params = useParams();
   const slug = params.slug as string;
   const categorySlug = params.category as string;
-  const product = getProduct(slug);
+  const { products, loading } = useProducts();
+  const product = products.find((p) => p.slug === slug);
   const category = getCategory(categorySlug);
   const { addItem } = useCart();
   const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
@@ -95,6 +97,14 @@ export default function ProductPage() {
     } catch {}
   }, [product]);
 
+  if (loading && !product) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-midnight pt-32">
+        <p className="text-warm-gray/60 font-sans text-sm">Loading…</p>
+      </div>
+    );
+  }
+
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-midnight pt-32">
@@ -109,7 +119,9 @@ export default function ProductPage() {
   const catDisplay = category || getCategory(product.category);
   const sku = getProductSKU(product);
   const wishlisted = isInWishlist(product.id);
-  const relatedProducts = getProductsByCategory(product.subcategory || product.category)
+  const relatedSlug = product.subcategory || product.category;
+  const relatedProducts = products
+    .filter((p) => productMatchers.byCategoryOrSubcategory(relatedSlug)(p))
     .filter((p) => p.id !== product.id)
     .slice(0, 4);
 

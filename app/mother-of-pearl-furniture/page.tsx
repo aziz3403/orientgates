@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { getCategory, getChildCategories, getProductsByCategory } from "@/lib/data";
+import { getCategory, getChildCategories } from "@/lib/data";
+import { useProducts, productMatchers } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import ProductCard from "@/components/ProductCard";
@@ -11,7 +12,9 @@ import { useMousePosition } from "@/lib/hooks";
 export default function MotherOfPearlFurniturePage() {
   const category = getCategory("mother-of-pearl-furniture")!;
   const subcategories = getChildCategories("mother-of-pearl-furniture");
-  const products = getProductsByCategory("mother-of-pearl-furniture");
+  const { products, loading } = useProducts(
+    productMatchers.byCategoryOrSubcategory("mother-of-pearl-furniture")
+  );
   const { ref, position } = useMousePosition();
 
   return (
@@ -178,21 +181,25 @@ export default function MotherOfPearlFurniturePage() {
                 </h2>
               </div>
               <p className="text-[12px] text-warm-gray/70 font-sans">
-                {products.length} pieces
+                {loading && products.length === 0 ? "Loading…" : `${products.length} pieces`}
               </p>
             </div>
           </AnimateIn>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
-            {products.map((product, i) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                index={i}
-                basePath="/collection/mother-of-pearl-furniture"
-              />
-            ))}
-          </div>
+          {loading && products.length === 0 ? (
+            <p className="text-warm-gray/60 text-sm font-sans">Loading the collection…</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
+              {products.map((product, i) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  index={i}
+                  basePath="/collection/mother-of-pearl-furniture"
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

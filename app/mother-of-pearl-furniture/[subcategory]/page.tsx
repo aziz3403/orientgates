@@ -2,13 +2,15 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { getCategory, getProductsByCategory } from "@/lib/data";
+import { getCategory } from "@/lib/data";
+import { useProducts, productMatchers } from "@/lib/products-client";
 import CollectionPage from "@/components/CollectionPage";
 
 export default function MoPSubcategoryPage() {
   const params = useParams();
   const slug = params.subcategory as string;
   const category = getCategory(slug);
+  const { products, loading } = useProducts(productMatchers.byCategoryOrSubcategory(slug));
 
   if (!category) {
     return (
@@ -23,12 +25,11 @@ export default function MoPSubcategoryPage() {
     );
   }
 
-  const products = getProductsByCategory(slug);
-
   return (
     <CollectionPage
       category={category}
       products={products}
+      loading={loading}
       breadcrumbs={[{ label: "Mother of Pearl Furniture", href: "/mother-of-pearl-furniture" }]}
       productBasePath="/collection/mother-of-pearl-furniture"
     />

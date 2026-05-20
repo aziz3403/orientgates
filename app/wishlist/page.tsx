@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { useWishlist } from "@/lib/wishlist";
-import { products } from "@/lib/data";
+import { useProducts } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import ProductCard from "@/components/ProductCard";
 
 export default function WishlistPage() {
   const { items } = useWishlist();
+  const { products, loading } = useProducts();
   const wishlistProducts = products.filter((p) => items.includes(p.id));
 
   return (
@@ -20,11 +21,11 @@ export default function WishlistPage() {
           </div>
           <h1 className="text-3xl lg:text-4xl font-serif text-ivory mb-2">Your Wishlist</h1>
           <p className="text-[12px] text-warm-gray/70 font-sans mb-12">
-            {wishlistProducts.length} saved {wishlistProducts.length === 1 ? "piece" : "pieces"}
+            {loading ? "Loading…" : `${wishlistProducts.length} saved ${wishlistProducts.length === 1 ? "piece" : "pieces"}`}
           </p>
         </AnimateIn>
 
-        {wishlistProducts.length === 0 ? (
+        {!loading && wishlistProducts.length === 0 ? (
           <AnimateIn>
             <div className="text-center py-24 border border-white/[0.04]">
               <p className="text-warm-gray/70 font-sans mb-8">You haven&apos;t saved any pieces yet</p>

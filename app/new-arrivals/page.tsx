@@ -1,11 +1,12 @@
 "use client";
 
-import { getNewArrivals } from "@/lib/data";
+import { useProducts, productMatchers, sortNewest } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import ProductCard from "@/components/ProductCard";
 
 export default function NewArrivalsPage() {
-  const products = getNewArrivals();
+  const { products, loading } = useProducts(productMatchers.newArrival);
+  const sorted = sortNewest(products);
 
   return (
     <>
@@ -31,11 +32,15 @@ export default function NewArrivalsPage() {
 
       <section className="py-section bg-charcoal">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
-            {products.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} />
-            ))}
-          </div>
+          {loading ? (
+            <p className="text-warm-gray/60 text-sm font-sans">Loading…</p>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
+              {sorted.map((product, i) => (
+                <ProductCard key={product.id} product={product} index={i} />
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

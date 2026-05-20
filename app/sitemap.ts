@@ -1,7 +1,10 @@
 import { MetadataRoute } from "next";
-import { products, categories } from "@/lib/data";
+import { categories } from "@/lib/data";
+import { getAllProducts } from "@/lib/products-server";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 60;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://theorientgates.com";
 
   const staticPages = [
@@ -26,6 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     }));
 
+  const products = await getAllProducts();
   const productPages = products.map((p) => ({
     url: `${baseUrl}/collection/${p.category}/${p.slug}`,
     lastModified: new Date(p.dateAdded),

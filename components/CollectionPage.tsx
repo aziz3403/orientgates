@@ -11,7 +11,7 @@ import { useMousePosition } from "@/lib/hooks";
 type SortOption = "newest" | "price-asc" | "price-desc" | "period";
 type AvailFilter = "all" | "available" | "sold";
 
-function CollectionGrid({ products, productBasePath }: { products: Product[]; productBasePath?: string }) {
+function CollectionGrid({ products, productBasePath, loading }: { products: Product[]; productBasePath?: string; loading?: boolean }) {
   const [sort, setSort] = useState<SortOption>("newest");
   const [availFilter, setAvailFilter] = useState<AvailFilter>("all");
   const [originFilter, setOriginFilter] = useState("");
@@ -108,7 +108,11 @@ function CollectionGrid({ products, productBasePath }: { products: Product[]; pr
         </div>
 
         {/* Grid */}
-        {filtered.length > 0 ? (
+        {loading && products.length === 0 ? (
+          <div className="text-center py-24">
+            <p className="text-warm-gray/60 font-sans text-sm">Loading the collection…</p>
+          </div>
+        ) : filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
             {filtered.map((product, i) => (
               <ProductCard key={product.id} product={product} index={i} basePath={productBasePath} />
@@ -133,6 +137,7 @@ interface CollectionPageProps {
   subcategories?: Category[];
   breadcrumbs: { label: string; href: string }[];
   productBasePath?: string;
+  loading?: boolean;
 }
 
 export default function CollectionPage({
@@ -141,6 +146,7 @@ export default function CollectionPage({
   subcategories,
   breadcrumbs,
   productBasePath,
+  loading,
 }: CollectionPageProps) {
   const { ref, position } = useMousePosition();
 
@@ -239,7 +245,7 @@ export default function CollectionPage({
       )}
 
       {/* Product Grid with Filters */}
-      <CollectionGrid products={products} productBasePath={productBasePath} />
+      <CollectionGrid products={products} productBasePath={productBasePath} loading={loading} />
     </>
   );
 }

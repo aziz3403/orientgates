@@ -1,0 +1,106 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { createSupabaseAdmin } from "@/lib/supabase/server";
+import {
+  fromSupabase,
+  toSupabase,
+  type SupabaseProduct,
+} from "@/lib/supabase-format";
+import {
+  invalidateProductsCache,
+  revalidatePublicProductPages,
+} from "@/lib/products-server";
+import type { Product } from "@/lib/data";
+
+// Auth middleware already gates /api/admin/*. This route trusts the cookie check.
+
+export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
+
+function bustCaches() {
+  invalidateProductsCache();
+  revalidatePublicProductPages();
+}
+
+export async function GET() {
+  const sb = createSupabaseAdmin();
+  const { data, error } = await sb
+    .from("products")
+    .select("*")
+    .order("created_at", { ascending: true });
+  if (error) {
+    return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+  }
+  const products: Product[] = (data as SupabaseProduct[]).map(fromSupabase);
+  return NextResponse.json({ ok: true, products });
+}
+
+export async function POST(req: NextRequest) {
+  const body = await req.json().catch(() => ({}));
+  const product = body?.product as Product | undefined;
+  if (!product || !product.id || !product.slug || !product.title) {
+    return NextResponse.json(
+      { ok: false, error: "Missing required fields (id, slug, title)" },
+      { status: 400 }
+    );
+  }
+  const row = toSupabase(product);
+  const sb = createSupabaseAdmin();
+  const { data, error } = await sb
+    .from("products")
+    .insert(row)
+    .select()
+    .single();
+  if (error) {
+    return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+  }
+  bustCaches();
+  return NextResponse.json({
+    ok: true,
+    product: fromSupabase(data as SupabaseProduct),
+  });
+}
+
+export async function PATCH(req: NextRequest) {
+  const body = await req.json().catch(() => ({}));
+  const product = body?.product as Product | undefined;
+  if (!product || !product.id) {
+    return NextResponse.json(
+      { ok: false, error: "Missing product.id" },
+      { status: 400 }
+    );
+  }
+  const row = toSupabase(product);
+  const sb = createSupabaseAdmin();
+  const { data, error } = await sb
+    .from("products")
+    .update(row)
+    .eq("id", product.id)
+    .select()
+    .single();
+  if (error) {
+    return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+  }
+  bustCaches();
+  return NextResponse.json({
+    ok: true,
+    product: fromSupabase(data as SupabaseProduct),
+  });
+}
+
+export async function DELETE(req: NextRequest) {
+  const { searchParams } = new URL(req.url);
+  const id = searchParams.get("id");
+  if (!id) {
+    return NextResponse.json(
+      { ok: false, error: "Missing id query parameter" },
+      { status: 400 }
+    );
+  }
+  const sb = createSupabaseAdmin();
+  const { error } = await sb.from("products").delete().eq("id", id);
+  if (error) {
+    return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
+  }
+  bustCaches();
+  return NextResponse.json({ ok: true });
+}

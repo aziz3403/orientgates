@@ -1,22 +1,18 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 interface Props {
   images: string[];
   onChange: (images: string[]) => void;
 }
 
-// Pull multiple URLs out of a paste (newline, comma, or whitespace separated).
-function parseUrls(input: string): string[] {
-  return input
-    .split(/[\s,]+/)
-    .map((s) => s.trim())
-    .filter((s) => /^https?:\/\//i.test(s));
-}
-
 export default function ImageManager({ images, onChange }: Props) {
-  const [newUrl, setNewUrl] = useState("");
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const [uploading, setUploading] = useState(false);
+  const [progressLabel, setProgressLabel] = useState<string | null>(null);
+  const [uploadError, setUploadError] = useState<string | null>(null);
+  const [dragOver, setDragOver] = useState(false);
 
   const move = (from: number, dir: -1 | 1) => {
     const to = from + dir;
@@ -39,29 +35,72 @@ export default function ImageManager({ images, onChange }: Props) {
     onChange(next);
   };
 
-  const add = () => {
-    const parsed = parseUrls(newUrl);
-    if (parsed.length === 0) return;
-    onChange([...images, ...parsed]);
-    setNewUrl("");
+  const uploadFiles = async (fileList: FileList | File[]) => {
+    const files = Array.from(fileList).filter((f) => f.type.startsWith("image/"));
+    if (files.length === 0) {
+      setUploadError("No image files selected.");
+      return;
+    }
+    setUploadError(null);
+    setUploading(true);
+    setProgressLabel(`Uploading 0 / ${files.length}…`);
+
+    const uploaded: string[] = [];
+    const errors: string[] = [];
+
+    // Upload sequentially so progress feels deterministic and we don't pile up
+    // megabytes of concurrent requests against the dev server.
+    for (let i = 0; i < files.length; i++) {
+      setProgressLabel(`Uploading ${i + 1} / ${files.length}… (${files[i].name})`);
+      const form = new FormData();
+      form.append("files", files[i]);
+      try {
+        const res = await fetch("/api/admin/upload", { method: "POST", body: form });
+        const data = await res.json();
+        if (!res.ok || !data.ok) {
+          errors.push(`${files[i].name}: ${data.error || res.statusText}`);
+          continue;
+        }
+        if (Array.isArray(data.urls)) uploaded.push(...data.urls);
+      } catch (e) {
+        errors.push(`${files[i].name}: ${e instanceof Error ? e.message : "network error"}`);
+      }
+    }
+
+    if (uploaded.length > 0) {
+      onChange([...images, ...uploaded]);
+    }
+    if (errors.length > 0) {
+      setUploadError(errors.join(" • "));
+    }
+    setUploading(false);
+    setProgressLabel(null);
+  };
+
+  const onPickFiles = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files && files.length > 0) uploadFiles(files);
+    if (fileInputRef.current) fileInputRef.current.value = "";
+  };
+
+  const onDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setDragOver(false);
+    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+      uploadFiles(e.dataTransfer.files);
+    }
   };
 
   return (
     <div>
-      {images.length === 0 ? (
-        <div className="border border-white/10 p-6 text-center mb-4">
-          <p className="text-warm-gray/60 text-xs font-sans">
-            No images yet. Paste one or more URLs below.
-          </p>
-        </div>
-      ) : (
+      {/* Gallery of current images */}
+      {images.length > 0 && (
         <div className="grid grid-cols-3 sm:grid-cols-4 gap-3 mb-4">
           {images.map((url, i) => (
             <div
               key={`${url}-${i}`}
               className="border border-white/10 bg-charcoal flex flex-col"
             >
-              {/* Thumbnail */}
               <a
                 href={url}
                 target="_blank"
@@ -81,13 +120,9 @@ export default function ImageManager({ images, onChange }: Props) {
                     el.alt = "Failed to load";
                   }}
                 />
-
-                {/* Position number */}
                 <div className="absolute top-1 left-1 bg-midnight/85 text-ivory/90 text-[10px] font-mono px-1.5 py-0.5">
                   {i + 1}
                 </div>
-
-                {/* MAIN badge on first image */}
                 {i === 0 && (
                   <div className="absolute top-1 right-1 bg-brass text-midnight text-[8px] tracking-[0.2em] uppercase px-1.5 py-0.5 font-sans font-medium">
                     Main
@@ -95,13 +130,12 @@ export default function ImageManager({ images, onChange }: Props) {
                 )}
               </a>
 
-              {/* Controls */}
               <div className="flex items-center justify-between px-1.5 py-1 border-t border-white/5">
                 <div className="flex gap-0.5">
                   <button
                     type="button"
                     onClick={() => move(i, -1)}
-                    disabled={i === 0}
+                    disabled={i === 0 || uploading}
                     className="text-[12px] text-ivory/60 hover:text-brass px-1.5 py-0.5 disabled:opacity-20 disabled:cursor-not-allowed leading-none"
                     title="Move earlier"
                   >
@@ -110,7 +144,7 @@ export default function ImageManager({ images, onChange }: Props) {
                   <button
                     type="button"
                     onClick={() => move(i, 1)}
-                    disabled={i === images.length - 1}
+                    disabled={i === images.length - 1 || uploading}
                     className="text-[12px] text-ivory/60 hover:text-brass px-1.5 py-0.5 disabled:opacity-20 disabled:cursor-not-allowed leading-none"
                     title="Move later"
                   >
@@ -120,7 +154,8 @@ export default function ImageManager({ images, onChange }: Props) {
                     <button
                       type="button"
                       onClick={() => makeMain(i)}
-                      className="text-[11px] text-ivory/60 hover:text-brass px-1.5 py-0.5 leading-none"
+                      disabled={uploading}
+                      className="text-[11px] text-ivory/60 hover:text-brass px-1.5 py-0.5 leading-none disabled:opacity-30"
                       title="Make this the main photo"
                     >
                       ★
@@ -130,8 +165,9 @@ export default function ImageManager({ images, onChange }: Props) {
                 <button
                   type="button"
                   onClick={() => remove(i)}
-                  className="text-[12px] text-red-400/70 hover:text-red-400 px-1.5 py-0.5 leading-none"
-                  title="Remove"
+                  disabled={uploading}
+                  className="text-[12px] text-red-400/70 hover:text-red-400 px-1.5 py-0.5 leading-none disabled:opacity-30"
+                  title="Remove from product (does not delete file from storage)"
                 >
                   ✕
                 </button>
@@ -141,44 +177,66 @@ export default function ImageManager({ images, onChange }: Props) {
         </div>
       )}
 
-      {/* Add URL(s) */}
-      <div className="flex gap-2 items-stretch">
-        <textarea
-          value={newUrl}
-          onChange={(e) => setNewUrl(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) {
-              e.preventDefault();
-              add();
-            }
-          }}
-          rows={2}
-          placeholder="Paste one or more image URLs (separated by newline, space, or comma)…"
-          className="flex-1 bg-transparent border border-white/10 px-3 py-2 text-ivory text-xs font-mono focus:border-brass outline-none resize-none"
+      {/* Upload zone */}
+      <div
+        onDragOver={(e) => {
+          e.preventDefault();
+          setDragOver(true);
+        }}
+        onDragLeave={() => setDragOver(false)}
+        onDrop={onDrop}
+        onClick={() => !uploading && fileInputRef.current?.click()}
+        className={`relative border border-dashed cursor-pointer transition-colors px-6 py-8 text-center ${
+          dragOver
+            ? "border-brass bg-brass/[0.06]"
+            : uploading
+              ? "border-white/20"
+              : "border-white/15 hover:border-brass/40 hover:bg-white/[0.02]"
+        }`}
+      >
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp,image/gif,image/avif"
+          multiple
+          onChange={onPickFiles}
+          disabled={uploading}
+          className="hidden"
         />
-        <button
-          type="button"
-          onClick={add}
-          disabled={parseUrls(newUrl).length === 0}
-          className="bg-brass text-midnight px-4 text-[10px] tracking-[0.2em] uppercase font-sans disabled:opacity-30 self-stretch"
-        >
-          Add
-        </button>
+
+        {uploading ? (
+          <div>
+            <p className="text-brass text-[12px] tracking-[0.2em] uppercase font-sans">
+              {progressLabel ?? "Uploading…"}
+            </p>
+            <div className="mt-3 w-32 h-px mx-auto bg-brass/30 overflow-hidden relative">
+              <div className="absolute inset-y-0 w-1/3 bg-brass animate-pulse" />
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="text-ivory text-[11px] tracking-[0.25em] uppercase font-sans">
+              Drop images here or click to choose
+            </p>
+            <p className="text-warm-gray/60 text-[10px] font-sans mt-2">
+              JPG · PNG · WEBP · GIF · AVIF — up to 25MB each — multiple files OK
+            </p>
+          </>
+        )}
       </div>
-      <p className="text-[10px] text-warm-gray/50 font-sans mt-2 leading-relaxed">
-        Upload files in the{" "}
-        <a
-          href="https://supabase.com/dashboard/project/rtdxmomppohpvyiewfyh/storage/buckets/product-images"
-          target="_blank"
-          rel="noreferrer"
-          className="text-brass/70 underline hover:text-brass"
-        >
-          Supabase Storage dashboard
-        </a>
-        , copy each public URL, paste above. The first image is the{" "}
-        <span className="text-brass/80">main photo</span>; click ★ on any other
-        to promote it. ← / → reorder. ✕ removes (does not delete from
-        Storage). Click a thumbnail to open it full-size.
+
+      {uploadError && (
+        <p className="text-red-400/80 text-[11px] font-sans mt-3 break-words">
+          {uploadError}
+        </p>
+      )}
+
+      <p className="text-[10px] text-warm-gray/50 font-sans mt-3 leading-relaxed">
+        Files upload directly to the Supabase{" "}
+        <code className="text-brass/70">product-images</code> bucket. The first
+        image is the <span className="text-brass/80">main photo</span>; click ★
+        on any other to promote it. ← / → reorder. ✕ removes from this product
+        (the file stays in the bucket).
       </p>
     </div>
   );

@@ -51,19 +51,31 @@ export default function ImageManager({ images, onChange }: Props) {
     // Upload sequentially so progress feels deterministic and we don't pile up
     // megabytes of concurrent requests against the dev server.
     for (let i = 0; i < files.length; i++) {
-      setProgressLabel(`Uploading ${i + 1} / ${files.length}… (${files[i].name})`);
+      const original = files[i];
+      // Strip non-ASCII / unsafe chars from the filename used in the multipart
+      // Content-Disposition header — some browsers refuse to send em-dashes,
+      // curly quotes, etc. The server invents its own object path anyway.
+      const safeName =
+        original.name
+          .normalize("NFKD")
+          .replace(/[^\x20-\x7E]/g, "")
+          .replace(/[^\w.\-]+/g, "_")
+          .replace(/_+/g, "_")
+          .replace(/^_+|_+$/g, "")
+          .slice(0, 120) || "upload.bin";
+      setProgressLabel(`Uploading ${i + 1} / ${files.length}… (${original.name})`);
       const form = new FormData();
-      form.append("files", files[i]);
+      form.append("files", original, safeName);
       try {
         const res = await fetch("/api/admin/upload", { method: "POST", body: form });
         const data = await res.json();
         if (!res.ok || !data.ok) {
-          errors.push(`${files[i].name}: ${data.error || res.statusText}`);
+          errors.push(`${original.name}: ${data.error || res.statusText}`);
           continue;
         }
         if (Array.isArray(data.urls)) uploaded.push(...data.urls);
       } catch (e) {
-        errors.push(`${files[i].name}: ${e instanceof Error ? e.message : "network error"}`);
+        errors.push(`${original.name}: ${e instanceof Error ? e.message : "network error"}`);
       }
     }
 

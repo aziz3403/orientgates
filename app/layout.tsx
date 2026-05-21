@@ -25,11 +25,11 @@ export const metadata: Metadata = {
     template: "%s | The Orient Gates",
   },
   description:
-    "A family legacy of over 150 years in rare antiques and handcrafted mother-of-pearl furniture. Islamic, European, and Asian antiques for collectors and designers worldwide. Trusted auction partner of Sotheby's and Christie's.",
+    "Four generations of the Harb family — Damascene artists since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare Islamic, European, and Asian antiques and handcrafted mother-of-pearl furniture, by appointment in Damascus, Beirut, Rome, and Brooklyn.",
   keywords: [
     "antiques", "mother-of-pearl furniture", "Islamic antiques", "European antiques",
     "luxury furniture", "Damascus furniture", "antique collector", "rare antiques",
-    "Sotheby's", "Christie's", "auction antiques", "custom furniture",
+    "Abou Sobhi Al-Tinawi", "Muhammad Harb", "Damascene art", "custom furniture",
   ],
   metadataBase: new URL("https://theorientgates.com"),
 };

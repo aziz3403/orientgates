@@ -4,13 +4,35 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import { useMousePosition } from "@/lib/hooks";
 
-const milestones = [
-  { year: "1870", title: "The Beginning", description: "The Orient Gates is founded in Damascus, rooted in generations of artisan heritage and a deep reverence for craftsmanship." },
-  { year: "1920", title: "Expanding Horizons", description: "The family begins collecting and trading European antiques alongside the Levantine tradition, bridging East and West." },
-  { year: "1960", title: "A New Generation", description: "The third generation takes the helm, establishing relationships with international collectors and institutions." },
-  { year: "1985", title: "The Gallery", description: "A dedicated showroom opens, presenting museum-quality pieces to a growing community of discerning collectors." },
-  { year: "2010", title: "Global Reach", description: "The Orient Gates expands its services globally, offering private sourcing, advisory, and white-glove delivery worldwide." },
-  { year: "Today", title: "A Living Legacy", description: "Five generations later, the family continues its mission: preserving extraordinary objects and connecting them with those who will treasure them." },
+const generations = [
+  {
+    era: "Late 19th c.",
+    name: "Muhammad Harb",
+    epithet: "Abou Sobhi Al-Tinawi",
+    description:
+      "Our great-grandfather. A folk painter and master of reverse-glass painting in Old Damascus, known across the Arab world by his artist name Abou Sobhi Al-Tinawi. His Antar and Abla cycles travelled from the souqs of Damascus into the collections of the Louvre, Paris — and most recently surfaced again in Sotheby's A Love Letter to Beirut: Arts and Culture 1960s–2020s (2024).",
+  },
+  {
+    era: "Early–Mid 20th c.",
+    name: "Tawfik Harb",
+    epithet: "The founder",
+    description:
+      "Our grandfather formalised the family practice into The Orient Gates. Operating from a workshop in the Bab Sharqi quarter, he carried the household of artists into a house of collectors and dealers — buying, restoring, and placing the rarest pieces of the Levantine tradition.",
+  },
+  {
+    era: "Late 20th c.",
+    name: "Fawaz Harb",
+    epithet: "The bridge",
+    description:
+      "Our father opened the house to the world. He brought European antiques alongside the Damascene tradition, built relationships with Sotheby's and major collectors abroad, and shipped the first pieces beyond the region.",
+  },
+  {
+    era: "Today",
+    name: "Aziz Harb",
+    epithet: "The fourth generation",
+    description:
+      "I (Aziz) carry the work now — same eye, same hands, same patience — with showrooms by appointment in Damascus, Beirut, Rome, and Brooklyn.",
+  },
 ];
 
 export default function HeritagePage() {
@@ -47,12 +69,12 @@ export default function HeritagePage() {
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">Our Heritage</span>
           </div>
           <h1 className="text-display-xl font-serif text-ivory mb-6">
-            A Legacy Written<br />
-            <span className="italic text-pearl/80">in Artistry</span>
+            Four Generations<br />
+            <span className="italic text-pearl/80">of the Harb Family</span>
           </h1>
           <p className="text-lg text-pearl/70 max-w-xl leading-relaxed">
-            Over 150 years of preserving the world&apos;s most extraordinary antiques
-            and the art of mother-of-pearl craftsmanship.
+            A Damascene family of artists and collectors — from the painter
+            Abou Sobhi Al-Tinawi to the house we carry today.
           </p>
         </div>
       </section>
@@ -65,11 +87,11 @@ export default function HeritagePage() {
               <div className="aspect-[3/4] overflow-hidden luxury-border">
                 <LuxuryImage
                   src="/images/heritage-family.jpg"
-                  alt="Family legacy"
+                  alt="The Harb family — four generations"
                   width={800}
                   height={1067}
                   className="w-full h-full"
-                  label="Family Legacy"
+                  label="The Harb Family"
                 />
               </div>
             </AnimateIn>
@@ -77,38 +99,41 @@ export default function HeritagePage() {
             <div className="flex flex-col justify-center">
               <AnimateIn>
                 <h2 className="text-display font-serif text-ivory mb-8">
-                  The Story of<br />The Orient Gates
+                  Born inside<br />
+                  <span className="italic text-pearl/80">a museum</span>
                 </h2>
               </AnimateIn>
 
               <AnimateIn delay={100}>
                 <p className="text-warm-gray leading-relaxed mb-6">
-                  The story of The Orient Gates begins in the ancient city of Damascus,
-                  where for centuries, master artisans transformed wood, shell, and
-                  precious metals into objects of transcendent beauty. Our family has
-                  been part of this tradition for over 150 years — first as craftsmen,
-                  then as collectors, and now as custodians of a remarkable legacy.
+                  The Orient Gates begins with a single artist. In late-19th-century
+                  Damascus, our great-grandfather Muhammad Harb — better known by
+                  his artist name <span className="text-ivory/85">Abou Sobhi Al-Tinawi</span> —
+                  painted the folk legends of the Arab world on glass and paper.
+                  His Antar and Abla cycles travelled from the souqs of Damascus to
+                  the Louvre in Paris, and resurfaced again in Sotheby&apos;s sale
+                  <em> A Love Letter to Beirut: Arts and Culture 1960s–2020s</em> in 2024.
                 </p>
               </AnimateIn>
 
               <AnimateIn delay={200}>
                 <p className="text-warm-gray leading-relaxed mb-6">
-                  Through five generations, we have preserved not just objects, but
-                  the knowledge, technique, and reverence that went into creating them.
-                  We have watched as many of the great workshops have closed, as
-                  traditions have faded, and as the world has moved ever faster. Yet
-                  we remain committed to the belief that some things are worth slowing
-                  down for.
+                  Four generations later, the same family still works from the same
+                  neighbourhood. We grew up inside one of the historic Damascene
+                  houses of Bab Sharqi — courtyard homes named by UNESCO as
+                  cultural heritage for their carved wood, coloured glass, and
+                  mother-of-pearl inlay. Living inside what is effectively a
+                  museum shaped everything we make and everything we choose.
                 </p>
               </AnimateIn>
 
               <AnimateIn delay={300}>
                 <p className="text-warm-gray leading-relaxed">
-                  Today, The Orient Gates serves collectors, interior designers,
-                  galleries, and institutions worldwide. Every piece we offer has been
-                  chosen with the same discerning eye that has guided our family for
-                  over a century — because we believe that truly extraordinary objects
-                  deserve to be found by those who will treasure them.
+                  My grandfather Tawfik built the practice into a house. My father
+                  Fawaz brought it abroad. I — Aziz — carry it now, with showrooms
+                  by appointment in Damascus, Beirut, Rome, and Brooklyn. The
+                  pieces we present have been chosen with the same eye that
+                  guided four generations before us.
                 </p>
               </AnimateIn>
             </div>
@@ -116,12 +141,12 @@ export default function HeritagePage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Four generations timeline */}
       <section className="py-section bg-charcoal">
         <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
           <AnimateIn className="text-center mb-20">
-            <span className="text-[11px] tracking-[0.35em] uppercase text-brass">Our Journey</span>
-            <h2 className="text-display font-serif text-ivory mt-4">Through the Years</h2>
+            <span className="text-[11px] tracking-[0.35em] uppercase text-brass">Our Lineage</span>
+            <h2 className="text-display font-serif text-ivory mt-4">Four Generations</h2>
           </AnimateIn>
 
           <div className="relative">
@@ -129,16 +154,17 @@ export default function HeritagePage() {
             <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-brass/20" />
 
             <div className="space-y-16">
-              {milestones.map((milestone, i) => (
-                <AnimateIn key={milestone.year} delay={i * 100}>
-                  <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8 ${i % 2 === 0 ? "" : "lg:direction-rtl"}`}>
+              {generations.map((g, i) => (
+                <AnimateIn key={g.name} delay={i * 100}>
+                  <div className={`relative grid grid-cols-1 lg:grid-cols-2 gap-8`}>
                     {/* Dot */}
                     <div className="absolute left-8 lg:left-1/2 top-0 -translate-x-1/2 w-4 h-4 rounded-full border-2 border-brass bg-charcoal z-10" />
 
                     <div className={`pl-20 lg:pl-0 ${i % 2 === 0 ? "lg:pr-20 lg:text-right" : "lg:col-start-2 lg:pl-20"}`}>
-                      <span className="text-3xl font-serif gold-text">{milestone.year}</span>
-                      <h3 className="text-xl font-serif text-ivory mt-2 mb-3">{milestone.title}</h3>
-                      <p className="text-sm text-warm-gray leading-relaxed">{milestone.description}</p>
+                      <span className="text-[12px] tracking-[0.3em] uppercase text-brass/70 font-sans">{g.era}</span>
+                      <h3 className="text-2xl font-serif text-ivory mt-3">{g.name}</h3>
+                      <p className="text-[13px] italic text-pearl/60 font-sans mt-1 mb-4">{g.epithet}</p>
+                      <p className="text-sm text-warm-gray leading-relaxed">{g.description}</p>
                     </div>
                   </div>
                 </AnimateIn>
@@ -158,9 +184,9 @@ export default function HeritagePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/5">
             {[
-              { title: "Authenticity", description: "Every piece we offer is examined with scholarly rigor. We stake our reputation on the authenticity and quality of every object in our collection." },
-              { title: "Preservation", description: "We are custodians of cultural heritage. Our conservation practices honour the original artistry while ensuring these treasures endure for future generations." },
-              { title: "Discretion", description: "We understand the nature of collecting at this level. Every inquiry is handled with absolute confidentiality and personal attention." },
+              { title: "Authenticity", description: "Every piece we offer is examined with scholarly rigor. We stake our family name on the authenticity of each object." },
+              { title: "Preservation", description: "We are custodians of cultural heritage. Our conservation honours the original artistry while ensuring these treasures endure." },
+              { title: "Discretion", description: "Every inquiry is handled with absolute confidentiality and the personal attention of the family directly." },
             ].map((value, i) => (
               <AnimateIn key={value.title} delay={i * 100}>
                 <div className="bg-midnight p-12 text-center group hover:bg-charcoal transition-colors duration-700">

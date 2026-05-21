@@ -29,10 +29,34 @@ export default function ContactPage() {
     message: "", confidentiality: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (submitting) return;
+    setSubmitError(null);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/inquiries/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || !data?.ok) {
+        throw new Error(data?.error || `Submission failed (${res.status}).`);
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "We couldn't send that just now. Please try WhatsApp or email."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -189,15 +213,30 @@ export default function ContactPage() {
                     </label>
 
                     {/* Submit */}
-                    <button type="submit"
-                      className="group relative inline-flex items-center gap-3 bg-brass text-midnight px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden hover:shadow-[0_0_40px_rgba(184,151,47,0.15)] transition-all duration-500"
-                    >
-                      <span className="relative z-10">Send Inquiry</span>
-                      <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="relative z-10 transition-transform duration-500 group-hover:translate-x-1">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
-                      </svg>
-                      <div className="absolute inset-0 bg-brass-light translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
-                    </button>
+                    <div className="space-y-4">
+                      {submitError && (
+                        <div className="border border-red-400/30 bg-red-500/[0.05] px-4 py-3 text-[12px] text-red-300/90 font-sans">
+                          {submitError}{" "}
+                          <span className="text-warm-gray/70">
+                            You can also reach us via WhatsApp or at{" "}
+                            <a href={`mailto:${contact.email}`} className="underline hover:text-brass">{contact.email}</a>.
+                          </span>
+                        </div>
+                      )}
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="group relative inline-flex items-center gap-3 bg-brass text-midnight px-10 py-5 text-[11px] tracking-[0.3em] uppercase font-sans overflow-hidden hover:shadow-[0_0_40px_rgba(184,151,47,0.15)] transition-all duration-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        <span className="relative z-10">
+                          {submitting ? "Sending…" : "Send Inquiry"}
+                        </span>
+                        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="relative z-10 transition-transform duration-500 group-hover:translate-x-1">
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" />
+                        </svg>
+                        <div className="absolute inset-0 bg-brass-light translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
+                      </button>
+                    </div>
                   </form>
                 )}
               </AnimateIn>

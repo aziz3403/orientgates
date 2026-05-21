@@ -1,0 +1,21 @@
+{
+  "name": "The Orient Gates",
+  "short_name": "Orient Gates",
+  "description": "Rare antiques and handcrafted mother-of-pearl furniture, by four generations of the Harb family.",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#0a0a0a",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "start_url": "/"
+}

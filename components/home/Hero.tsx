@@ -48,7 +48,7 @@ export default function Hero() {
               <rect x="1" y="1" width="6" height="6" transform="rotate(45 4 4)" stroke="rgba(184,151,47,0.5)" strokeWidth="0.5" fill="none" />
             </svg>
             <span className="text-[10px] tracking-[0.35em] uppercase text-brass/70 font-sans">
-              Est. 1870
+              Four Generations
             </span>
           </div>
 
@@ -74,8 +74,8 @@ export default function Hero() {
             style={{ transitionDelay: "1200ms" }}
           >
             <p className="text-[15px] lg:text-[17px] text-warm-gray/70 max-w-md leading-[1.9] font-sans">
-              Five generations of expertise in handcrafted furniture,
-              Islamic antiques, and museum-quality collector pieces.
+              Four generations of the Harb family — handcrafted Damascene
+              furniture, Islamic antiques, and museum-quality collector pieces.
             </p>
           </div>
 

@@ -51,9 +51,9 @@ export default function TrustSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
           {[
             {
-              number: "150+",
-              label: "Years of Expertise",
-              text: "Five generations of knowledge in authentication, sourcing, and master craftsmanship.",
+              number: "4",
+              label: "Generations of the Harb Family",
+              text: "Four generations of Damascene knowledge in authentication, sourcing, and master craftsmanship.",
             },
             {
               number: "1000+",

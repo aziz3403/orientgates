@@ -55,16 +55,16 @@ export default function HeritageStory() {
               <h2 className="text-[clamp(2.5rem,5vw,5rem)] font-serif text-ivory leading-[1.05] mb-10">
                 A Family Tradition
                 <br />
-                <span className="italic text-pearl/70">Since 1870</span>
+                <span className="italic text-pearl/70">Across Four Generations</span>
               </h2>
             </AnimateIn>
 
             <AnimateIn delay={200}>
               <p className="text-[14px] text-warm-gray/80 leading-[1.9] mb-6 font-sans max-w-xl">
-                For over 150 years, The Orient Gates has been a guardian of rare
-                antiques and the finest mother-of-pearl craftsmanship. Our story
-                begins in the ancient workshops of Damascus, where master artisans
-                transformed precious materials into objects of enduring beauty.
+                Across four generations, the Harb family has been a guardian of
+                rare antiques and the finest mother-of-pearl craftsmanship. Our
+                story begins in late-19th-century Damascus with the painter
+                Abou Sobhi Al-Tinawi, our great-grandfather Muhammad Harb.
               </p>
             </AnimateIn>
 

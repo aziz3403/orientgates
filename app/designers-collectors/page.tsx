@@ -126,8 +126,8 @@ export default function DesignersCollectorsPage() {
                 Whether you are building a world-class collection, sourcing a
                 centrepiece for a landmark project, or seeking a single object of
                 exceptional beauty — The Orient Gates offers a level of expertise,
-                access, and personal service that only 150 years of experience can
-                provide.
+                access, and personal service that only four generations of family
+                expertise can provide.
               </p>
               <p className="text-warm-gray leading-relaxed">
                 We understand that at this level, trust is everything. Our clients
@@ -213,7 +213,7 @@ export default function DesignersCollectorsPage() {
             </h2>
             <p className="text-warm-gray mb-10 leading-relaxed">
               Every great collection begins with a conversation. Tell us what you
-              are looking for, and let our 150 years of expertise work for you.
+              are looking for, and let our four generations of expertise work for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact" className="btn-luxury-gold">

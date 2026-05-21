@@ -136,7 +136,7 @@ export default function Navigation() {
             scrolled ? "h-0 opacity-0" : "h-7 opacity-100"
           }`}
         >
-          <span>Est. 1870 &mdash; Over 150 Years of Heritage in Rare Antiques & Mother-of-Pearl Artistry</span>
+          <span>Four Generations of Damascene Artistry &mdash; Rare Antiques & Mother-of-Pearl</span>
         </div>
 
         <div className="max-w-[1600px] mx-auto px-5 lg:px-12">

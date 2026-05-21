@@ -4,30 +4,41 @@ import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 
+// Five hand-photographed steps of the Damascene mother-of-pearl process.
+// The silver-thread step (drawing and bending fine silver wire as cell
+// dividers between the shell fragments) is a hallmark of the Levantine
+// tradition — sometimes called "tarsi'a" or simply "Damascene inlay" —
+// and is what distinguishes our pieces from pure marquetry work.
 const craftSteps = [
   {
     title: "Shell Selection",
     description:
-      "Each fragment of mother-of-pearl is carefully selected for its iridescence, thickness, and quality.",
-    image: "/images/craft-shell.jpg",
+      "Each fragment of mother-of-pearl is hand-picked from Red Sea and Persian Gulf shells. Only pieces with the deepest iridescence and uniform thickness earn a place in the pattern.",
+    image: "/images/craft/01-shell-selection.jpg",
   },
   {
     title: "Hand Carving",
     description:
-      "Master artisans carve intricate geometric patterns into walnut using traditional tools.",
-    image: "/images/craft-carving.jpg",
+      "The walnut blank is carved by hand using traditional chisels — each channel etched to the precise depth of the inlay that will fill it. A single panel can take weeks of patient work.",
+    image: "/images/craft/02-wood-carving.jpg",
   },
   {
-    title: "Inlay Setting",
+    title: "Silver Threading",
     description:
-      "Thousands of individual shell fragments are precisely cut and set into carved channels.",
-    image: "/images/craft-inlay.jpg",
+      "Fine silver wire is drawn through pliers and bent by hand into the carved channels. These metallic threads frame every shell cell and catch light at angles the pearl cannot — a hallmark of the Damascene tradition.",
+    image: "/images/craft/03-silver-thread.jpg",
+  },
+  {
+    title: "Shell Inlay",
+    description:
+      "Each fragment is cut, fitted, and set with tweezers into its allotted cell. Thousands of pieces per panel — every contour matched to its neighbour with no margin for error.",
+    image: "/images/craft/04-shell-inlay.jpg",
   },
   {
     title: "Polishing",
     description:
-      "Multiple stages of hand polishing reveal the natural luminescence of the shell.",
-    image: "/images/craft-polish.jpg",
+      "Successive stages of hand polishing — from coarse to mirror-smooth — reveal the iridescence beneath. The finished surface is alive: every shift of light brings a different colour forward.",
+    image: "/images/craft/05-polishing.jpg",
   },
 ];
 
@@ -57,31 +68,32 @@ export default function CraftsmanshipPreview() {
           <div className="lg:col-span-6 flex items-end">
             <AnimateIn delay={200}>
               <p className="text-[14px] text-warm-gray/80 leading-[1.9] font-sans max-w-md">
-                Every piece is the result of techniques refined over centuries. From shell
-                selection to final polish, the process is an act of devotion to beauty.
+                Every piece is the result of techniques refined over centuries —
+                shell, walnut, and silver brought together in five exacting
+                stages, every one performed by hand.
               </p>
             </AnimateIn>
           </div>
         </div>
 
-        {/* Craft steps — editorial cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
+        {/* Craft steps — 5-column editorial process row on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4">
           {craftSteps.map((step, i) => (
             <AnimateIn key={step.title} delay={200 + i * 120}>
               <div className="group relative">
                 {/* Image */}
-                <div className="aspect-[3/4] overflow-hidden border border-white/[0.04] group-hover:border-brass/15 transition-all duration-700 mb-8">
+                <div className="relative aspect-[3/4] overflow-hidden border border-white/[0.04] group-hover:border-brass/15 transition-all duration-700 mb-8">
                   <LuxuryImage
                     src={step.image}
                     alt={step.title}
-                    width={400}
-                    height={533}
+                    width={600}
+                    height={800}
                     className="w-full h-full transition-transform duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.06]"
                     label={step.title}
                   />
                   {/* Step number overlay */}
-                  <div className="absolute top-6 left-6">
-                    <span className="text-[60px] font-serif gold-text opacity-20 leading-none">
+                  <div className="absolute top-5 left-5">
+                    <span className="text-[52px] font-serif gold-text opacity-25 leading-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                   </div>
@@ -91,7 +103,7 @@ export default function CraftsmanshipPreview() {
                 <h3 className="text-lg font-serif text-ivory mb-3 group-hover:text-brass transition-colors duration-500">
                   {step.title}
                 </h3>
-                <p className="text-[14px] text-warm-gray/80 leading-relaxed font-sans">
+                <p className="text-[13px] text-warm-gray/80 leading-relaxed font-sans">
                   {step.description}
                 </p>
               </div>

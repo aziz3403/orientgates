@@ -270,6 +270,15 @@ export default function AdminPage() {
             >
               + Add Product
             </button>
+            <a
+              href="/admin/inquiries"
+              className="border border-white/15 text-ivory/80 px-5 py-2 text-[10px] tracking-[0.2em] uppercase font-sans hover:border-brass/30 inline-flex items-center gap-2"
+            >
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M2 4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4z M2 4l6 4 6-4" stroke="currentColor" strokeWidth="1" />
+              </svg>
+              Inquiries
+            </a>
             <button
               onClick={fetchProducts}
               disabled={loading}

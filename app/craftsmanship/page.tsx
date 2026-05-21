@@ -8,39 +8,45 @@ import { useMousePosition } from "@/lib/hooks";
 const processes = [
   {
     title: "Design & Drawing",
-    description: "Every piece begins with a master drawing (rasmi). Using compasses, rulers, and centuries-old mathematical principles, the artisan creates intricate geometric and floral patterns on paper that will guide every cut and placement.",
-    detail: "The designs draw on the rich vocabulary of Islamic geometric art — star patterns, arabesques, and interlacing forms that have been refined over a thousand years of artistic tradition.",
-    image: "/images/craft-design.jpg",
+    description: "Every piece begins with a master drawing — the rasmi. Using brass compasses, straight-edges, and centuries-old mathematical principles, the artisan composes the intricate geometric pattern on paper that will guide every cut, every channel, every placement that follows.",
+    detail: "The designs draw on the rich vocabulary of Islamic geometric art — six-, eight-, and twelve-pointed star polygons, arabesques, and interlacing forms — refined across more than a thousand years of Levantine and wider Islamic tradition.",
+    image: "/images/craft-process/01-design-drawing.jpg",
   },
   {
     title: "Wood Preparation",
-    description: "Only the finest aged walnut and hardwoods are selected for their grain, density, and stability. The wood is seasoned naturally over years, then carefully shaped and joined using traditional joinery methods that require no nails or screws.",
-    detail: "The choice of wood is crucial — it must be stable enough to hold thousands of tiny inlay pieces securely for centuries, while being workable enough to carve the intricate channels that receive them.",
-    image: "/images/craft-wood.jpg",
+    description: "Only properly aged walnut is selected for its grain, density, and stability. The wood is seasoned naturally over years, then shaped and joined using traditional mortise-and-tenon joinery — no nails, no screws.",
+    detail: "Stability is everything. The substrate must hold thousands of tiny inlay pieces securely for centuries, while remaining workable enough to take the razor-thin channels that will receive them.",
+    image: "/images/craft-process/02-wood-preparation.jpg",
   },
   {
     title: "Shell Cutting",
-    description: "Mother-of-pearl shells are hand-selected for their iridescence and quality. Using fine saws and files, artisans cut each piece of shell individually — shaping thousands of tiny fragments that will form the inlay pattern.",
-    detail: "A single cabinet may require over 15,000 individual pieces of shell, each cut to precise dimensions. The artisan must account for the natural variations in shell thickness and colour to create a harmonious whole.",
-    image: "/images/craft-cutting.jpg",
+    description: "Mother-of-pearl shells from the Red Sea and Persian Gulf are hand-selected for their iridescence, thickness, and structural integrity. Using a jeweller's bow saw, the artisan cuts each fragment by eye — shaping thousands of pieces that will form the pattern.",
+    detail: "A single cabinet may require over 15,000 individual pieces of shell, each cut to fit a specific cell. The artisan accounts for variations in shell thickness and colour to keep the finished surface harmonious.",
+    image: "/images/craft-process/03-shell-cutting.jpg",
   },
   {
     title: "Carving & Channel Work",
-    description: "Using chisels and gouges, the artisan carves precise channels into the wood surface. Each channel must be exactly the right depth and width to receive its corresponding piece of shell — a tolerance measured in fractions of a millimetre.",
-    detail: "This is perhaps the most demanding stage, requiring absolute steadiness of hand and an understanding of how wood and shell will interact over time as they expand and contract with changes in temperature and humidity.",
-    image: "/images/craft-channels.jpg",
+    description: "Using fine chisels and gouges, the artisan incises precise channels into the walnut. Each channel must be exactly the right depth and width to receive its corresponding piece of shell — a tolerance measured in fractions of a millimetre.",
+    detail: "This is perhaps the most demanding stage. It requires absolute steadiness of hand and an intuitive understanding of how wood and shell will move together over decades as they expand and contract with the seasons.",
+    image: "/images/craft-process/04-carving-channels.jpg",
+  },
+  {
+    title: "Silver Wire Lining",
+    description: "Thin silver wire is drawn through small jewellery pliers and bent, by hand, into the carved channels — defining the outline of every cell in the geometric pattern before any shell is set. This is what distinguishes the Damascene tradition from European marquetry.",
+    detail: "The metal threads do two things at once: they lock the design's structure into the wood, and they catch light at angles the pearl cannot. The finished surface has two distinct kinds of shimmer playing against the dark walnut.",
+    image: "/images/craft-process/05-silver-wire-lining.jpg",
   },
   {
     title: "Inlay Setting",
-    description: "Each shell fragment is set into its channel using traditional adhesives and pressed firmly into place. The artisan works section by section, building up the pattern gradually — checking alignment, fit, and visual harmony at every stage.",
-    detail: "The setting process alone may take weeks or months for a major piece. Each fragment must sit perfectly flush with its neighbours and with the wood surface, creating a seamless expanse of pattern.",
-    image: "/images/craft-setting.jpg",
+    description: "Each shell fragment is fitted into its silver-bordered cell with tweezers and a fine push tool, set with a traditional adhesive, and pressed flush with the surface. The artisan works section by section, checking alignment and visual harmony at every stage.",
+    detail: "Setting alone may take weeks or months for a major piece. Every fragment must sit perfectly level with its neighbours and with the wood, creating a single seamless expanse of pattern.",
+    image: "/images/craft-process/06-inlay-setting.jpg",
   },
   {
     title: "Polishing & Finishing",
-    description: "Multiple rounds of hand sanding and polishing bring the surface to a glass-like smoothness. The natural wax finish allows the mother-of-pearl to catch and refract light, creating the ethereal glow that makes these pieces so extraordinary.",
-    detail: "The final polish is what transforms the piece from remarkable to magical. As light plays across the surface, each shell fragment catches it differently, creating an ever-shifting display of soft iridescence.",
-    image: "/images/craft-finishing.jpg",
+    description: "Successive rounds of hand sanding — from coarse to mirror-smooth — bring the surface to a glass-like finish. A natural wax dressing allows the mother-of-pearl to catch and refract light, producing the ethereal iridescence the work is known for.",
+    detail: "The final polish is what transforms the piece from remarkable to alive. As light moves across the surface, each shell fragment, each silver thread, each grain in the walnut catches it differently — a slow, ever-shifting display.",
+    image: "/images/craft-process/07-polishing-finishing.jpg",
   },
 ];
 
@@ -110,12 +116,12 @@ export default function CraftsmanshipPage() {
                 {/* Image */}
                 <AnimateIn direction={i % 2 === 0 ? "left" : "right"} className={i % 2 === 1 ? "lg:order-2" : ""}>
                   <div className="relative">
-                    <div className="aspect-[4/3] overflow-hidden luxury-border">
+                    <div className="aspect-[3/4] overflow-hidden luxury-border max-w-[480px] mx-auto lg:mx-0">
                       <LuxuryImage
                         src={process.image}
                         alt={process.title}
-                        width={800}
-                        height={600}
+                        width={900}
+                        height={1200}
                         className="w-full h-full"
                         label={process.title}
                       />

@@ -15,7 +15,10 @@ const navLinks = [
     children: [
       { href: "/mother-of-pearl-furniture/mop-mirrors", label: "Mirrors & Wall Decor" },
       { href: "/mother-of-pearl-furniture/mop-tables", label: "Tables" },
+      { href: "/mother-of-pearl-furniture/mop-seating", label: "Seating" },
       { href: "/mother-of-pearl-furniture/mop-consoles-cabinets", label: "Consoles & Cabinets" },
+      { href: "/mother-of-pearl-furniture/mop-chest-of-drawers", label: "Chest of Drawers" },
+      { href: "/mother-of-pearl-furniture/mop-accessories", label: "Accessories" },
       { href: "/mother-of-pearl-furniture/mop-game-tables", label: "Game Tables" },
     ],
   },

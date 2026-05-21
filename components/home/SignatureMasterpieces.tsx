@@ -1,13 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useProducts, productMatchers } from "@/lib/products-client";
+import { useProducts, sortNewest } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 
 export default function SignatureMasterpieces() {
-  const { products, loading } = useProducts(productMatchers.featured);
-  const featured = products.slice(0, 4);
+  // Fetch everything, then prefer featured. If none are marked featured (or
+  // not enough), fall back to the newest pieces that actually have a photo.
+  const { products, loading } = useProducts();
+  const withImages = products.filter((p) => p.images && p.images.length > 0);
+  const featured = withImages.filter((p) => p.featured);
+  const candidates = featured.length >= 4 ? featured : [...featured, ...withImages.filter((p) => !p.featured)];
+  const display = sortNewest(candidates).slice(0, 4);
 
   return (
     <section className="relative py-section bg-charcoal overflow-hidden">
@@ -43,7 +48,7 @@ export default function SignatureMasterpieces() {
           <div className="lg:col-span-4 flex items-end justify-end">
             <AnimateIn delay={200}>
               <Link
-                href="/collection/mother-of-pearl"
+                href="/mother-of-pearl-furniture"
                 className="group inline-flex items-center gap-3 text-[10px] tracking-[0.3em] uppercase text-warm-gray/80 hover:text-brass font-sans transition-colors duration-500"
               >
                 <span>View All Pieces</span>
@@ -62,11 +67,13 @@ export default function SignatureMasterpieces() {
         </div>
 
         {/* Masterpiece grid — editorial alternating layout */}
-        {loading && featured.length === 0 ? (
+        {loading && display.length === 0 ? (
           <p className="text-warm-gray/60 text-sm font-sans">Loading featured pieces…</p>
+        ) : display.length === 0 ? (
+          <p className="text-warm-gray/60 text-sm font-sans">No pieces available yet.</p>
         ) : (
           <div className="space-y-28 lg:space-y-40">
-            {featured.map((product, i) => {
+            {display.map((product, i) => {
               const isEven = i % 2 === 0;
               return (
                 <AnimateIn key={product.id}>
@@ -91,11 +98,13 @@ export default function SignatureMasterpieces() {
                         </div>
 
                         {/* Period tag */}
-                        <div className="absolute -bottom-4 left-8 bg-midnight px-5 py-2 border border-brass/15">
-                          <span className="text-[9px] tracking-[0.4em] uppercase text-brass/70 font-sans">
-                            {product.period}
-                          </span>
-                        </div>
+                        {product.period && (
+                          <div className="absolute -bottom-4 left-8 bg-midnight px-5 py-2 border border-brass/15">
+                            <span className="text-[9px] tracking-[0.4em] uppercase text-brass/70 font-sans">
+                              {product.period}
+                            </span>
+                          </div>
+                        )}
 
                         {/* Index number */}
                         <div
@@ -117,33 +126,39 @@ export default function SignatureMasterpieces() {
                             : "lg:col-start-1 lg:col-span-5 lg:row-start-1"
                         } flex flex-col justify-center`}
                       >
-                        <div className="flex items-center gap-3 mb-5">
-                          <div className="w-6 h-px bg-brass/30" />
-                          <span className="text-[9px] tracking-[0.4em] uppercase text-brass/60 font-sans">
-                            {product.origin}
-                          </span>
-                        </div>
+                        {product.origin && (
+                          <div className="flex items-center gap-3 mb-5">
+                            <div className="w-6 h-px bg-brass/30" />
+                            <span className="text-[9px] tracking-[0.4em] uppercase text-brass/60 font-sans">
+                              {product.origin}
+                            </span>
+                          </div>
+                        )}
 
                         <h3 className="text-2xl lg:text-3xl font-serif text-ivory leading-[1.1] mb-5 group-hover:text-pearl transition-colors duration-500">
                           {product.title}
                         </h3>
 
-                        <p className="text-[13px] text-warm-gray/80 leading-[1.8] mb-6 line-clamp-3 font-sans">
-                          {product.description}
-                        </p>
+                        {product.description && (
+                          <p className="text-[13px] text-warm-gray/80 leading-[1.8] mb-6 line-clamp-3 font-sans">
+                            {product.description}
+                          </p>
+                        )}
 
-                        <div className="flex items-center gap-4 mb-8 text-[11px] text-pearl/60 font-sans">
-                          {product.materials.slice(0, 3).map((m, mi) => (
-                            <span key={m} className="flex items-center gap-4">
-                              {mi > 0 && <span className="w-1 h-1 rounded-full bg-brass/20 -ml-2" />}
-                              {m}
-                            </span>
-                          ))}
-                        </div>
+                        {product.materials && product.materials.length > 0 && (
+                          <div className="flex items-center gap-4 mb-8 text-[11px] text-pearl/60 font-sans">
+                            {product.materials.slice(0, 3).map((m, mi) => (
+                              <span key={m} className="flex items-center gap-4">
+                                {mi > 0 && <span className="w-1 h-1 rounded-full bg-brass/20 -ml-2" />}
+                                {m}
+                              </span>
+                            ))}
+                          </div>
+                        )}
 
                         <div className="flex items-center justify-between">
                           <span className="text-[15px] font-serif italic text-ivory/80">
-                            {product.price || "Price on Request"}
+                            {product.priceDisplay || "Price on Request"}
                           </span>
                           <span className="inline-flex items-center gap-2 text-[10px] tracking-[0.2em] uppercase text-brass/60 opacity-0 group-hover:opacity-100 transition-all duration-500 font-sans">
                             View Details

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import Logo from "@/components/Logo";
+import { contact } from "@/lib/locations";
 import { useRef, useState, useEffect } from "react";
 
 export default function InquiryCTA() {
@@ -101,17 +102,28 @@ export default function InquiryCTA() {
 
         <AnimateIn delay={500}>
           <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <Link
+              href="/contact"
+              className="hover:text-brass transition-colors duration-500"
+            >
               WhatsApp
-            </span>
+            </Link>
             <span className="w-px h-3 bg-white/10" />
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <a
+              href={contact.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brass transition-colors duration-500"
+            >
               Instagram
-            </span>
+            </a>
             <span className="w-px h-3 bg-white/10" />
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <a
+              href={`mailto:${contact.email}`}
+              className="hover:text-brass transition-colors duration-500"
+            >
               Email
-            </span>
+            </a>
           </div>
         </AnimateIn>
       </div>

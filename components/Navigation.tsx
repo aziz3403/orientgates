@@ -5,6 +5,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
+import { contact } from "@/lib/locations";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -376,9 +377,27 @@ export default function Navigation() {
           >
             <div className="w-12 h-px bg-brass/20 mx-auto mb-6" />
             <div className="flex items-center justify-center gap-8 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
-              <span className="hover:text-brass transition-colors cursor-pointer">WhatsApp</span>
-              <span className="hover:text-brass transition-colors cursor-pointer">Instagram</span>
-              <span className="hover:text-brass transition-colors cursor-pointer">Email</span>
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="hover:text-brass transition-colors"
+              >
+                WhatsApp
+              </Link>
+              <a
+                href={contact.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-brass transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href={`mailto:${contact.email}`}
+                className="hover:text-brass transition-colors"
+              >
+                Email
+              </a>
             </div>
           </div>
         </div>

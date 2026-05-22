@@ -87,7 +87,7 @@ export default function Hero() {
             style={{ transitionDelay: "1600ms" }}
           >
             <Link
-              href="/mother-of-pearl"
+              href="/mother-of-pearl-furniture"
               className="group inline-flex items-center gap-4 text-[11px] tracking-[0.25em] uppercase text-ivory/70 font-sans transition-all duration-500 hover:text-ivory"
             >
               <span>Explore the Collection</span>

@@ -3,7 +3,9 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import Logo from "@/components/Logo";
-import { contact } from "@/lib/locations";
+import { contact, locations, waLink } from "@/lib/locations";
+
+const newYorkWa = locations.find((l) => l.city === "New York")!.whatsapp;
 import { useRef, useState, useEffect } from "react";
 
 export default function InquiryCTA() {
@@ -102,12 +104,14 @@ export default function InquiryCTA() {
 
         <AnimateIn delay={500}>
           <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
-            <Link
-              href="/contact"
+            <a
+              href={waLink(newYorkWa)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-brass transition-colors duration-500"
             >
               WhatsApp
-            </Link>
+            </a>
             <span className="w-px h-3 bg-white/10" />
             <a
               href={contact.instagramUrl}

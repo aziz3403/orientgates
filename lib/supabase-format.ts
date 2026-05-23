@@ -21,6 +21,7 @@ export interface SupabaseProduct {
   price: number | null;
   price_display: string;
   availability: string;
+  quantity: number | null;
   period: string;
   origin: string;
   materials: string[];
@@ -68,6 +69,7 @@ export function fromSupabase(row: SupabaseProduct): Product {
     price: row.price,
     priceDisplay: row.price_display,
     availability: (row.availability as Product["availability"]) ?? "available",
+    quantity: row.quantity ?? undefined,
     period: row.period ?? "",
     origin: row.origin ?? "",
     materials: row.materials ?? [],
@@ -111,6 +113,7 @@ export function toSupabase(p: Product): SupabaseProduct {
     price: p.price,
     price_display: p.priceDisplay,
     availability: p.availability,
+    quantity: p.quantity ?? null,
     period: p.period ?? "",
     origin: p.origin ?? "",
     materials: p.materials ?? [],

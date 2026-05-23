@@ -32,17 +32,17 @@ export default function InquiryCTA() {
       className="relative py-section overflow-hidden bg-midnight"
     >
       {/* Islamic star pattern */}
-      <div className="absolute inset-0 pattern-stars" />
+      <div className="absolute inset-0 pattern-stars pointer-events-none" />
       {/* Animated background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: `radial-gradient(800px ellipse at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(44,24,16,0.4), transparent 60%)`,
         }}
       />
 
       {/* Geometric accent */}
-      <div className="absolute inset-0 opacity-[0.01]">
+      <div className="absolute inset-0 opacity-[0.01] pointer-events-none">
         <div
           className="w-full h-full"
           style={{
@@ -53,7 +53,7 @@ export default function InquiryCTA() {
       </div>
 
       {/* Centered logo watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none">
         <Logo size={500} />
       </div>
 

@@ -7,7 +7,7 @@ export default function TrustSection() {
   return (
     <section className="relative py-section bg-midnight overflow-hidden">
       {/* Zellige tile pattern background */}
-      <div className="absolute inset-0 pattern-zellige" />
+      <div className="absolute inset-0 pattern-zellige pointer-events-none" />
       <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
         {/* Editorial quote layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24 mb-section">

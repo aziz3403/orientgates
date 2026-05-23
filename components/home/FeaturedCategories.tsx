@@ -134,7 +134,7 @@ export default function FeaturedCategories() {
   return (
     <section className="relative py-section bg-midnight overflow-hidden">
       {/* Subtle star pattern background */}
-      <div className="absolute inset-0 pattern-stars" />
+      <div className="absolute inset-0 pattern-stars pointer-events-none" />
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         <div className="mb-20 lg:mb-28">
           <AnimateIn>

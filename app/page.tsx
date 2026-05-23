@@ -5,6 +5,7 @@ import HeritageStory from "@/components/home/HeritageStory";
 import CraftsmanshipPreview from "@/components/home/CraftsmanshipPreview";
 import TrustSection from "@/components/home/TrustSection";
 import InquiryCTA from "@/components/home/InquiryCTA";
+import CuratorsLetter from "@/components/home/CuratorsLetter";
 import ArabesqueDivider from "@/components/ui/ArabescqueDivider";
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <ArabesqueDivider />
       <TrustSection />
       <InquiryCTA />
+      <CuratorsLetter />
     </>
   );
 }

@@ -271,6 +271,15 @@ export default function AdminPage() {
               + Add Product
             </button>
             <a
+              href="/admin/bulk-import"
+              className="border border-brass/30 text-brass px-5 py-2 text-[10px] tracking-[0.2em] uppercase font-sans hover:bg-brass/[0.06] inline-flex items-center gap-2"
+            >
+              <svg width="12" height="12" viewBox="0 0 16 16" fill="none">
+                <path d="M3 13h10M8 3v8m0 0l-3-3m3 3l3-3" stroke="currentColor" strokeWidth="1.2" />
+              </svg>
+              Bulk Import
+            </a>
+            <a
               href="/admin/inquiries"
               className="border border-white/15 text-ivory/80 px-5 py-2 text-[10px] tracking-[0.2em] uppercase font-sans hover:border-brass/30 inline-flex items-center gap-2"
             >

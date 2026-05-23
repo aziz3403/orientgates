@@ -18,7 +18,7 @@ export default function SignatureMasterpieces() {
     <section className="relative py-section bg-charcoal overflow-hidden">
       {/* Subtle diagonal lines */}
       <div
-        className="absolute inset-0 opacity-[0.008]"
+        className="absolute inset-0 opacity-[0.008] pointer-events-none"
         style={{
           backgroundImage:
             "repeating-linear-gradient(135deg, transparent, transparent 100px, rgba(184,151,47,0.5) 100px, rgba(184,151,47,0.5) 101px)",

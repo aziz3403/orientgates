@@ -9,9 +9,9 @@ export default function HeritageStory() {
   return (
     <section className="relative py-section bg-midnight overflow-hidden">
       {/* Arabesque pattern background */}
-      <div className="absolute inset-0 pattern-arabesque" />
+      <div className="absolute inset-0 pattern-arabesque pointer-events-none" />
       {/* Background watermark */}
-      <div className="absolute left-[-10%] top-1/2 -translate-y-1/2 opacity-[0.015]">
+      <div className="absolute left-[-10%] top-1/2 -translate-y-1/2 opacity-[0.015] pointer-events-none">
         <Logo size={600} />
       </div>
 

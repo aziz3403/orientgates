@@ -3,6 +3,9 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import Logo from "@/components/Logo";
+import { contact, locations, waLink } from "@/lib/locations";
+
+const newYorkWa = locations.find((l) => l.city === "New York")!.whatsapp;
 import { useRef, useState, useEffect } from "react";
 
 export default function InquiryCTA() {
@@ -29,17 +32,17 @@ export default function InquiryCTA() {
       className="relative py-section overflow-hidden bg-midnight"
     >
       {/* Islamic star pattern */}
-      <div className="absolute inset-0 pattern-stars" />
+      <div className="absolute inset-0 pattern-stars pointer-events-none" />
       {/* Animated background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: `radial-gradient(800px ellipse at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(44,24,16,0.4), transparent 60%)`,
         }}
       />
 
       {/* Geometric accent */}
-      <div className="absolute inset-0 opacity-[0.01]">
+      <div className="absolute inset-0 opacity-[0.01] pointer-events-none">
         <div
           className="w-full h-full"
           style={{
@@ -50,7 +53,7 @@ export default function InquiryCTA() {
       </div>
 
       {/* Centered logo watermark */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02]">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.02] pointer-events-none">
         <Logo size={500} />
       </div>
 
@@ -101,17 +104,30 @@ export default function InquiryCTA() {
 
         <AnimateIn delay={500}>
           <div className="flex justify-center items-center gap-10 mt-14 text-[9px] tracking-[0.3em] uppercase text-warm-gray/80 font-sans">
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <a
+              href={waLink(newYorkWa)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brass transition-colors duration-500"
+            >
               WhatsApp
-            </span>
+            </a>
             <span className="w-px h-3 bg-white/10" />
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <a
+              href={contact.instagramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-brass transition-colors duration-500"
+            >
               Instagram
-            </span>
+            </a>
             <span className="w-px h-3 bg-white/10" />
-            <span className="hover:text-brass transition-colors duration-500 cursor-pointer">
+            <a
+              href={`mailto:${contact.email}`}
+              className="hover:text-brass transition-colors duration-500"
+            >
               Email
-            </span>
+            </a>
           </div>
         </AnimateIn>
       </div>

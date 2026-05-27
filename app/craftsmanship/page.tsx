@@ -108,57 +108,68 @@ export default function CraftsmanshipPage() {
       </section>
 
       {/* Process steps */}
-      <section className="bg-charcoal">
-        {processes.map((process, i) => (
-          <div key={process.title} className="border-b border-white/5 last:border-b-0">
-            <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-section">
-              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center ${i % 2 === 1 ? "" : ""}`}>
-                {/* Image */}
-                <AnimateIn direction={i % 2 === 0 ? "left" : "right"} className={i % 2 === 1 ? "lg:order-2" : ""}>
-                  <div className="relative">
-                    <div className="aspect-[3/4] overflow-hidden luxury-border max-w-[480px] mx-auto lg:mx-0">
-                      <LuxuryImage
-                        src={process.image}
-                        alt={process.title}
-                        width={900}
-                        height={1200}
-                        className="w-full h-full"
-                        label={process.title}
-                      />
-                    </div>
-                    {/* Step number */}
-                    <div className="absolute -top-6 -left-3 lg:left-8">
-                      <span className="text-7xl font-serif gold-text opacity-20">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </div>
-                  </div>
-                </AnimateIn>
+      <section className="relative bg-charcoal overflow-hidden">
+        {/* Mother-of-pearl nacre texture behind the steps. Fixed so it sits
+            quietly while the steps scroll over it. Degrades to plain charcoal
+            if the asset is missing. */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 pointer-events-none"
+          style={{ backgroundImage: "url('/images/craft-bg-nacre.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/75 via-midnight/55 to-midnight/75 pointer-events-none" />
 
-                {/* Text */}
-                <div className={i % 2 === 1 ? "lg:order-1" : ""}>
-                  <AnimateIn>
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="w-8 h-px bg-brass" />
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-brass">
-                        Step {i + 1}
-                      </span>
+        <div className="relative">
+          {processes.map((process, i) => (
+            <div key={process.title} className="border-b border-white/5 last:border-b-0">
+              <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-section">
+                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center ${i % 2 === 1 ? "" : ""}`}>
+                  {/* Image */}
+                  <AnimateIn direction={i % 2 === 0 ? "left" : "right"} className={i % 2 === 1 ? "lg:order-2" : ""}>
+                    <div className="relative">
+                      <div className="aspect-[3/4] overflow-hidden luxury-border max-w-[480px] mx-auto lg:mx-0">
+                        <LuxuryImage
+                          src={process.image}
+                          alt={process.title}
+                          width={900}
+                          height={1200}
+                          className="w-full h-full"
+                          label={process.title}
+                        />
+                      </div>
+                      {/* Step number */}
+                      <div className="absolute -top-6 -left-3 lg:left-8">
+                        <span className="text-7xl font-serif gold-text opacity-20">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+                      </div>
                     </div>
-                    <h2 className="text-heading font-serif text-ivory mb-6">
-                      {process.title}
-                    </h2>
-                    <p className="text-warm-gray leading-relaxed mb-6">
-                      {process.description}
-                    </p>
-                    <p className="text-sm text-pearl/70 leading-relaxed italic">
-                      {process.detail}
-                    </p>
                   </AnimateIn>
+
+                  {/* Text */}
+                  <div className={i % 2 === 1 ? "lg:order-1" : ""}>
+                    <AnimateIn>
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-px bg-brass" />
+                        <span className="text-[10px] tracking-[0.3em] uppercase text-brass">
+                          Step {i + 1}
+                        </span>
+                      </div>
+                      <h2 className="text-heading font-serif text-ivory mb-6">
+                        {process.title}
+                      </h2>
+                      <p className="text-warm-gray leading-relaxed mb-6">
+                        {process.description}
+                      </p>
+                      <p className="text-sm text-pearl/70 leading-relaxed italic">
+                        {process.detail}
+                      </p>
+                    </AnimateIn>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </section>
 
       {/* Preservation section */}

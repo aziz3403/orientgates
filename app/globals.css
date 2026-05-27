@@ -228,4 +228,45 @@ body {
   .luxury-divider-short {
     @apply w-24 h-px bg-brass/40;
   }
+
+  /* ── Advisory-page depth: very slow, subtle texture motion ── */
+  @keyframes nacre-drift {
+    0%   { transform: scale(1.06) translate3d(0, 0, 0); }
+    50%  { transform: scale(1.12) translate3d(-1.5%, -1%, 0); }
+    100% { transform: scale(1.06) translate3d(0, 0, 0); }
+  }
+  .animate-nacre-drift {
+    animation: nacre-drift 42s ease-in-out infinite;
+  }
+
+  @keyframes medallion-spin {
+    0%   { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .animate-medallion {
+    animation: medallion-spin 320s linear infinite;
+  }
+
+  /* Service cards — subtle lift + gold glow on hover */
+  .service-card {
+    border: 1px solid rgba(184, 151, 47, 0.12);
+    background: rgba(10, 10, 10, 0.35);
+    transition: border-color 0.6s ease, box-shadow 0.6s ease,
+      transform 0.6s ease, background-color 0.6s ease;
+  }
+  .service-card:hover {
+    border-color: rgba(184, 151, 47, 0.45);
+    background: rgba(26, 26, 26, 0.55);
+    transform: translateY(-4px);
+    box-shadow: 0 18px 50px -20px rgba(184, 151, 47, 0.22),
+      0 0 0 1px rgba(184, 151, 47, 0.06) inset;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-nacre-drift,
+    .animate-medallion,
+    .animate-scroll-down {
+      animation: none !important;
+    }
+  }
 }

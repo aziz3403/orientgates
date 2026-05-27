@@ -3,7 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
-import NacreBackdrop from "@/components/ui/NacreBackdrop";
+import Medallion from "@/components/ui/Medallion";
 import { useMousePosition } from "@/lib/hooks";
 
 const services = [
@@ -20,7 +20,7 @@ const services = [
   },
   {
     title: "Bespoke Sourcing",
-    description: "Looking for a specific piece or a particular type of object? Our network spans the world&apos;s leading auction houses, private collections, and estate sales. We source the extraordinary.",
+    description: "Looking for a specific piece or a particular type of object? Our network spans the world's leading auction houses, private collections, and estate sales. We source the extraordinary.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="0.8">
         <circle cx="18" cy="18" r="12" />
@@ -91,12 +91,14 @@ export default function DesignersCollectorsPage() {
             alt="Luxury interior with antiques"
             width={1920}
             height={1080}
-            className="w-full h-full"
+            className="w-full h-full object-right"
             label="For Designers & Collectors"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-midnight/30" />
+        {/* Dark negative space on the left for the headline; interior reads on the right. */}
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight via-midnight/80 to-midnight/15" />
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/30" />
 
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 pb-16 w-full">
           <div className="flex items-center gap-4 mb-4">
@@ -114,8 +116,14 @@ export default function DesignersCollectorsPage() {
       </section>
 
       {/* Introduction */}
-      <section className="py-section bg-midnight">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <section className="relative py-section bg-midnight overflow-hidden">
+        {/* Whisper-faint archive texture behind the left text column only. */}
+        <div
+          className="absolute inset-y-0 left-0 w-full lg:w-1/2 bg-cover bg-center opacity-[0.05] pointer-events-none animate-nacre-drift"
+          style={{ backgroundImage: "url('/images/craft-bg-nacre.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-midnight/40 to-midnight pointer-events-none" />
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             <AnimateIn>
               <h2 className="text-display font-serif text-ivory mb-8">
@@ -156,7 +164,8 @@ export default function DesignersCollectorsPage() {
 
       {/* Services */}
       <section className="relative py-section bg-charcoal overflow-hidden">
-        <NacreBackdrop opacity={32} />
+        {/* Faint oversized Damascene medallion behind heading + cards. */}
+        <Medallion className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[160vw] sm:w-[120vh] max-w-[1100px] opacity-[0.06] pointer-events-none animate-medallion" />
         <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12">
           <AnimateIn className="text-center mb-20">
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">
@@ -170,7 +179,7 @@ export default function DesignersCollectorsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, i) => (
               <AnimateIn key={service.title} delay={i * 100}>
-                <div className="p-10 luxury-border luxury-border-hover group hover:bg-midnight transition-colors duration-700 h-full">
+                <div className="service-card p-10 group h-full">
                   <div className="text-brass mb-6 transition-transform duration-500 group-hover:scale-110">
                     {service.icon}
                   </div>
@@ -187,9 +196,46 @@ export default function DesignersCollectorsPage() {
         </div>
       </section>
 
+      {/* Cinematic detail strip — removes the empty gap after the cards */}
+      <section className="relative bg-midnight">
+        <div className="grid grid-cols-3 md:grid-cols-5">
+          {[
+            { src: "/images/craft/01-shell-selection.jpg", label: "Shell" },
+            { src: "/images/craft/03-silver-thread.jpg", label: "Silver" },
+            { src: "/images/craft/04-shell-inlay.jpg", label: "Inlay" },
+            { src: "/images/craft-process/06-inlay-setting.jpg", label: "Setting" },
+            { src: "/images/mop-detail-1.jpg", label: "Detail" },
+          ].map((img, i) => (
+            <div
+              key={img.src}
+              className={`relative h-40 lg:h-56 overflow-hidden group ${i >= 3 ? "hidden md:block" : ""}`}
+            >
+              <LuxuryImage
+                src={img.src}
+                alt={img.label}
+                width={500}
+                height={500}
+                label={img.label}
+                className="w-full h-full grayscale-[0.4] brightness-[0.55] group-hover:brightness-75 group-hover:grayscale-0 transition-all duration-[1200ms] ease-out scale-105 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-midnight/40 via-transparent to-midnight/40" />
+            </div>
+          ))}
+        </div>
+        {/* hairline seam top + bottom so the strip reads as one band */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brass/20 to-transparent" />
+      </section>
+
       {/* Testimonial / Trust */}
-      <section className="py-section bg-midnight">
-        <div className="max-w-3xl mx-auto px-6 lg:px-12 text-center">
+      <section className="relative py-section bg-midnight overflow-hidden">
+        {/* Soft, dark, blurred showroom behind the quote. */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-25 blur-[2px] scale-110 pointer-events-none animate-nacre-drift"
+          style={{ backgroundImage: "url('/images/contact-showroom.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-midnight/80 pointer-events-none" />
+        <div className="relative max-w-3xl mx-auto px-6 lg:px-12 text-center">
           <AnimateIn>
             <div className="luxury-divider-short mx-auto mb-10" />
             <p className="text-2xl font-serif text-ivory leading-relaxed mb-8 italic">
@@ -207,7 +253,12 @@ export default function DesignersCollectorsPage() {
 
       {/* CTA */}
       <section className="relative py-section bg-charcoal text-center overflow-hidden">
-        <NacreBackdrop />
+        {/* Warm, dark, blurred service image — hands setting mother-of-pearl. */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-40 blur-[1px] scale-105 pointer-events-none animate-nacre-drift"
+          style={{ backgroundImage: "url('/images/craft-process/06-inlay-setting.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/85 via-midnight/80 to-midnight/90 pointer-events-none" />
         <div className="relative max-w-2xl mx-auto px-6">
           <AnimateIn>
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">Begin a Conversation</span>

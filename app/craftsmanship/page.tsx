@@ -210,8 +210,13 @@ export default function CraftsmanshipPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-section bg-charcoal text-center">
-        <div className="max-w-2xl mx-auto px-6">
+      <section className="relative py-section bg-charcoal text-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 pointer-events-none"
+          style={{ backgroundImage: "url('/images/craft-bg-nacre.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-midnight/75 via-midnight/55 to-midnight/75 pointer-events-none" />
+        <div className="relative max-w-2xl mx-auto px-6">
           <AnimateIn>
             <h2 className="text-heading font-serif text-ivory mb-6">
               Experience the Craft

@@ -20,7 +20,7 @@ const services = [
   },
   {
     title: "Bespoke Sourcing",
-    description: "Looking for a specific piece or a particular type of object? Our network spans the world&apos;s leading auction houses, private collections, and estate sales. We source the extraordinary.",
+    description: "Looking for a specific piece or a particular type of object? Our network spans the world's leading auction houses, private collections, and estate sales. We source the extraordinary.",
     icon: (
       <svg width="40" height="40" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="0.8">
         <circle cx="18" cy="18" r="12" />

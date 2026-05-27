@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
+import NacreBackdrop from "@/components/ui/NacreBackdrop";
 
 // Five hand-photographed steps of the Damascene mother-of-pearl process.
 // The silver-thread step (drawing and bending fine silver wire as cell
@@ -45,6 +46,7 @@ const craftSteps = [
 export default function CraftsmanshipPreview() {
   return (
     <section className="relative py-section bg-charcoal overflow-hidden">
+      <NacreBackdrop opacity={26} />
       <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 lg:mb-28">

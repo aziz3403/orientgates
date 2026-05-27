@@ -273,7 +273,7 @@ export default function DesignersCollectorsPage() {
               <Link href="/contact" className="btn-luxury-gold">
                 Start a Private Inquiry
               </Link>
-              <Link href="/collection/mother-of-pearl" className="btn-luxury-primary">
+              <Link href="/mother-of-pearl-furniture" className="btn-luxury-primary">
                 Browse the Collection
               </Link>
             </div>

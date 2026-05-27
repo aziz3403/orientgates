@@ -217,7 +217,7 @@ export default function CraftsmanshipPage() {
               in museum-quality pieces available for acquisition.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/collection/mother-of-pearl" className="btn-luxury-gold">
+              <Link href="/mother-of-pearl-furniture" className="btn-luxury-gold">
                 Explore Mother-of-Pearl
               </Link>
               <Link href="/contact" className="btn-luxury-primary">

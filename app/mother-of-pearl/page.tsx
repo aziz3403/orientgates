@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
+import { productUrl } from "@/lib/data";
 import { useMousePosition } from "@/lib/hooks";
 import { useProducts, productMatchers } from "@/lib/products-client";
 
@@ -96,7 +97,7 @@ export default function MotherOfPearlPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {products.map((product, i) => (
                 <AnimateIn key={product.id} delay={i * 100}>
-                  <Link href={`/collection/mother-of-pearl/${product.slug}`}>
+                  <Link href={productUrl(product)}>
                     <div className="group relative overflow-hidden luxury-border luxury-border-hover">
                       <div className="aspect-[4/3] overflow-hidden">
                         <LuxuryImage

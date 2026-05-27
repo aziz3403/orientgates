@@ -70,6 +70,17 @@ export interface Product {
   materialsDetail?: string;
 }
 
+// Canonical hierarchical URL for a product. Single source of truth — used
+// by every link builder, the sitemap, and the redirect from old URLs.
+//   with subcategory:  /mother-of-pearl-furniture/mop-mirrors/<slug>
+//   without:           /carpets-textiles/<slug>
+export function productUrl(
+  p: Pick<Product, "category" | "subcategory" | "slug">
+): string {
+  if (p.subcategory) return `/${p.category}/${p.subcategory}/${p.slug}`;
+  return `/${p.category}/${p.slug}`;
+}
+
 // Auto-generate SKU from product ID if not set
 export function getProductSKU(product: Product): string {
   if (product.sku) return product.sku;

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { productUrl } from "@/lib/data";
 import { useCart } from "@/lib/cart";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
@@ -39,7 +40,7 @@ export default function CartPage() {
                   <AnimateIn key={item.product.id} delay={i * 80}>
                     <div className="flex gap-6 py-8 border-b border-white/[0.06]">
                       <Link
-                        href={`/collection/${item.product.category}/${item.product.slug}`}
+                        href={productUrl(item.product)}
                         className="w-28 h-28 flex-shrink-0 overflow-hidden border border-white/[0.04]"
                       >
                         <LuxuryImage

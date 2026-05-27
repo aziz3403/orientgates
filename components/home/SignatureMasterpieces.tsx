@@ -98,12 +98,30 @@ export default function SignatureMasterpieces() {
                           <div className="absolute inset-0 bg-midnight/0 group-hover:bg-midnight/10 transition-colors duration-700" />
                         </div>
 
-                        {/* Period tag */}
+                        {/* Period tag — outer side */}
                         {product.period && (
-                          <div className="absolute -bottom-4 left-8 bg-midnight px-5 py-2 border border-brass/15">
+                          <div className={`absolute -bottom-4 bg-midnight px-5 py-2 border border-brass/15 ${isEven ? "left-8" : "right-8"}`}>
                             <span className="text-[9px] tracking-[0.4em] uppercase text-brass/70 font-sans">
                               {product.period}
                             </span>
+                          </div>
+                        )}
+
+                        {/* Detail crop — floats into the gap toward the text, filling the dead space */}
+                        {product.images[1] && (
+                          <div
+                            className={`hidden lg:block absolute -bottom-12 w-[34%] aspect-square overflow-hidden border border-brass/20 bg-midnight shadow-[0_30px_70px_-25px_rgba(0,0,0,0.85)] transition-transform duration-700 group-hover:-translate-y-1 ${
+                              isEven ? "-right-12" : "-left-12"
+                            }`}
+                          >
+                            <LuxuryImage
+                              src={product.images[1]}
+                              alt={`${product.title} — detail`}
+                              width={500}
+                              height={500}
+                              className="w-full h-full transition-transform duration-[1500ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.08]"
+                              label="Detail"
+                            />
                           </div>
                         )}
 

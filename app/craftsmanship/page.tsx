@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
+import NacreBackdrop from "@/components/ui/NacreBackdrop";
 import { useMousePosition } from "@/lib/hooks";
 
 const processes = [
@@ -109,14 +110,7 @@ export default function CraftsmanshipPage() {
 
       {/* Process steps */}
       <section className="relative bg-charcoal overflow-hidden">
-        {/* Mother-of-pearl nacre texture behind the steps. Fixed so it sits
-            quietly while the steps scroll over it. Degrades to plain charcoal
-            if the asset is missing. */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 pointer-events-none"
-          style={{ backgroundImage: "url('/images/craft-bg-nacre.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/75 via-midnight/55 to-midnight/75 pointer-events-none" />
+        <NacreBackdrop />
 
         <div className="relative">
           {processes.map((process, i) => (
@@ -173,8 +167,9 @@ export default function CraftsmanshipPage() {
       </section>
 
       {/* Preservation section */}
-      <section className="py-section bg-midnight">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <section className="relative py-section bg-midnight overflow-hidden">
+        <NacreBackdrop opacity={28} />
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12">
           <AnimateIn className="text-center mb-16">
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">
               Beyond Creation
@@ -211,11 +206,7 @@ export default function CraftsmanshipPage() {
 
       {/* CTA */}
       <section className="relative py-section bg-charcoal text-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed opacity-40 pointer-events-none"
-          style={{ backgroundImage: "url('/images/craft-bg-nacre.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-midnight/75 via-midnight/55 to-midnight/75 pointer-events-none" />
+        <NacreBackdrop />
         <div className="relative max-w-2xl mx-auto px-6">
           <AnimateIn>
             <h2 className="text-heading font-serif text-ivory mb-6">

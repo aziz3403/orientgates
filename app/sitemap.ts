@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { categories } from "@/lib/data";
+import { categories, productUrl } from "@/lib/data";
 import { getAllProducts } from "@/lib/products-server";
 
 export const revalidate = 60;
@@ -31,7 +31,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const products = await getAllProducts();
   const productPages = products.map((p) => ({
-    url: `${baseUrl}/collection/${p.category}/${p.slug}`,
+    url: `${baseUrl}${productUrl(p)}`,
     lastModified: new Date(p.dateAdded),
     changeFrequency: "monthly" as const,
     priority: 0.7,

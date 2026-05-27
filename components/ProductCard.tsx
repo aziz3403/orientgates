@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Product } from "@/lib/data";
+import { Product, productUrl } from "@/lib/data";
 import { useCart } from "@/lib/cart";
 import { useWishlist } from "@/lib/wishlist";
 import LuxuryImage from "@/components/ui/LuxuryImage";
@@ -11,19 +11,16 @@ import { useState } from "react";
 interface ProductCardProps {
   product: Product;
   index?: number;
-  basePath?: string;
 }
 
-export default function ProductCard({ product, index = 0, basePath }: ProductCardProps) {
+export default function ProductCard({ product, index = 0 }: ProductCardProps) {
   const { addItem } = useCart();
   const { isInWishlist, addToWishlist, removeFromWishlist } = useWishlist();
   const [hovered, setHovered] = useState(false);
   const wishlisted = isInWishlist(product.id);
 
-  // Determine the link path
-  const detailPath = basePath
-    ? `${basePath}/${product.slug}`
-    : `/collection/${product.category}/${product.slug}`;
+  // Canonical hierarchical product URL — single source of truth.
+  const detailPath = productUrl(product);
 
   return (
     <AnimateIn delay={index * 80}>

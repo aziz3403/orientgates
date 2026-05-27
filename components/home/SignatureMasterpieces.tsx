@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { productUrl } from "@/lib/data";
 import { useProducts, sortNewest } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
@@ -77,7 +78,7 @@ export default function SignatureMasterpieces() {
               const isEven = i % 2 === 0;
               return (
                 <AnimateIn key={product.id}>
-                  <Link href={`/collection/${product.category}/${product.slug}`}>
+                  <Link href={productUrl(product)}>
                     <div className="group grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-20 items-center">
                       {/* Image */}
                       <div

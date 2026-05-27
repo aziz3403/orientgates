@@ -115,7 +115,7 @@ function CollectionGrid({ products, productBasePath, loading }: { products: Prod
         ) : filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-5">
             {filtered.map((product, i) => (
-              <ProductCard key={product.id} product={product} index={i} basePath={productBasePath} />
+              <ProductCard key={product.id} product={product} index={i} />
             ))}
           </div>
         ) : (

@@ -39,6 +39,8 @@ export interface Product {
   price: number | null;
   priceDisplay: string;
   availability: Availability;
+  /** Units in stock. Defaults to 1 (one-of-a-kind). 0 = sold out. */
+  quantity?: number;
   period: string;
   origin: string;
   materials: string[];

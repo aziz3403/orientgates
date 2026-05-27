@@ -15,6 +15,7 @@ const emptyProduct: Partial<Product> = {
   price: null,
   priceDisplay: "Price on Request",
   availability: "available",
+  quantity: 1,
   period: "",
   origin: "",
   materials: [],
@@ -75,6 +76,8 @@ export default function AdminPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState<Partial<Product>>(emptyProduct);
   const [showForm, setShowForm] = useState(false);
+  const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
+  const [bulkBusy, setBulkBusy] = useState(false);
 
   const showStatus = (msg: string) => {
     setStatusMessage(msg);
@@ -233,6 +236,59 @@ export default function AdminPage() {
       (p.sku || "").toLowerCase().includes(search.toLowerCase())
   );
 
+  const toggleSelect = (id: string) => {
+    setSelectedIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
+
+  const allFilteredSelected =
+    filtered.length > 0 && filtered.every((p) => selectedIds.has(p.id));
+
+  const toggleSelectAll = () => {
+    setSelectedIds((prev) => {
+      if (filtered.every((p) => prev.has(p.id))) {
+        // deselect the currently filtered set
+        const next = new Set(prev);
+        filtered.forEach((p) => next.delete(p.id));
+        return next;
+      }
+      const next = new Set(prev);
+      filtered.forEach((p) => next.add(p.id));
+      return next;
+    });
+  };
+
+  const applyBulk = async (fields: Partial<Product>) => {
+    const ids = Array.from(selectedIds);
+    if (ids.length === 0) return;
+    setBulkBusy(true);
+    setErrorMessage(null);
+    // optimistic
+    const snapshot = products;
+    setProducts((prev) => prev.map((p) => (selectedIds.has(p.id) ? { ...p, ...fields } : p)));
+    try {
+      const res = await fetch("/api/admin/products/bulk", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ids, fields }),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Bulk update failed");
+      invalidatePublicCache();
+      showStatus(`Updated ${data.updated} product${data.updated === 1 ? "" : "s"} ✓`);
+      setSelectedIds(new Set());
+    } catch (e) {
+      setProducts(snapshot);
+      showError(e instanceof Error ? e.message : "Bulk update failed");
+    } finally {
+      setBulkBusy(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-midnight pt-28 pb-20 px-6">
       <div className="max-w-[1400px] mx-auto">
@@ -357,22 +413,41 @@ export default function AdminPage() {
                   </div>
                 ))}
 
-                {/* Price (number) */}
-                <div>
-                  <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">
-                    Price (number, blank for inquiry)
-                  </label>
-                  <input
-                    type="number"
-                    value={formData.price ?? ""}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        price: e.target.value ? Number(e.target.value) : null,
-                      })
-                    }
-                    className="w-full bg-transparent border-b border-white/15 pb-2 text-ivory text-sm font-sans focus:border-brass outline-none"
-                  />
+                {/* Price + Quantity */}
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">
+                      Price (number, blank for inquiry)
+                    </label>
+                    <input
+                      type="number"
+                      value={formData.price ?? ""}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          price: e.target.value ? Number(e.target.value) : null,
+                        })
+                      }
+                      className="w-full bg-transparent border-b border-white/15 pb-2 text-ivory text-sm font-sans focus:border-brass outline-none"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-2">
+                      Quantity in stock
+                    </label>
+                    <input
+                      type="number"
+                      min={0}
+                      value={formData.quantity ?? 1}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          quantity: e.target.value === "" ? undefined : Math.max(0, Math.floor(Number(e.target.value))),
+                        })
+                      }
+                      className="w-full bg-transparent border-b border-white/15 pb-2 text-ivory text-sm font-sans focus:border-brass outline-none"
+                    />
+                  </div>
                 </div>
 
                 {/* Selects */}
@@ -636,12 +711,113 @@ export default function AdminPage() {
           </div>
         )}
 
+        {/* Bulk action bar */}
+        {selectedIds.size > 0 && (
+          <div className="sticky top-4 z-30 mb-4 bg-charcoal border border-brass/30 px-5 py-4 flex flex-wrap items-center gap-4">
+            <span className="text-[11px] tracking-[0.2em] uppercase text-brass font-sans">
+              {selectedIds.size} selected
+            </span>
+            <div className="h-4 w-px bg-white/10" />
+
+            {/* Availability */}
+            <label className="flex items-center gap-2">
+              <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/60 font-sans">Status</span>
+              <select
+                defaultValue=""
+                disabled={bulkBusy}
+                onChange={(e) => { if (e.target.value) { applyBulk({ availability: e.target.value as Product["availability"] }); e.target.value = ""; } }}
+                className="bg-midnight border border-white/15 text-ivory text-[11px] px-2 py-1 font-sans outline-none focus:border-brass"
+              >
+                <option value="">Set…</option>
+                <option value="available">Available</option>
+                <option value="sold">Sold</option>
+                <option value="reserved">Reserved</option>
+              </select>
+            </label>
+
+            {/* Category */}
+            <label className="flex items-center gap-2">
+              <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/60 font-sans">Category</span>
+              <select
+                defaultValue=""
+                disabled={bulkBusy}
+                onChange={(e) => { if (e.target.value) { applyBulk({ category: e.target.value }); e.target.value = ""; } }}
+                className="bg-midnight border border-white/15 text-ivory text-[11px] px-2 py-1 font-sans outline-none focus:border-brass"
+              >
+                <option value="">Set…</option>
+                <option value="mother-of-pearl-furniture">Mother of Pearl</option>
+                <option value="antiques">Antiques</option>
+                <option value="carpets-textiles">Carpets & Textiles</option>
+              </select>
+            </label>
+
+            {/* Subcategory */}
+            <label className="flex items-center gap-2">
+              <span className="text-[9px] tracking-[0.2em] uppercase text-warm-gray/60 font-sans">Subcat</span>
+              <select
+                defaultValue=""
+                disabled={bulkBusy}
+                onChange={(e) => { if (e.target.value) { applyBulk({ subcategory: e.target.value === "__none" ? "" : e.target.value }); e.target.value = ""; } }}
+                className="bg-midnight border border-white/15 text-ivory text-[11px] px-2 py-1 font-sans outline-none focus:border-brass"
+              >
+                <option value="">Set…</option>
+                <option value="__none">None (clear)</option>
+                <option value="islamic-antiques">Islamic Antiques</option>
+                <option value="european-antiques">European Antiques</option>
+                <option value="asian-antiques">Asian Antiques</option>
+                <option value="mop-mirrors">MoP · Mirrors</option>
+                <option value="mop-tables">MoP · Tables</option>
+                <option value="mop-seating">MoP · Seating</option>
+                <option value="mop-suites">MoP · Suites</option>
+                <option value="mop-consoles-cabinets">MoP · Consoles</option>
+                <option value="mop-chest-of-drawers">MoP · Chests</option>
+                <option value="mop-accessories">MoP · Accessories</option>
+                <option value="mop-game-tables">MoP · Game Tables</option>
+              </select>
+            </label>
+
+            {/* Featured */}
+            <div className="flex items-center gap-1">
+              <button
+                disabled={bulkBusy}
+                onClick={() => applyBulk({ featured: true })}
+                className="text-[10px] tracking-[0.15em] uppercase text-brass/80 border border-brass/30 px-3 py-1 font-sans hover:bg-brass/[0.06] disabled:opacity-40"
+              >
+                Feature
+              </button>
+              <button
+                disabled={bulkBusy}
+                onClick={() => applyBulk({ featured: false })}
+                className="text-[10px] tracking-[0.15em] uppercase text-warm-gray/70 border border-white/15 px-3 py-1 font-sans hover:border-white/30 disabled:opacity-40"
+              >
+                Unfeature
+              </button>
+            </div>
+
+            <button
+              onClick={() => setSelectedIds(new Set())}
+              className="ml-auto text-[10px] tracking-[0.2em] uppercase text-warm-gray/60 hover:text-ivory font-sans"
+            >
+              Clear selection
+            </button>
+          </div>
+        )}
+
         {/* Product table */}
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
               <tr className="border-b border-white/10">
-                {["Photo", "SKU", "Title", "Category", "Price", "Status", "Type", "Featured", "Actions"].map(
+                <th className="pb-3 px-3">
+                  <input
+                    type="checkbox"
+                    checked={allFilteredSelected}
+                    onChange={toggleSelectAll}
+                    className="accent-brass"
+                    aria-label="Select all"
+                  />
+                </th>
+                {["Photo", "SKU", "Title", "Category", "Price", "Qty", "Status", "Type", "Featured", "Actions"].map(
                   (h) => (
                     <th
                       key={h}
@@ -656,7 +832,7 @@ export default function AdminPage() {
             <tbody>
               {loading && products.length === 0 && (
                 <tr>
-                  <td colSpan={9} className="py-12 text-center text-warm-gray/50 text-sm font-sans">
+                  <td colSpan={11} className="py-12 text-center text-warm-gray/50 text-sm font-sans">
                     Loading from Supabase…
                   </td>
                 </tr>
@@ -664,8 +840,19 @@ export default function AdminPage() {
               {filtered.map((p) => (
                 <tr
                   key={p.id}
-                  className="border-b border-white/[0.04] hover:bg-white/[0.02] transition-colors"
+                  className={`border-b border-white/[0.04] transition-colors ${
+                    selectedIds.has(p.id) ? "bg-brass/[0.05]" : "hover:bg-white/[0.02]"
+                  }`}
                 >
+                  <td className="py-3 px-3">
+                    <input
+                      type="checkbox"
+                      checked={selectedIds.has(p.id)}
+                      onChange={() => toggleSelect(p.id)}
+                      className="accent-brass"
+                      aria-label={`Select ${p.title}`}
+                    />
+                  </td>
                   <td className="py-3 px-3">
                     {p.images && p.images.length > 0 ? (
                       <div className="relative w-12 h-12 bg-charcoal border border-white/10 overflow-hidden">
@@ -700,7 +887,38 @@ export default function AdminPage() {
                   <td className="py-3 px-3 text-[11px] text-warm-gray/80 font-sans">
                     {p.subcategory || p.category}
                   </td>
-                  <td className="py-3 px-3 text-sm text-ivory/70 font-sans">{p.priceDisplay}</td>
+                  <td className="py-3 px-3">
+                    <input
+                      type="number"
+                      defaultValue={p.price ?? ""}
+                      placeholder="—"
+                      onBlur={(e) => {
+                        const raw = e.target.value.trim();
+                        const newPrice = raw === "" ? null : Math.max(0, Number(raw));
+                        const newDisplay = newPrice ? `$${newPrice.toLocaleString()}` : "Price on Request";
+                        if (newPrice !== (p.price ?? null)) {
+                          handleInlineUpdate(p.id, { price: newPrice, priceDisplay: newDisplay });
+                        }
+                      }}
+                      className="w-24 bg-transparent border border-white/10 focus:border-brass px-2 py-1 text-[12px] text-ivory/80 font-sans outline-none"
+                      title={p.priceDisplay}
+                    />
+                  </td>
+                  <td className="py-3 px-3">
+                    <input
+                      type="number"
+                      min={0}
+                      defaultValue={p.quantity ?? 1}
+                      onBlur={(e) => {
+                        const raw = e.target.value.trim();
+                        const q = raw === "" ? 1 : Math.max(0, Math.floor(Number(raw)));
+                        if (q !== (p.quantity ?? 1)) handleInlineUpdate(p.id, { quantity: q });
+                      }}
+                      className={`w-14 bg-transparent border px-2 py-1 text-[12px] font-sans outline-none focus:border-brass ${
+                        (p.quantity ?? 1) === 0 ? "border-red-400/30 text-red-400/70" : "border-white/10 text-ivory/80"
+                      }`}
+                    />
+                  </td>
                   <td className="py-3 px-3">
                     <select
                       value={p.availability}

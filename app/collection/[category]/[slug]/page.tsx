@@ -273,11 +273,18 @@ export default function ProductPage() {
                 {/* Price + availability */}
                 <div className="mb-10 pb-10 border-b border-white/[0.06] flex items-center justify-between">
                   <span className="text-2xl font-serif text-ivory/90 italic">{product.priceDisplay}</span>
-                  <span className={`text-[9px] tracking-[0.3em] uppercase font-sans px-3 py-1 ${
-                    product.availability === "available" ? "text-emerald-400/70 border border-emerald-400/20" :
-                    product.availability === "sold" ? "text-red-400/70 border border-red-400/20" :
-                    "text-amber-400/70 border border-amber-400/20"
-                  }`}>{product.availability}</span>
+                  <div className="flex items-center gap-3">
+                    {typeof product.quantity === "number" && product.quantity > 1 && product.availability === "available" && (
+                      <span className="text-[9px] tracking-[0.3em] uppercase font-sans text-warm-gray/70">
+                        {product.quantity} available
+                      </span>
+                    )}
+                    <span className={`text-[9px] tracking-[0.3em] uppercase font-sans px-3 py-1 ${
+                      product.availability === "available" ? "text-emerald-400/70 border border-emerald-400/20" :
+                      product.availability === "sold" ? "text-red-400/70 border border-red-400/20" :
+                      "text-amber-400/70 border border-amber-400/20"
+                    }`}>{product.availability}</span>
+                  </div>
                 </div>
 
                 {/* Details grid */}

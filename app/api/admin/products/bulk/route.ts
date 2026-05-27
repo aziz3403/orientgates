@@ -20,6 +20,7 @@ const VALID_SUBCATEGORIES = new Set([
   "mop-mirrors",
   "mop-tables",
   "mop-seating",
+  "mop-suites",
   "mop-consoles-cabinets",
   "mop-chest-of-drawers",
   "mop-accessories",
@@ -28,6 +29,8 @@ const VALID_SUBCATEGORIES = new Set([
   "european-antiques",
   "asian-antiques",
 ]);
+
+const VALID_AVAILABILITY = new Set(["available", "sold", "reserved"]);
 
 function slugify(input: string): string {
   return input
@@ -141,6 +144,7 @@ function normalize(row: RawRow, idx: number): NormalizedResult | NormalizedError
     price,
     priceDisplay,
     availability: (asString(row.availability) ?? "available") as Product["availability"],
+    quantity: typeof row.quantity === "number" && row.quantity >= 0 ? Math.floor(row.quantity) : 1,
     period: asString(row.period) ?? "",
     origin: asString(row.origin) ?? "",
     materials: asStringArray(row.materials),
@@ -246,4 +250,70 @@ export async function POST(req: NextRequest) {
     insertedTitles: (data ?? []).map((r) => (r as SupabaseProduct).title),
   };
   return NextResponse.json({ ok: true, ...report, products: (data ?? []).map((r) => fromSupabase(r as SupabaseProduct)) });
+}
+
+// Bulk-update a set of products by id with a shared patch of fields.
+// Body: { ids: string[], fields: { availability?, category?, subcategory?, featured? } }
+export async function PATCH(req: NextRequest) {
+  let body: { ids?: unknown; fields?: unknown };
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ ok: false, error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const ids = Array.isArray(body.ids)
+    ? body.ids.filter((x): x is string => typeof x === "string")
+    : [];
+  if (ids.length === 0) {
+    return NextResponse.json({ ok: false, error: "No product ids provided" }, { status: 400 });
+  }
+  if (ids.length > 500) {
+    return NextResponse.json({ ok: false, error: "Too many ids (max 500)" }, { status: 400 });
+  }
+
+  const fields = (body.fields && typeof body.fields === "object" ? body.fields : {}) as Record<string, unknown>;
+
+  // Build a whitelist of snake_case columns from the allowed camelCase fields.
+  const patch: Record<string, unknown> = {};
+
+  if ("availability" in fields) {
+    const v = asString(fields.availability);
+    if (!v || !VALID_AVAILABILITY.has(v)) {
+      return NextResponse.json({ ok: false, error: `Invalid availability "${v ?? ""}"` }, { status: 400 });
+    }
+    patch.availability = v;
+  }
+  if ("category" in fields) {
+    const v = asString(fields.category);
+    if (!v || !VALID_CATEGORIES.has(v)) {
+      return NextResponse.json({ ok: false, error: `Invalid category "${v ?? ""}"` }, { status: 400 });
+    }
+    patch.category = v;
+  }
+  if ("subcategory" in fields) {
+    const v = asString(fields.subcategory);
+    // Empty string clears the subcategory.
+    if (v && !VALID_SUBCATEGORIES.has(v)) {
+      return NextResponse.json({ ok: false, error: `Invalid subcategory "${v}"` }, { status: 400 });
+    }
+    patch.subcategory = v ?? null;
+  }
+  if ("featured" in fields) {
+    patch.featured = fields.featured === true;
+  }
+
+  if (Object.keys(patch).length === 0) {
+    return NextResponse.json({ ok: false, error: "No valid fields to update" }, { status: 400 });
+  }
+
+  const sb = createSupabaseAdmin();
+  const { data, error } = await sb.from("products").update(patch).in("id", ids).select("id");
+  if (error) {
+    return NextResponse.json({ ok: false, error: `Bulk update failed: ${error.message}` }, { status: 500 });
+  }
+
+  invalidateProductsCache();
+  revalidatePublicProductPages();
+  return NextResponse.json({ ok: true, updated: data?.length ?? 0 });
 }

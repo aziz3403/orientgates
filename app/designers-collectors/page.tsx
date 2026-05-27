@@ -3,6 +3,7 @@
 import Link from "next/link";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
+import NacreBackdrop from "@/components/ui/NacreBackdrop";
 import { useMousePosition } from "@/lib/hooks";
 
 const services = [
@@ -154,8 +155,9 @@ export default function DesignersCollectorsPage() {
       </section>
 
       {/* Services */}
-      <section className="py-section bg-charcoal">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12">
+      <section className="relative py-section bg-charcoal overflow-hidden">
+        <NacreBackdrop opacity={32} />
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-12">
           <AnimateIn className="text-center mb-20">
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">
               Our Services
@@ -204,8 +206,9 @@ export default function DesignersCollectorsPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-section bg-charcoal text-center">
-        <div className="max-w-2xl mx-auto px-6">
+      <section className="relative py-section bg-charcoal text-center overflow-hidden">
+        <NacreBackdrop />
+        <div className="relative max-w-2xl mx-auto px-6">
           <AnimateIn>
             <span className="text-[11px] tracking-[0.35em] uppercase text-brass">Begin a Conversation</span>
             <h2 className="text-heading font-serif text-ivory mt-4 mb-6">

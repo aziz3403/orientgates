@@ -5,6 +5,7 @@ import { getCategory, getChildCategories } from "@/lib/data";
 import { useProducts, productMatchers } from "@/lib/products-client";
 import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
+import NacreBackdrop from "@/components/ui/NacreBackdrop";
 import ProductCard from "@/components/ProductCard";
 import Logo from "@/components/Logo";
 import { useMousePosition } from "@/lib/hooks";
@@ -123,8 +124,9 @@ export default function MotherOfPearlFurniturePage() {
       </section>
 
       {/* Subcategory Navigation */}
-      <section className="py-section bg-charcoal">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-16">
+      <section className="relative py-section bg-charcoal overflow-hidden">
+        <NacreBackdrop opacity={28} />
+        <div className="relative max-w-[1600px] mx-auto px-6 lg:px-16">
           <AnimateIn className="mb-16">
             <div className="flex items-center gap-5 mb-6">
               <div className="w-12 h-px bg-brass/30" />

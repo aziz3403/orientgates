@@ -13,10 +13,20 @@ export default function ImageManager({ images, onChange }: Props) {
   const [progressLabel, setProgressLabel] = useState<string | null>(null);
   const [uploadError, setUploadError] = useState<string | null>(null);
   const [dragOver, setDragOver] = useState(false);
+  const [draggedIdx, setDraggedIdx] = useState<number | null>(null);
+  const [dragOverIdx, setDragOverIdx] = useState<number | null>(null);
 
   const move = (from: number, dir: -1 | 1) => {
     const to = from + dir;
     if (to < 0 || to >= images.length) return;
+    const next = [...images];
+    const [item] = next.splice(from, 1);
+    next.splice(to, 0, item);
+    onChange(next);
+  };
+
+  const reorder = (from: number, to: number) => {
+    if (from === to || to < 0 || to >= images.length) return;
     const next = [...images];
     const [item] = next.splice(from, 1);
     next.splice(to, 0, item);
@@ -111,7 +121,39 @@ export default function ImageManager({ images, onChange }: Props) {
           {images.map((url, i) => (
             <div
               key={`${url}-${i}`}
-              className="border border-white/10 bg-charcoal flex flex-col"
+              draggable={!uploading}
+              onDragStart={(e) => {
+                setDraggedIdx(i);
+                e.dataTransfer.effectAllowed = "move";
+              }}
+              onDragEnter={() => {
+                if (draggedIdx !== null && draggedIdx !== i) setDragOverIdx(i);
+              }}
+              onDragOver={(e) => {
+                if (draggedIdx !== null) e.preventDefault();
+              }}
+              onDragLeave={() => {
+                setDragOverIdx((curr) => (curr === i ? null : curr));
+              }}
+              onDrop={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                if (draggedIdx !== null) reorder(draggedIdx, i);
+                setDraggedIdx(null);
+                setDragOverIdx(null);
+              }}
+              onDragEnd={() => {
+                setDraggedIdx(null);
+                setDragOverIdx(null);
+              }}
+              className={`relative border bg-charcoal flex flex-col transition-all ${
+                draggedIdx === i ? "opacity-40 border-brass/40" : "border-white/10"
+              } ${
+                dragOverIdx === i && draggedIdx !== i
+                  ? "ring-2 ring-brass/70 ring-offset-2 ring-offset-midnight"
+                  : ""
+              } ${!uploading ? "cursor-grab active:cursor-grabbing" : ""}`}
+              title="Drag to reorder"
             >
               <a
                 href={url}
@@ -125,7 +167,8 @@ export default function ImageManager({ images, onChange }: Props) {
                   src={url}
                   alt={`Image ${i + 1}`}
                   loading="lazy"
-                  className="w-full h-full object-cover"
+                  draggable={false}
+                  className="w-full h-full object-cover select-none"
                   onError={(e) => {
                     const el = e.currentTarget as HTMLImageElement;
                     el.style.opacity = "0.15";
@@ -246,9 +289,11 @@ export default function ImageManager({ images, onChange }: Props) {
       <p className="text-[10px] text-warm-gray/50 font-sans mt-3 leading-relaxed">
         Files upload directly to the Supabase{" "}
         <code className="text-brass/70">product-images</code> bucket. The first
-        image is the <span className="text-brass/80">main photo</span>; click ★
-        on any other to promote it. ← / → reorder. ✕ removes from this product
-        (the file stays in the bucket).
+        image is the <span className="text-brass/80">main photo</span>;{" "}
+        <span className="text-brass/80">drag any tile</span> onto another to
+        reorder, or click ★ to promote a photo to main. ← / → also nudge one
+        slot at a time. ✕ removes from this product (the file stays in the
+        bucket).
       </p>
     </div>
   );

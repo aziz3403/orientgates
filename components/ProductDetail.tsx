@@ -99,6 +99,23 @@ export default function ProductDetail({
     } catch {}
   }, [product]);
 
+  // Keyboard nav between photos (arrow keys; Esc closes lightbox).
+  const imageCount = product?.images.length ?? 0;
+  useEffect(() => {
+    if (imageCount < 2 && !lightboxOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        setActiveImage((i) => (i - 1 + imageCount) % imageCount);
+      } else if (e.key === "ArrowRight") {
+        setActiveImage((i) => (i + 1) % imageCount);
+      } else if (e.key === "Escape" && lightboxOpen) {
+        setLightboxOpen(false);
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [imageCount, lightboxOpen]);
+
   if (loading && !product) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-midnight pt-32">
@@ -160,22 +177,54 @@ export default function ProductDetail({
       {/* Lightbox */}
       {lightboxOpen && (
         <div className="fixed inset-0 z-[70] bg-midnight/95 backdrop-blur-xl flex items-center justify-center" onClick={() => setLightboxOpen(false)}>
-          <button className="absolute top-6 right-6 text-ivory/75 hover:text-ivory z-10" onClick={() => setLightboxOpen(false)}>
+          <button className="absolute top-6 right-6 text-ivory/75 hover:text-ivory z-10" onClick={() => setLightboxOpen(false)} aria-label="Close">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1"><path d="M6 6l12 12M18 6l-12 12" /></svg>
           </button>
           <img
             src={product.images[activeImage]}
             alt={product.title}
             className="max-w-[90vw] max-h-[90vh] object-contain"
+            onClick={(e) => e.stopPropagation()}
             onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
           />
           {product.images.length > 1 && (
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
-              {product.images.map((_, i) => (
-                <button key={i} onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
-                  className={`w-2 h-2 rounded-full transition-colors ${activeImage === i ? "bg-brass" : "bg-white/20"}`} />
-              ))}
-            </div>
+            <>
+              <button
+                type="button"
+                aria-label="Previous photo"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveImage((i) => (i - 1 + product.images.length) % product.images.length);
+                }}
+                className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-midnight/60 hover:bg-midnight/85 backdrop-blur-sm text-ivory/80 hover:text-ivory border border-white/15 hover:border-brass/50 transition-all duration-300"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                aria-label="Next photo"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveImage((i) => (i + 1) % product.images.length);
+                }}
+                className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 bg-midnight/60 hover:bg-midnight/85 backdrop-blur-sm text-ivory/80 hover:text-ivory border border-white/15 hover:border-brass/50 transition-all duration-300"
+              >
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                  <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <div className="absolute top-6 left-6 text-[11px] tracking-[0.25em] uppercase text-ivory/70 font-sans">
+                {activeImage + 1} / {product.images.length}
+              </div>
+              <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-3">
+                {product.images.map((_, i) => (
+                  <button key={i} onClick={(e) => { e.stopPropagation(); setActiveImage(i); }}
+                    className={`w-2 h-2 rounded-full transition-colors ${activeImage === i ? "bg-brass" : "bg-white/20"}`} aria-label={`Go to photo ${i + 1}`} />
+                ))}
+              </div>
+            </>
           )}
         </div>
       )}
@@ -217,6 +266,42 @@ export default function ProductDetail({
                     label={product.title}
                     priority
                   />
+
+                  {/* Prev / next arrows */}
+                  {product.images.length > 1 && (
+                    <>
+                      <button
+                        type="button"
+                        aria-label="Previous photo"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImage((i) => (i - 1 + product.images.length) % product.images.length);
+                        }}
+                        className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-midnight/55 hover:bg-midnight/80 backdrop-blur-sm text-ivory/80 hover:text-ivory border border-white/10 hover:border-brass/40 transition-all duration-300"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <button
+                        type="button"
+                        aria-label="Next photo"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setActiveImage((i) => (i + 1) % product.images.length);
+                        }}
+                        className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-midnight/55 hover:bg-midnight/80 backdrop-blur-sm text-ivory/80 hover:text-ivory border border-white/10 hover:border-brass/40 transition-all duration-300"
+                      >
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                          <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                      <div className="absolute top-3 left-3 bg-midnight/60 backdrop-blur-sm px-2.5 py-1 text-[10px] tracking-[0.2em] uppercase text-ivory/70 font-sans">
+                        {activeImage + 1} / {product.images.length}
+                      </div>
+                    </>
+                  )}
+
                   <div className="absolute bottom-4 right-4 bg-midnight/60 backdrop-blur-sm px-3 py-1.5 text-[8px] tracking-[0.2em] uppercase text-ivory/70 font-sans opacity-0 group-hover:opacity-100 transition-opacity">
                     Click to enlarge
                   </div>

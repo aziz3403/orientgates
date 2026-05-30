@@ -210,6 +210,16 @@ export default function AdminPage() {
   const handleInlineUpdate = async (id: string, fields: Partial<Product>) => {
     const original = products.find((p) => p.id === id);
     if (!original) return;
+    // Auto-link quantity ↔ availability:
+    //   qty 0 + currently available → mark sold
+    //   qty > 0 + currently sold    → mark available
+    if ("quantity" in fields) {
+      if (fields.quantity === 0 && original.availability === "available") {
+        fields = { ...fields, availability: "sold" };
+      } else if ((fields.quantity ?? 0) > 0 && original.availability === "sold") {
+        fields = { ...fields, availability: "available" };
+      }
+    }
     const updated = { ...original, ...fields };
     // optimistic
     setProducts((prev) => prev.map((p) => (p.id === id ? updated : p)));
@@ -889,6 +899,7 @@ export default function AdminPage() {
                   </td>
                   <td className="py-3 px-3">
                     <input
+                      key={`price-${p.id}-${p.price ?? ""}`}
                       type="number"
                       defaultValue={p.price ?? ""}
                       placeholder="—"
@@ -906,6 +917,7 @@ export default function AdminPage() {
                   </td>
                   <td className="py-3 px-3">
                     <input
+                      key={`qty-${p.id}-${p.quantity ?? 1}`}
                       type="number"
                       min={0}
                       defaultValue={p.quantity ?? 1}

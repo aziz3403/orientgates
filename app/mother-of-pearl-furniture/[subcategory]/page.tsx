@@ -1,30 +1,33 @@
-"use client";
-
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 import { getCategory } from "@/lib/data";
-import { useProducts, productMatchers } from "@/lib/products-client";
-import CollectionPage from "@/components/CollectionPage";
-import ProductDetail from "@/components/ProductDetail";
+import { buildProductMetadata } from "@/lib/product-meta";
+import SubcategoryView from "./SubcategoryView";
 
-export default function MoPSubcategoryPage() {
-  const params = useParams();
-  const slug = params.subcategory as string;
-  const category = getCategory(slug);
-  const { products, loading } = useProducts(productMatchers.byCategoryOrSubcategory(slug));
+interface Props {
+  params: { subcategory: string };
+}
 
-  // Not a known subcategory → treat the segment as a product slug
-  // (covers MoP pieces saved without a subcategory: /mother-of-pearl-furniture/<slug>).
-  if (!category) {
-    return <ProductDetail slug={slug} categorySlug="mother-of-pearl-furniture" />;
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const category = getCategory(params.subcategory);
+  // Unknown segment → treat as a product slug, delegate.
+  if (!category) return buildProductMetadata(params.subcategory);
 
-  return (
-    <CollectionPage
-      category={category}
-      products={products}
-      loading={loading}
-      breadcrumbs={[{ label: "Mother of Pearl Furniture", href: "/mother-of-pearl-furniture" }]}
-      productBasePath="/collection/mother-of-pearl-furniture"
-    />
-  );
+  const url = `https://theorientgates.com/mother-of-pearl-furniture/${category.slug}`;
+  const title = `${category.title} · Mother of Pearl Furniture`;
+  const description = category.description;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${category.title} · The Orient Gates`,
+      description,
+      url,
+      type: "website",
+    },
+  };
+}
+
+export default function Page() {
+  return <SubcategoryView />;
 }

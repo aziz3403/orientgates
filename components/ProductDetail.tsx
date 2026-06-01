@@ -170,12 +170,50 @@ export default function ProductDetail({
     countryOfOrigin: product.origin,
   };
 
+  // BreadcrumbList — Home → Category → (Subcategory) → Product
+  // Renders as Google rich results breadcrumb on the SERP.
+  const breadcrumbItems: Array<{ name: string; item: string }> = [
+    { name: "Home", item: "https://theorientgates.com" },
+  ];
+  const parentCategory = getCategory(product.category);
+  if (parentCategory) {
+    breadcrumbItems.push({
+      name: parentCategory.title,
+      item: `https://theorientgates.com/${parentCategory.slug}`,
+    });
+  }
+  const subCategory = product.subcategory ? getCategory(product.subcategory) : undefined;
+  if (subCategory) {
+    breadcrumbItems.push({
+      name: subCategory.title,
+      item: `https://theorientgates.com/${product.category}/${subCategory.slug}`,
+    });
+  }
+  breadcrumbItems.push({
+    name: product.title,
+    item: `https://theorientgates.com/${product.category}${product.subcategory ? `/${product.subcategory}` : ""}/${product.slug}`,
+  });
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbItems.map((b, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: b.name,
+      item: b.item,
+    })),
+  };
+
   return (
     <>
       {/* JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* Lightbox */}

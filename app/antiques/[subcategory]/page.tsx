@@ -1,30 +1,33 @@
-"use client";
-
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 import { getCategory } from "@/lib/data";
-import { useProducts, productMatchers } from "@/lib/products-client";
-import CollectionPage from "@/components/CollectionPage";
-import ProductDetail from "@/components/ProductDetail";
+import { buildProductMetadata } from "@/lib/product-meta";
+import SubcategoryView from "./SubcategoryView";
 
-export default function AntiquesSubcategoryPage() {
-  const params = useParams();
-  const slug = params.subcategory as string;
-  const category = getCategory(slug);
-  const { products, loading } = useProducts(productMatchers.byCategoryOrSubcategory(slug));
+interface Props {
+  params: { subcategory: string };
+}
 
-  // Not a known subcategory → treat the segment as a product slug
-  // (covers antiques pieces saved without a subcategory: /antiques/<slug>).
-  if (!category) {
-    return <ProductDetail slug={slug} categorySlug="antiques" />;
-  }
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const category = getCategory(params.subcategory);
+  // Unknown segment → treat as a product slug, delegate.
+  if (!category) return buildProductMetadata(params.subcategory);
 
-  return (
-    <CollectionPage
-      category={category}
-      products={products}
-      loading={loading}
-      breadcrumbs={[{ label: "Antiques", href: "/antiques" }]}
-      productBasePath="/collection/antiques"
-    />
-  );
+  const url = `https://theorientgates.com/antiques/${category.slug}`;
+  const title = `${category.title} · Antiques`;
+  const description = category.description;
+  return {
+    title,
+    description,
+    alternates: { canonical: url },
+    openGraph: {
+      title: `${category.title} · The Orient Gates`,
+      description,
+      url,
+      type: "website",
+    },
+  };
+}
+
+export default function Page() {
+  return <SubcategoryView />;
 }

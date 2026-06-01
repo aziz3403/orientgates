@@ -152,6 +152,154 @@ body {
   .luxury-border-hover:hover {
     border-color: rgba(184, 151, 47, 0.4);
   }
+
+  /* ──────────────────────────────────────────────
+     Gate-opening intro — first-paint reveal.
+     Two halves of the nacre image swing open in 3D
+     to reveal the site behind. ~2.6s total.
+     ────────────────────────────────────────────── */
+  .gate-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: #0a0a0a;
+    transition: opacity 0.6s ease 2.0s, visibility 0s linear 2.6s;
+  }
+  .gate-intro.open {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .gate-half {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    background-color: #0a0a0a;
+    background-image: url("/images/craft-bg-nacre.jpg");
+    background-size: 200% 100%;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
+    transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.9s;
+  }
+  .gate-half.left {
+    left: 0;
+    background-position: 25% center;
+    transform-origin: left center;
+  }
+  .gate-half.right {
+    right: 0;
+    background-position: 75% center;
+    transform-origin: right center;
+  }
+  .gate-intro.open .gate-half.left {
+    transform: perspective(1800px) rotateY(-95deg);
+  }
+  .gate-intro.open .gate-half.right {
+    transform: perspective(1800px) rotateY(95deg);
+  }
+
+  /* Warm brass light pouring through the seam — bright, wide, unmistakable */
+  .gate-seam {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    margin-left: -4px;
+    background: linear-gradient(
+      180deg,
+      transparent,
+      rgba(255, 220, 160, 0.95) 30%,
+      rgba(255, 220, 160, 0.95) 70%,
+      transparent
+    );
+    box-shadow:
+      0 0 60px 18px rgba(255, 220, 160, 0.65),
+      0 0 140px 40px rgba(184, 151, 47, 0.35);
+    opacity: 0;
+    transform: scaleX(0.3);
+    transform-origin: center;
+    transition:
+      opacity 0.7s ease 0.8s,
+      transform 1.4s ease-out 0.9s;
+  }
+  .gate-intro.open .gate-seam {
+    opacity: 1;
+    transform: scaleX(2.2);
+  }
+
+  /* Brand mark — fades in then out before the doors open */
+  .gate-brand {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+    opacity: 0;
+    animation: gateBrandIn 1.4s ease 0.2s forwards;
+  }
+  .gate-intro.open .gate-brand {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  .gate-eyebrow {
+    font-family: var(--font-inter), system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: #b8972f;
+    margin-bottom: 16px;
+  }
+  .gate-name {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 400;
+    font-size: clamp(30px, 7vw, 60px);
+    letter-spacing: 0.01em;
+    color: #f5f0e8;
+    white-space: nowrap;
+  }
+  @keyframes gateBrandIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Mobile portrait: the 200%×100% split-image trick stretches the nacre
+     pattern vertically. Switch each half to cover-fit so the geometry
+     stays proportional. With the symmetric girih it still reads as one
+     continuous gate. */
+  @media (max-width: 768px) {
+    .gate-half {
+      background-size: cover;
+    }
+    .gate-half.left,
+    .gate-half.right {
+      background-position: center center;
+    }
+    .gate-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      margin-bottom: 12px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gate-intro,
+    .gate-half {
+      transition: none !important;
+      animation: none !important;
+    }
+    .gate-intro {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .gate-seam,
+    .gate-brand {
+      display: none;
+    }
+  }
 }
 
 /* ── Typography ── */

@@ -91,15 +91,21 @@ export default function DesignersCollectorsPage() {
             alt="Luxury interior with antiques"
             width={1920}
             height={1080}
-            className="w-full h-full brightness-125 contrast-105 saturate-105"
+            className="w-full h-full brightness-150 contrast-110 saturate-110"
             label="For Designers & Collectors"
             priority
           />
         </div>
-        {/* Bottom-only gradient for headline legibility; top of the image stays untouched */}
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/30 to-transparent" />
-        {/* Soft darkening on the left where the text sits */}
-        <div className="absolute inset-0 bg-gradient-to-r from-midnight/55 via-midnight/10 to-transparent" />
+        {/* Tight bottom strip only — keeps the library/sitting-room visible */}
+        <div
+          className="absolute inset-x-0 bottom-0 h-1/3 pointer-events-none"
+          style={{ background: "linear-gradient(to top, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.45) 55%, transparent 100%)" }}
+        />
+        {/* Stronger left fade behind the headline */}
+        <div
+          className="absolute inset-y-0 left-0 w-1/2 pointer-events-none"
+          style={{ background: "linear-gradient(to right, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.1) 70%, transparent 100%)" }}
+        />
 
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 pb-16 w-full">
           <div className="flex items-center gap-4 mb-4">

@@ -255,13 +255,33 @@ body {
   .gate-name {
     font-family: var(--font-playfair), Georgia, serif;
     font-weight: 400;
-    font-size: clamp(36px, 6vw, 60px);
+    font-size: clamp(30px, 7vw, 60px);
     letter-spacing: 0.01em;
     color: #f5f0e8;
+    white-space: nowrap;
   }
   @keyframes gateBrandIn {
     to {
       opacity: 1;
+    }
+  }
+
+  /* Mobile portrait: the 200%×100% split-image trick stretches the nacre
+     pattern vertically. Switch each half to cover-fit so the geometry
+     stays proportional. With the symmetric girih it still reads as one
+     continuous gate. */
+  @media (max-width: 768px) {
+    .gate-half {
+      background-size: cover;
+    }
+    .gate-half.left,
+    .gate-half.right {
+      background-position: center center;
+    }
+    .gate-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      margin-bottom: 12px;
     }
   }
 

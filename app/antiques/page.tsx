@@ -1,22 +1,20 @@
-"use client";
+import type { Metadata } from "next";
+import AntiquesView from "./AntiquesView";
 
-import { getCategory, getChildCategories } from "@/lib/data";
-import { useProducts, productMatchers } from "@/lib/products-client";
-import CollectionPage from "@/components/CollectionPage";
+export const metadata: Metadata = {
+  title: "Antiques · Islamic, European & Asian Rare Pieces",
+  description:
+    "Rare antiques spanning Islamic, European, and Asian traditions — Mamluk metalwork, Iznik ceramics, Ottoman calligraphy, European furniture, Asian decorative arts. Each piece scholar-authenticated.",
+  alternates: { canonical: "https://theorientgates.com/antiques" },
+  openGraph: {
+    title: "Antiques · The Orient Gates",
+    description:
+      "Rare Islamic, European, and Asian antiques — calligraphy, metalwork, ceramics, furniture, decorative arts.",
+    url: "https://theorientgates.com/antiques",
+    type: "website",
+  },
+};
 
-export default function AntiquesPage() {
-  const category = getCategory("antiques")!;
-  const subcategories = getChildCategories("antiques");
-  const { products, loading } = useProducts(productMatchers.byCategoryOrSubcategory("antiques"));
-
-  return (
-    <CollectionPage
-      category={category}
-      products={products}
-      loading={loading}
-      subcategories={subcategories}
-      breadcrumbs={[]}
-      productBasePath="/collection/antiques"
-    />
-  );
+export default function Page() {
+  return <AntiquesView />;
 }

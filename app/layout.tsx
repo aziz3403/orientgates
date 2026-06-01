@@ -92,6 +92,90 @@ const organizationJsonLd = {
     "Four generations of the Harb family — Damascene artists and collectors since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare antiques and handcrafted mother-of-pearl furniture, by appointment in Damascus, Beirut, Rome, and Brooklyn.",
 };
 
+// WebSite schema — enables Google sitelinks search box and signals canonical brand name.
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "The Orient Gates",
+  alternateName: "Orient Gates",
+  url: "https://theorientgates.com",
+  inLanguage: "en",
+  publisher: { "@type": "Organization", name: "The Orient Gates LLC" },
+};
+
+// LocalBusiness / Place entities for each city — helps local search
+// ("antiques dealer Brooklyn", "Damascene furniture Beirut", etc.).
+const locationsJsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theorientgates.com/#new-york",
+      name: "The Orient Gates · New York",
+      parentOrganization: { "@type": "Organization", name: "The Orient Gates LLC" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Brooklyn",
+        addressRegion: "NY",
+        addressCountry: "US",
+      },
+      telephone: "+1-929-832-9645",
+      url: "https://theorientgates.com/contact",
+      image: "https://theorientgates.com/images/contact-showroom.jpg",
+      priceRange: "$$$$",
+      areaServed: "Worldwide",
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theorientgates.com/#beirut",
+      name: "The Orient Gates · Beirut",
+      parentOrganization: { "@type": "Organization", name: "The Orient Gates LLC" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Bechara El Khoury Square",
+        addressLocality: "Beirut",
+        addressCountry: "LB",
+      },
+      telephone: "+961-71-773231",
+      url: "https://theorientgates.com/contact",
+      priceRange: "$$$$",
+      areaServed: "Worldwide",
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theorientgates.com/#rome",
+      name: "The Orient Gates · Rome",
+      parentOrganization: { "@type": "Organization", name: "The Orient Gates LLC" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Piazza Santa Maria, Trastevere",
+        addressLocality: "Rome",
+        addressCountry: "IT",
+      },
+      telephone: "+39-327-7772780",
+      url: "https://theorientgates.com/contact",
+      priceRange: "$$$$",
+      areaServed: "Worldwide",
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://theorientgates.com/#damascus",
+      name: "The Orient Gates · Damascus",
+      parentOrganization: { "@type": "Organization", name: "The Orient Gates LLC" },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Bab Sharqi",
+        addressLocality: "Damascus",
+        addressCountry: "SY",
+      },
+      telephone: "+963-93-3465733",
+      url: "https://theorientgates.com/contact",
+      priceRange: "$$$$",
+      areaServed: "Worldwide",
+    },
+  ],
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
@@ -99,6 +183,14 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(locationsJsonLd) }}
         />
         <CartProvider>
           <WishlistProvider>

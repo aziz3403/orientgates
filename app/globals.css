@@ -180,7 +180,7 @@ body {
     background-image: url("/images/craft-bg-nacre.jpg");
     background-size: 200% 100%;
     box-shadow: 0 0 60px rgba(0, 0, 0, 0.8);
-    transition: transform 1.8s cubic-bezier(0.7, 0, 0.3, 1) 1.4s;
+    transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.9s;
   }
   .gate-half.left {
     left: 0;
@@ -193,32 +193,40 @@ body {
     transform-origin: right center;
   }
   .gate-intro.open .gate-half.left {
-    transform: perspective(1800px) rotateY(-100deg);
+    transform: perspective(1800px) rotateY(-95deg);
   }
   .gate-intro.open .gate-half.right {
-    transform: perspective(1800px) rotateY(100deg);
+    transform: perspective(1800px) rotateY(95deg);
   }
 
-  /* Warm brass glow at the seam, grows as the doors part */
+  /* Warm brass light pouring through the seam — bright, wide, unmistakable */
   .gate-seam {
     position: absolute;
     left: 50%;
     top: 0;
     bottom: 0;
-    width: 2px;
-    margin-left: -1px;
+    width: 8px;
+    margin-left: -4px;
     background: linear-gradient(
       180deg,
       transparent,
-      rgba(184, 151, 47, 0.9),
+      rgba(255, 220, 160, 0.95) 30%,
+      rgba(255, 220, 160, 0.95) 70%,
       transparent
     );
-    box-shadow: 0 0 40px 12px rgba(184, 151, 47, 0.5);
+    box-shadow:
+      0 0 60px 18px rgba(255, 220, 160, 0.65),
+      0 0 140px 40px rgba(184, 151, 47, 0.35);
     opacity: 0;
-    transition: opacity 0.8s ease 1.2s;
+    transform: scaleX(0.3);
+    transform-origin: center;
+    transition:
+      opacity 0.7s ease 0.8s,
+      transform 1.4s ease-out 0.9s;
   }
   .gate-intro.open .gate-seam {
     opacity: 1;
+    transform: scaleX(2.2);
   }
 
   /* Brand mark — fades in then out before the doors open */

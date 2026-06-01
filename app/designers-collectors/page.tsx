@@ -91,12 +91,15 @@ export default function DesignersCollectorsPage() {
             alt="Luxury interior with antiques"
             width={1920}
             height={1080}
-            className="w-full h-full"
+            className="w-full h-full brightness-125 contrast-105 saturate-105"
             label="For Designers & Collectors"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/50 to-midnight/30" />
+        {/* Bottom-only gradient for headline legibility; top of the image stays untouched */}
+        <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/30 to-transparent" />
+        {/* Soft darkening on the left where the text sits */}
+        <div className="absolute inset-0 bg-gradient-to-r from-midnight/55 via-midnight/10 to-transparent" />
 
         <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-12 pb-16 w-full">
           <div className="flex items-center gap-4 mb-4">

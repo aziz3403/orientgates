@@ -87,7 +87,7 @@ export default function DesignersCollectorsPage() {
           }}
         >
           <LuxuryImage
-            src="/images/designers-hero.jpg"
+            src="/images/designers-hero.png"
             alt="Luxury interior with antiques"
             width={1920}
             height={1080}

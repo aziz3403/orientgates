@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import CartSidebar from "@/components/CartSidebar";
+import GateIntro from "@/components/GateIntro";
 import { CartProvider } from "@/lib/cart";
 import { WishlistProvider } from "@/lib/wishlist";
 import "./globals.css";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="antialiased">
         <CartProvider>
           <WishlistProvider>
+            <GateIntro />
             <Navigation />
             <main>{children}</main>
             <CartSidebar />

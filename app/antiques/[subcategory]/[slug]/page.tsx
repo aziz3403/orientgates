@@ -1,14 +1,17 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import ProductDetail from "@/components/ProductDetail";
+import { buildProductMetadata } from "@/lib/product-meta";
+import type { Metadata } from "next";
 
-export default function AntiquesProductPage() {
-  const params = useParams();
+interface Props {
+  params: { subcategory: string; slug: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return buildProductMetadata(params.slug);
+}
+
+export default function AntiquesProductPage({ params }: Props) {
   return (
-    <ProductDetail
-      slug={params.slug as string}
-      categorySlug={(params.subcategory as string) || "antiques"}
-    />
+    <ProductDetail slug={params.slug} categorySlug={params.subcategory || "antiques"} />
   );
 }

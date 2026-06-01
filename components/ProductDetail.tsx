@@ -160,7 +160,11 @@ export default function ProductDetail({
       availability: product.availability === "available"
         ? "https://schema.org/InStock"
         : "https://schema.org/SoldOut",
-      seller: { "@type": "Organization", name: "The Orient Gates" },
+      seller: {
+        "@type": "Organization",
+        name: "The Orient Gates",
+        legalName: "The Orient Gates LLC",
+      },
     },
     material: product.materials.join(", "),
     countryOfOrigin: product.origin,

@@ -76,10 +76,30 @@ export const metadata: Metadata = {
   },
 };
 
+// Site-wide Organization schema so Google's knowledge graph associates
+// the legal entity (The Orient Gates LLC) with the brand.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "The Orient Gates",
+  legalName: "The Orient Gates LLC",
+  url: "https://theorientgates.com",
+  logo: "https://theorientgates.com/logo-final.png",
+  email: "info@theorientgates.com",
+  sameAs: ["https://instagram.com/theorientgates"],
+  foundingDate: "1870",
+  description:
+    "Four generations of the Harb family — Damascene artists and collectors since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare antiques and handcrafted mother-of-pearl furniture, by appointment in Damascus, Beirut, Rome, and Brooklyn.",
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body className="antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
         <CartProvider>
           <WishlistProvider>
             <GateIntro />

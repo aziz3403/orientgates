@@ -14,19 +14,20 @@ export default function PrivacyPage() {
   return (
     <PolicyLayout eyebrow="Legal" title="Privacy Policy" lastUpdated={LAST_UPDATED}>
       <p>
-        The Orient Gates (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy. This Privacy
-        Policy explains what personal information we collect when you visit
-        theorientgates.com, why we collect it, how we use it, and the rights you
-        have over it. We have operations in {locations.map((l) => l.city).join(", ")}, and we make
-        a good-faith effort to align with GDPR, CCPA, and similar privacy
-        frameworks regardless of where you are based.
+        The Orient Gates LLC (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy. This
+        Privacy Policy explains what personal information we collect when you
+        visit theorientgates.com, why we collect it, how we use it, and the
+        rights you have over it. We have operations in {locations.map((l) => l.city).join(", ")},
+        and we make a good-faith effort to align with GDPR, CCPA, and similar
+        privacy frameworks regardless of where you are based.
       </p>
 
       <PolicyH2>1. Who we are</PolicyH2>
       <p>
-        The Orient Gates is a family practice operated by the Harb family,
-        trading in rare antiques and handcrafted mother-of-pearl furniture.
-        For any privacy question, the data controller can be reached at{" "}
+        The Orient Gates LLC is a New York limited liability company operated
+        by the Harb family, trading as <em>The Orient Gates</em> in rare
+        antiques and handcrafted mother-of-pearl furniture. For any privacy
+        question, the data controller can be reached at{" "}
         <a href={`mailto:${contact.email}`} className="text-brass hover:underline">
           {contact.email}
         </a>.

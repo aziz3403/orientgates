@@ -20,17 +20,18 @@ export default function LegalPage() {
         Act and similar disclosure regimes).
       </p>
 
-      <PolicyH2>Trading name</PolicyH2>
+      <PolicyH2>Legal entity</PolicyH2>
       <p>
-        The Orient Gates — a family practice in rare antiques and handcrafted
-        mother-of-pearl furniture, operated by the Harb family across four
-        generations.
+        <strong>The Orient Gates LLC</strong>, a New York limited liability
+        company. Trading as <em>The Orient Gates</em> — a family practice in
+        rare antiques and handcrafted mother-of-pearl furniture, operated by
+        the Harb family across four generations.
       </p>
 
       <PolicyH2>Operator & responsible editor</PolicyH2>
       <p>
-        Aziz Harb, on behalf of the Harb family. Editorial responsibility for
-        the content of the Site rests with the operator.
+        Aziz Harb, on behalf of The Orient Gates LLC. Editorial responsibility
+        for the content of the Site rests with the operator.
       </p>
 
       <PolicyH2>Contact</PolicyH2>
@@ -66,7 +67,7 @@ export default function LegalPage() {
       <PolicyH2>Authorship & images</PolicyH2>
       <p>
         Unless otherwise indicated, photography, illustrations, and editorial
-        text on this Site are © The Orient Gates and may not be reproduced
+        text on this Site are © The Orient Gates LLC and may not be reproduced
         without written permission. Where third-party images are used, they
         appear with the consent of, or under licence from, the rights holder.
       </p>

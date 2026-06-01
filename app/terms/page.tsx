@@ -16,16 +16,17 @@ export default function TermsPage() {
       <p>
         These terms apply to your use of theorientgates.com (&ldquo;the
         Site&rdquo;) and to any purchase or commission of pieces from The
-        Orient Gates (&ldquo;we,&rdquo; &ldquo;us&rdquo;). By using the Site or
-        engaging us, you agree to these terms. If you do not agree, please do
-        not use the Site or engage our services.
+        Orient Gates LLC (&ldquo;we,&rdquo; &ldquo;us&rdquo;). By using the
+        Site or engaging us, you agree to these terms. If you do not agree,
+        please do not use the Site or engage our services.
       </p>
 
       <PolicyH2>1. Who we are</PolicyH2>
       <p>
-        The Orient Gates is a family practice operated by the Harb family,
-        with operations in {locations.map((l) => l.city).join(", ")}. All
-        inquiries: <a href={`mailto:${contact.email}`} className="text-brass hover:underline">{contact.email}</a>.
+        The Orient Gates LLC is a New York limited liability company operated
+        by the Harb family, trading as <em>The Orient Gates</em>, with
+        operations in {locations.map((l) => l.city).join(", ")}. All inquiries:{" "}
+        <a href={`mailto:${contact.email}`} className="text-brass hover:underline">{contact.email}</a>.
       </p>
 
       <PolicyH2>2. Our pieces</PolicyH2>

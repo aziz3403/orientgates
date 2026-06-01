@@ -1,9 +1,15 @@
-"use client";
-
-import { useParams } from "next/navigation";
 import ProductDetail from "@/components/ProductDetail";
+import { buildProductMetadata } from "@/lib/product-meta";
+import type { Metadata } from "next";
 
-export default function CarpetsProductPage() {
-  const params = useParams();
-  return <ProductDetail slug={params.slug as string} categorySlug="carpets-textiles" />;
+interface Props {
+  params: { slug: string };
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  return buildProductMetadata(params.slug);
+}
+
+export default function CarpetsProductPage({ params }: Props) {
+  return <ProductDetail slug={params.slug} categorySlug="carpets-textiles" />;
 }

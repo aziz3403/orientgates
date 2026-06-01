@@ -78,7 +78,7 @@ export default function DesignersCollectorsPage() {
       {/* Hero */}
       <section
         ref={ref}
-        className="relative h-[70vh] min-h-[500px] flex items-end overflow-hidden"
+        className="relative h-[90vh] min-h-[640px] flex items-end overflow-hidden"
       >
         <div
           className="absolute inset-0 transition-transform duration-[2000ms] ease-out"

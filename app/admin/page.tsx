@@ -236,6 +236,41 @@ export default function AdminPage() {
       (p.sku || "").toLowerCase().includes(search.toLowerCase())
   );
 
+  const [showMergeModal, setShowMergeModal] = useState(false);
+  const selectedProducts = products.filter((p) => selectedIds.has(p.id));
+
+  const handleMerge = async (keepId: string) => {
+    const mergeIds = Array.from(selectedIds).filter((id) => id !== keepId);
+    if (mergeIds.length === 0) return;
+    setBulkBusy(true);
+    setErrorMessage(null);
+    try {
+      const res = await fetch("/api/admin/products/merge", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ keepId, mergeIds }),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || "Merge failed");
+      // Replace the keeper, drop the deleted ones.
+      setProducts((prev) =>
+        prev
+          .filter((p) => !mergeIds.includes(p.id))
+          .map((p) => (p.id === keepId ? (data.keeper as Product) : p))
+      );
+      invalidatePublicCache();
+      showStatus(
+        `Merged ${mergeIds.length + 1} product${mergeIds.length === 0 ? "" : "s"} → ${data.combinedImageCount} photos combined ✓`
+      );
+      setSelectedIds(new Set());
+      setShowMergeModal(false);
+    } catch (e) {
+      showError(e instanceof Error ? e.message : "Merge failed");
+    } finally {
+      setBulkBusy(false);
+    }
+  };
+
   const toggleSelect = (id: string) => {
     setSelectedIds((prev) => {
       const next = new Set(prev);
@@ -370,6 +405,77 @@ export default function AdminPage() {
         />
 
         {/* Product Form Modal */}
+        {/* Merge Modal */}
+        {showMergeModal && selectedProducts.length >= 2 && (
+          <div
+            className="fixed inset-0 z-50 bg-midnight/90 backdrop-blur-xl overflow-y-auto py-10 px-6"
+            onClick={() => !bulkBusy && setShowMergeModal(false)}
+          >
+            <div
+              className="max-w-2xl mx-auto bg-charcoal border border-white/10 p-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <h2 className="text-lg font-serif text-ivory">Merge products</h2>
+                <button
+                  onClick={() => setShowMergeModal(false)}
+                  disabled={bulkBusy}
+                  className="text-warm-gray/70 hover:text-ivory text-lg"
+                >
+                  &times;
+                </button>
+              </div>
+              <p className="text-[12px] text-warm-gray/70 font-sans mb-6 leading-relaxed">
+                Pick the product to <span className="text-brass">keep</span>. All photos,
+                materials, and tags from the others will be combined into it, and the
+                others will be removed. Title, price, period, dimensions, description,
+                etc. of the kept product stay as-is.
+              </p>
+
+              <div className="space-y-2">
+                {selectedProducts.map((p) => (
+                  <button
+                    key={p.id}
+                    disabled={bulkBusy}
+                    onClick={() => handleMerge(p.id)}
+                    className="w-full text-left flex items-center gap-4 p-3 border border-white/10 hover:border-brass/40 hover:bg-white/[0.02] transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  >
+                    {p.images?.[0] ? (
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={p.images[0]}
+                        alt=""
+                        className="w-14 h-14 object-cover border border-white/10"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 border border-dashed border-white/10" />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm text-ivory font-sans truncate">{p.title}</p>
+                      <p className="text-[10px] text-warm-gray/60 font-mono mt-0.5">
+                        {p.sku || "—"} · {p.images?.length || 0} photo{(p.images?.length || 0) === 1 ? "" : "s"} · {p.subcategory || p.category}
+                      </p>
+                    </div>
+                    <span className="text-[10px] tracking-[0.2em] uppercase text-brass/70 font-sans whitespace-nowrap">
+                      Keep this →
+                    </span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="flex justify-end mt-6">
+                <button
+                  onClick={() => setShowMergeModal(false)}
+                  disabled={bulkBusy}
+                  className="text-[10px] tracking-[0.2em] uppercase text-warm-gray/70 hover:text-ivory px-4 py-2 font-sans"
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
         {showForm && (
           <div className="fixed inset-0 z-50 bg-midnight/90 backdrop-blur-xl overflow-y-auto py-10 px-6">
             <div className="max-w-2xl mx-auto bg-charcoal border border-white/10 p-8">
@@ -793,6 +899,18 @@ export default function AdminPage() {
                 Unfeature
               </button>
             </div>
+
+            {/* Merge — combine 2+ products into one (photos + materials + tags) */}
+            {selectedIds.size >= 2 && (
+              <button
+                disabled={bulkBusy}
+                onClick={() => setShowMergeModal(true)}
+                className="text-[10px] tracking-[0.15em] uppercase text-emerald-300/80 border border-emerald-400/30 px-3 py-1 font-sans hover:bg-emerald-400/[0.06] disabled:opacity-40"
+                title="Combine the selected products into one"
+              >
+                Merge →
+              </button>
+            )}
 
             <button
               onClick={() => setSelectedIds(new Set())}

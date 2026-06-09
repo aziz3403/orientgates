@@ -19,6 +19,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${baseUrl}/designers-collectors`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/heritage`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
     { url: `${baseUrl}/craftsmanship`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/faq`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/shipping-returns`, lastModified: now, changeFrequency: "monthly", priority: 0.5 },
     // Legal — included for completeness, low priority.
     { url: `${baseUrl}/legal`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
     { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
@@ -35,7 +37,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     }));
 
-  const products = await getAllProducts();
+  // Never let a Supabase hiccup take down the whole build/route — fall back
+  // to the static pages and let the next revalidation pick the products up.
+  let products: Awaited<ReturnType<typeof getAllProducts>> = [];
+  try {
+    products = await getAllProducts();
+  } catch (e) {
+    console.error("[sitemap] product fetch failed:", e instanceof Error ? e.message : e);
+  }
   const productPages: MetadataRoute.Sitemap = products.map((p) => ({
     url: `${baseUrl}${productUrl(p)}`,
     lastModified: new Date(p.dateAdded),

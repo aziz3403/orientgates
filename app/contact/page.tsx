@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Page() {
-  return <ContactView />;
+export default function Page({
+  searchParams,
+}: {
+  searchParams?: { piece?: string | string[] };
+}) {
+  // Checkout's "Continue to Private Inquiry" links here with ?piece=… so the
+  // form arrives pre-filled with what the visitor was looking at.
+  const piece = typeof searchParams?.piece === "string" ? searchParams.piece : "";
+  return <ContactView initialPiece={piece} />;
 }

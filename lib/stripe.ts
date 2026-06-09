@@ -12,7 +12,9 @@ export function getStripe(): Stripe | null {
     cached = null;
     return null;
   }
-  cached = new Stripe(key, { apiVersion: "2024-12-18.acacia" as Stripe.LatestApiVersion });
+  // No apiVersion override — use the version the installed SDK is pinned to,
+  // so types and runtime payloads always agree.
+  cached = new Stripe(key);
   return cached;
 }
 

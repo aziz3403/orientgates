@@ -42,6 +42,8 @@ export default function PolicyLayout({ eyebrow, title, lastUpdated, children }: 
             <Link href="/privacy" className="hover:text-brass transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-brass transition-colors">Terms</Link>
             <Link href="/legal" className="hover:text-brass transition-colors">Legal Notice</Link>
+            <Link href="/shipping-returns" className="hover:text-brass transition-colors">Shipping &amp; Returns</Link>
+            <Link href="/faq" className="hover:text-brass transition-colors">FAQ</Link>
             <Link href="/contact" className="hover:text-brass transition-colors">Contact</Link>
           </div>
         </div>

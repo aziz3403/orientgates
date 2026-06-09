@@ -20,6 +20,7 @@ const footerLinks = {
     { href: "/heritage", label: "Heritage" },
     { href: "/craftsmanship", label: "Craftsmanship" },
     { href: "/designers-collectors", label: "Designers & Collectors" },
+    { href: "/faq", label: "FAQ" },
     { href: "/contact", label: "Inquire" },
   ],
 };
@@ -123,7 +124,13 @@ export default function Footer() {
           <p className="text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">
             &copy; {new Date().getFullYear()} The Orient Gates LLC. All rights reserved.
           </p>
-          <div className="flex gap-8 text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">
+          <div className="flex flex-wrap gap-8 text-[9px] tracking-[0.2em] text-warm-gray/65 font-sans">
+            <Link
+              href="/shipping-returns"
+              className="hover:text-warm-gray/80 transition-colors"
+            >
+              Shipping &amp; Returns
+            </Link>
             <Link
               href="/privacy"
               className="hover:text-warm-gray/80 transition-colors"

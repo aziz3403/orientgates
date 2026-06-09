@@ -11,7 +11,7 @@ import { useMousePosition } from "@/lib/hooks";
 type SortOption = "newest" | "price-asc" | "price-desc" | "period";
 type AvailFilter = "all" | "available" | "sold";
 
-function CollectionGrid({ products, productBasePath, loading }: { products: Product[]; productBasePath?: string; loading?: boolean }) {
+function CollectionGrid({ products, loading }: { products: Product[]; productBasePath?: string; loading?: boolean }) {
   const [sort, setSort] = useState<SortOption>("newest");
   const [availFilter, setAvailFilter] = useState<AvailFilter>("all");
   const [originFilter, setOriginFilter] = useState("");

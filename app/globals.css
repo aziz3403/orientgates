@@ -38,6 +38,13 @@ body {
   color: var(--ivory);
 }
 
+/* Keyboard focus — brass ring on every interactive element, invisible to
+   mouse/touch users (:focus-visible only). */
+:focus-visible {
+  outline: 2px solid rgba(184, 151, 47, 0.8);
+  outline-offset: 3px;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--midnight); }

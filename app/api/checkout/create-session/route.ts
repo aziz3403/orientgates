@@ -2,6 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 import { fromSupabase, type SupabaseProduct } from "@/lib/supabase-format";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -12,6 +13,14 @@ interface CartLine {
 }
 
 export async function POST(req: NextRequest) {
+  // Each call creates a Stripe session + a pending order row — keep bots out.
+  if (!rateLimit(`checkout:${clientIp(req)}`, 10, 60 * 60_000)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many checkout attempts. Please try again shortly." },
+      { status: 429 }
+    );
+  }
+
   const stripe = getStripe();
   if (!stripe) {
     return NextResponse.json(

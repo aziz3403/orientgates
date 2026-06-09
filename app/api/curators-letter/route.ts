@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -18,6 +19,13 @@ export const dynamic = "force-dynamic";
 //   -- No public policies: only the service role writes/reads.
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(`subscribe:${clientIp(req)}`, 5, 60 * 60_000)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many requests. Please try again later." },
+      { status: 429 }
+    );
+  }
+
   let body: { email?: string };
   try {
     body = await req.json();

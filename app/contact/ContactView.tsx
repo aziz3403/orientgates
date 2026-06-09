@@ -20,12 +20,12 @@ const collectorTypes = ["Private Collector", "Interior Designer", "Architect", "
 const contactMethods = ["Email", "Phone", "WhatsApp", "Video Call"];
 const timelines = ["Immediate", "1–3 Months", "3–6 Months", "Exploring"];
 
-export default function ContactPage() {
+export default function ContactPage({ initialPiece = "" }: { initialPiece?: string }) {
   const { ref, position } = useMousePosition();
   const [formData, setFormData] = useState({
     name: "", email: "", phone: "", country: "",
     inquiryType: "", budgetRange: "", collectorType: "",
-    preferredContact: "", timeline: "", pieceName: "",
+    preferredContact: "", timeline: "", pieceName: initialPiece,
     message: "", confidentiality: false,
   });
   const [submitted, setSubmitted] = useState(false);

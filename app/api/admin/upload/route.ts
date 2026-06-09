@@ -14,11 +14,6 @@ const ALLOWED = new Set([
   "image/avif",
 ]);
 
-function safeExt(name: string, fallback: string): string {
-  const m = name.match(/\.([a-zA-Z0-9]{2,5})$/);
-  return (m ? m[1] : fallback).toLowerCase();
-}
-
 function extFromMime(mime: string): string {
   if (mime === "image/jpeg") return "jpg";
   if (mime === "image/png") return "png";
@@ -66,7 +61,9 @@ export async function POST(req: NextRequest) {
       continue;
     }
 
-    const ext = safeExt(file.name, extFromMime(mime));
+    // Extension comes from the validated MIME type, never the client filename,
+    // so nothing can land in the public bucket as .html/.svg/etc.
+    const ext = extFromMime(mime);
     const stamp = Date.now();
     const rand = Math.random().toString(36).slice(2, 8);
     const path = `products/og-${stamp}-${rand}.${ext}`;

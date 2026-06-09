@@ -1,6 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 import { contact, locations } from "@/lib/locations";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -94,6 +95,13 @@ async function sendEmail(payload: InquiryPayload, id: string): Promise<{ sent: b
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(`inquiry:${clientIp(req)}`, 5, 60 * 60_000)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many inquiries from this connection. Please try again later or email us directly." },
+      { status: 429 }
+    );
+  }
+
   let body: InquiryPayload;
   try {
     body = await req.json();

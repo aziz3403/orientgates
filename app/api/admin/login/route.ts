@@ -5,10 +5,18 @@ import {
   createSession,
   passwordsMatch,
 } from "@/lib/admin-auth";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 export const runtime = "nodejs";
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(`admin-login:${clientIp(req)}`, 5, 10 * 60_000)) {
+    return NextResponse.json(
+      { ok: false, error: "Too many attempts. Please wait a few minutes and try again." },
+      { status: 429 }
+    );
+  }
+
   if (!process.env.ADMIN_PASSWORD) {
     return NextResponse.json(
       { ok: false, error: "ADMIN_PASSWORD not configured on server" },

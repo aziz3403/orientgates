@@ -1,8 +1,15 @@
 // Server-only HMAC-signed session for the /admin route.
-// The secret is ADMIN_PASSWORD from .env.local — never imported by client code.
+// Sessions are signed with ADMIN_SESSION_SECRET (a long random string,
+// independent of the login password) so a guessable password can never be
+// used to forge tokens offline. Falls back to ADMIN_PASSWORD if the secret
+// isn't set, to stay compatible with existing deployments.
 
 const SESSION_LIFETIME_SECONDS = 60 * 60 * 8; // 8 hours
 export const SESSION_COOKIE = "admin_session";
+
+function sessionSecret(): string | null {
+  return process.env.ADMIN_SESSION_SECRET || process.env.ADMIN_PASSWORD || null;
+}
 
 function b64url(buf: ArrayBuffer | Uint8Array): string {
   const bytes = buf instanceof Uint8Array ? buf : new Uint8Array(buf);
@@ -38,7 +45,7 @@ function timingSafeEqual(a: Uint8Array, b: Uint8Array): boolean {
 }
 
 export async function createSession(): Promise<string | null> {
-  const secret = process.env.ADMIN_PASSWORD;
+  const secret = sessionSecret();
   if (!secret) return null;
   const exp = Math.floor(Date.now() / 1000) + SESSION_LIFETIME_SECONDS;
   const payload = String(exp);
@@ -48,7 +55,7 @@ export async function createSession(): Promise<string | null> {
 }
 
 export async function verifySession(token: string): Promise<boolean> {
-  const secret = process.env.ADMIN_PASSWORD;
+  const secret = sessionSecret();
   if (!secret) return false;
   const dot = token.indexOf(".");
   if (dot < 0) return false;

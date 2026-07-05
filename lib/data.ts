@@ -243,7 +243,7 @@ export const categories: Category[] = [
     title: "Consoles & Cabinets",
     subtitle: "Grand Statements",
     description: "Console tables, display cabinets, bookcases, and storage pieces with elaborate mother-of-pearl decoration.",
-    heroDescription: "The grandest expressions of Levantine craft — cabinets and consoles that showcase thousands of hand-cut shell fragments in patterns of breathtaking complexity.",
+    heroDescription: "The grandest expressions of Damascene craft — cabinets and consoles that showcase thousands of hand-cut shell fragments in patterns of breathtaking complexity.",
     image: "/images/cat-mop-consoles.jpg",
     accent: "from-amber-900/30 to-yellow-900/15",
     parent: "mother-of-pearl-furniture",

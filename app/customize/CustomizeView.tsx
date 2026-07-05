@@ -398,10 +398,10 @@ export default function CustomizePage() {
                 {/* Trust note */}
                 <div className="mt-6 p-5 border border-white/[0.04]">
                   <p className="text-[11px] text-warm-gray/70 leading-relaxed font-sans">
-                    Custom pieces are handcrafted by our master artisans using
-                    traditional Levantine techniques. Typical lead time is 8-16 weeks
-                    depending on complexity. Starting from $5,000 for accessories to
-                    $80,000+ for grand cabinets.
+                    Custom pieces are handcrafted in Lebanon by our master artisans
+                    using traditional Damascene techniques. Typical lead time is 8-16
+                    weeks depending on complexity. Starting from $5,000 for accessories
+                    to $80,000+ for grand cabinets.
                   </p>
                 </div>
               </AnimateIn>

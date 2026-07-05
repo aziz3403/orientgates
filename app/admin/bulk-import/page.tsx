@@ -36,9 +36,9 @@ function buildPrompt(filenames: string[]): string {
     ? filenames.map((f) => `- ${f}`).join("\n")
     : "- example-01.jpg\n- example-02.jpg";
 
-  return `You are helping me write product listings for The Orient Gates — a luxury gallery of Levantine mother-of-pearl furniture and rare Islamic, European, and Asian antiques. Tone: dignified, museum-label, factual.
+  return `You are helping me write product listings for The Orient Gates — a luxury gallery of Damascene mother-of-pearl furniture and rare Islamic, European, and Asian antiques. Tone: dignified, museum-label, factual.
 
-IMPORTANT: Never use the words "Syria", "Syrian", "Damascus", "Damascene", "Aleppo", "Raqqa", or "Iran" anywhere in any field — payment processors restrict these region names. Use "Levantine" / "The Levant" for the Levant region and "Persia" / "Persian" for Persian pieces instead.
+IMPORTANT: Never use the words "Syria", "Syrian", or "Iran" anywhere in any field — payment processors restrict naming these countries. Say "Damascene", "Damascus", or "the Levant" for Levantine pieces and "Persia" / "Persian" for Persian pieces instead. Never state that an item is made in, shipped from, or sold from Syria.
 
 I'm uploading the following product photos (filenames must be used EXACTLY as the imageFile field):
 
@@ -48,14 +48,14 @@ For each photo, return ONE JSON object. Put all objects in a single JSON array (
 
 Fields (required unless marked optional):
 - imageFile  ── the filename string above, exactly as written
-- title  ── 4-8 words, dignified. e.g. "Levantine Mother-of-Pearl Console Table"
-- subtitle (optional)  ── one short line. e.g. "Hand-inlaid walnut, the Levant"
+- title  ── 4-8 words, dignified. e.g. "Damascene Mother-of-Pearl Console Table"
+- subtitle (optional)  ── one short line. e.g. "Hand-inlaid walnut, Damascus"
 - category  ── one of: "mother-of-pearl-furniture" | "antiques" | "carpets-textiles"
 - subcategory (optional but recommended):
     • for "mother-of-pearl-furniture": one of mop-mirrors | mop-tables | mop-seating | mop-consoles-cabinets | mop-chest-of-drawers | mop-accessories | mop-game-tables
     • for "antiques": one of islamic-antiques | european-antiques | asian-antiques
     • for "carpets-textiles": leave blank
-- origin  ── best guess at place of origin. e.g. "The Levant" or "Persia" or "Italy"
+- origin  ── best guess at place of origin. e.g. "Damascus" or "Persia" or "Italy" (never "Syria" or "Iran")
 - materials  ── array of visible materials. e.g. ["Walnut", "Mother-of-pearl", "Silver wire"]
 - description  ── short card blurb, 2-3 sentences, under 240 characters. Factual, no sales language.
 - craftsmanship  ── one paragraph (3-5 sentences) describing the workmanship for the detail page

@@ -33,7 +33,7 @@ const processes = [
   },
   {
     title: "Silver Wire Lining",
-    description: "Thin silver wire is drawn through small jewellery pliers and bent, by hand, into the carved channels — defining the outline of every cell in the geometric pattern before any shell is set. This is what distinguishes the Levantine tradition from European marquetry.",
+    description: "Thin silver wire is drawn through small jewellery pliers and bent, by hand, into the carved channels — defining the outline of every cell in the geometric pattern before any shell is set. This is what distinguishes the Damascene tradition from European marquetry.",
     detail: "The metal threads do two things at once: they lock the design's structure into the wood, and they catch light at angles the pearl cannot. The finished surface has two distinct kinds of shimmer playing against the dark walnut.",
     image: "/images/craft-process/05-silver-wire-lining.jpg",
   },

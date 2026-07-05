@@ -5,10 +5,10 @@ import AnimateIn from "@/components/ui/AnimateIn";
 import LuxuryImage from "@/components/ui/LuxuryImage";
 import NacreBackdrop from "@/components/ui/NacreBackdrop";
 
-// Five hand-photographed steps of the Levantine mother-of-pearl process.
+// Five hand-photographed steps of the Damascene mother-of-pearl process.
 // The silver-thread step (drawing and bending fine silver wire as cell
 // dividers between the shell fragments) is a hallmark of the Levantine
-// tradition — sometimes called "tarsi'a" —
+// tradition — sometimes called "tarsi'a" or simply "Damascene inlay" —
 // and is what distinguishes our pieces from pure marquetry work.
 const craftSteps = [
   {
@@ -26,7 +26,7 @@ const craftSteps = [
   {
     title: "Silver Threading",
     description:
-      "Fine silver wire is drawn through pliers and bent by hand into the carved channels. These metallic threads frame every shell cell and catch light at angles the pearl cannot — a hallmark of the Levantine tradition.",
+      "Fine silver wire is drawn through pliers and bent by hand into the carved channels. These metallic threads frame every shell cell and catch light at angles the pearl cannot — a hallmark of the Damascene tradition.",
     image: "/images/craft/03-silver-thread.jpg",
   },
   {

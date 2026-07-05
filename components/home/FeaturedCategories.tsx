@@ -153,7 +153,7 @@ export default function FeaturedCategories() {
           </AnimateIn>
           <AnimateIn delay={200}>
             <p className="text-[14px] text-warm-gray/80 max-w-lg mt-8 leading-[1.9] font-sans">
-              Each collection represents a distinct tradition of artistry — from luminous Levantine inlay to the scholarly beauty of Islamic calligraphy.
+              Each collection represents a distinct tradition of artistry — from the luminous inlay of Damascus to the scholarly beauty of Islamic calligraphy.
             </p>
           </AnimateIn>
         </div>

@@ -4,7 +4,7 @@ import CustomizeView from "./CustomizeView";
 export const metadata: Metadata = {
   title: "Bespoke Mother-of-Pearl Furniture · Commission Your Own",
   description:
-    "Commission a custom Levantine mother-of-pearl piece — mirrors, tables, consoles, chests, seating, and more. Configure type and finish; our master craftsmen build to your specifications.",
+    "Commission a custom Damascene mother-of-pearl piece — mirrors, tables, consoles, chests, seating, and more. Configure type and finish; our master craftsmen build to your specifications.",
   alternates: { canonical: "https://theorientgates.com/customize" },
   openGraph: {
     title: "Bespoke · The Orient Gates",

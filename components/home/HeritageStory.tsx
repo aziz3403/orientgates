@@ -63,7 +63,7 @@ export default function HeritageStory() {
               <p className="text-[14px] text-warm-gray/80 leading-[1.9] mb-6 font-sans max-w-xl">
                 Across four generations, the Harb family has been a guardian of
                 rare antiques and the finest mother-of-pearl craftsmanship. Our
-                story begins in the late-19th-century Levant with the painter
+                story begins in late-19th-century Damascus with the painter
                 Abou Sobhi Al-Tinawi, our great-grandfather Muhammad Harb.
               </p>
             </AnimateIn>

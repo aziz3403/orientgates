@@ -13,7 +13,7 @@ export default function Hero() {
 
   return (
     <section className="relative h-[100svh] min-h-[700px] flex items-center bg-midnight overflow-hidden">
-      {/* Ottoman court-room background */}
+      {/* Damascus Room background */}
       <div className="absolute inset-0">
         <img
           src="/images/hero-1.jpg"
@@ -26,7 +26,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-midnight via-transparent to-midnight/20" />
       </div>
 
-      {/* Clean hero — let the court-room photo speak for itself */}
+      {/* Clean hero — let the Damascus Room photo speak for itself */}
 
       {/* Content */}
       <div className="relative z-10 max-w-[1600px] mx-auto px-6 lg:px-20 w-full">
@@ -74,7 +74,7 @@ export default function Hero() {
             style={{ transitionDelay: "1200ms" }}
           >
             <p className="text-[15px] lg:text-[17px] text-warm-gray/70 max-w-md leading-[1.9] font-sans">
-              Four generations of the Harb family — handcrafted Levantine
+              Four generations of the Harb family — handcrafted Damascene
               furniture, Islamic antiques, and museum-quality collector pieces.
             </p>
           </div>

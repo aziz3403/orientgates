@@ -10,21 +10,21 @@ const generations = [
     name: "Muhammad Harb",
     epithet: "Abou Sobhi Al-Tinawi",
     description:
-      "Our great-grandfather. A folk painter and master of reverse-glass painting in the old city, known across the Arab world by his artist name Abou Sobhi Al-Tinawi. His Antar and Abla cycles travelled from the old souqs into the collections of the Louvre, Paris — and most recently surfaced again in Sotheby's A Love Letter to Beirut: Arts and Culture 1960s–2020s (2024).",
+      "Our great-grandfather. A folk painter and master of reverse-glass painting in Old Damascus, known across the Arab world by his artist name Abou Sobhi Al-Tinawi. His Antar and Abla cycles travelled from the souqs of Damascus into the collections of the Louvre, Paris — and most recently surfaced again in Sotheby's A Love Letter to Beirut: Arts and Culture 1960s–2020s (2024).",
   },
   {
     era: "Early–Mid 20th c.",
     name: "Tawfik Harb",
     epithet: "The founder",
     description:
-      "Our grandfather formalised the family practice into The Orient Gates. Operating from the family workshop in the old quarter, he carried the household of artists into a house of collectors and dealers — buying, restoring, and placing the rarest pieces of the Levantine tradition.",
+      "Our grandfather formalised the family practice into The Orient Gates. Operating from a workshop in the Bab Sharqi quarter, he carried the household of artists into a house of collectors and dealers — buying, restoring, and placing the rarest pieces of the Levantine tradition.",
   },
   {
     era: "Late 20th c.",
     name: "Fawaz Harb",
     epithet: "The bridge",
     description:
-      "Our father opened the house to the world. He brought European antiques alongside the Levantine tradition, built relationships with Sotheby's and major collectors abroad, and shipped the first pieces beyond the region.",
+      "Our father opened the house to the world. He brought European antiques alongside the Damascene tradition, built relationships with Sotheby's and major collectors abroad, and shipped the first pieces beyond the region.",
   },
   {
     era: "Today",
@@ -73,7 +73,7 @@ export default function HeritagePage() {
             <span className="italic text-pearl/80">of the Harb Family</span>
           </h1>
           <p className="text-lg text-pearl/70 max-w-xl leading-relaxed">
-            A Levantine family of artists and collectors — from the painter
+            A Damascene family of artists and collectors — from the painter
             Abou Sobhi Al-Tinawi to the house we carry today.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function HeritagePage() {
                 <div className="aspect-[3/2] overflow-hidden luxury-border">
                   <LuxuryImage
                     src="/images/abou-sobhi-portrait.jpg"
-                    alt="Muhammad Harb (Abou Sobhi Al-Tinawi) painting at his desk"
+                    alt="Muhammad Harb (Abou Sobhi Al-Tinawi) painting at his desk in Damascus"
                     width={800}
                     height={533}
                     className="w-full h-full"
@@ -97,7 +97,7 @@ export default function HeritagePage() {
                 </div>
                 <p className="text-[11px] text-warm-gray/60 italic font-sans leading-relaxed">
                   Muhammad Harb — known by his artist name Abou Sobhi
-                  Al-Tinawi — at work in his studio. An Antar and Abla painting
+                  Al-Tinawi — at work in Damascus. An Antar and Abla painting
                   visible at the lower-left of the desk.
                 </p>
               </div>
@@ -113,11 +113,11 @@ export default function HeritagePage() {
 
               <AnimateIn delay={100}>
                 <p className="text-warm-gray leading-relaxed mb-6">
-                  The Orient Gates begins with a single artist. In the
-                  late-19th-century Levant, our great-grandfather Muhammad Harb — better known by
+                  The Orient Gates begins with a single artist. In late-19th-century
+                  Damascus, our great-grandfather Muhammad Harb — better known by
                   his artist name <span className="text-ivory/85">Abou Sobhi Al-Tinawi</span> —
                   painted the folk legends of the Arab world on glass and paper.
-                  His Antar and Abla cycles travelled from the old souqs to
+                  His Antar and Abla cycles travelled from the souqs of Damascus to
                   the Louvre in Paris, and resurfaced again in Sotheby&apos;s sale
                   <em> A Love Letter to Beirut: Arts and Culture 1960s–2020s</em> in 2024.
                 </p>
@@ -126,11 +126,11 @@ export default function HeritagePage() {
               <AnimateIn delay={200}>
                 <p className="text-warm-gray leading-relaxed mb-6">
                   Four generations later, the same family still carries the same
-                  eye. We grew up inside one of the historic courtyard houses
-                  of the old city — homes celebrated for their carved wood,
-                  coloured glass, and mother-of-pearl inlay. Living inside what
-                  is effectively a museum shaped everything we make and
-                  everything we choose.
+                  eye. We grew up inside one of the historic Damascene houses
+                  of Bab Sharqi — courtyard homes named by UNESCO as cultural
+                  heritage for their carved wood, coloured glass, and
+                  mother-of-pearl inlay. Living inside what is effectively a
+                  museum shaped everything we make and everything we choose.
                 </p>
               </AnimateIn>
 

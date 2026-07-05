@@ -191,7 +191,7 @@ export default function ContactPage() {
                       <label className="block text-[9px] tracking-[0.3em] uppercase text-brass/50 font-sans mb-3">Inquiring About a Specific Piece? (Name or SKU)</label>
                       <input type="text" value={formData.pieceName} onChange={(e) => setFormData({ ...formData, pieceName: e.target.value })}
                         className="w-full bg-transparent border-b border-white/15 pb-3 text-ivory text-base font-sans focus:border-brass outline-none transition-colors"
-                        placeholder="e.g., Grand Damascus Cabinet or TOG-MOP-001" />
+                        placeholder="e.g., Grand Mother-of-Pearl Cabinet or TOG-MOP-001" />
                     </div>
 
                     {/* Message */}
@@ -263,7 +263,7 @@ export default function ContactPage() {
 
                   <div className="w-full h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
 
-                  {/* Four locations */}
+                  {/* Locations */}
                   <div>
                     <h3 className="text-[9px] tracking-[0.4em] uppercase text-brass/50 font-sans mb-6">Our Locations</h3>
                     <p className="text-[12px] text-warm-gray/60 font-sans mb-6 italic">All viewings by appointment.</p>

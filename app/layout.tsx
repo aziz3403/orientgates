@@ -23,7 +23,7 @@ const inter = Inter({
 const SITE_NAME = "The Orient Gates";
 const SITE_TITLE = "The Orient Gates | Rare Antiques & Mother-of-Pearl Furniture";
 const SITE_DESCRIPTION =
-  "Four generations of the Harb family — Damascene artists since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare Islamic, European, and Asian antiques and handcrafted mother-of-pearl furniture, by appointment in Damascus, Beirut, Rome, and Brooklyn.";
+  "Four generations of the Harb family — Levantine artists since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare Islamic, European, and Asian antiques and handcrafted mother-of-pearl furniture, by appointment in Beirut, Rome, and Brooklyn.";
 
 export const metadata: Metadata = {
   title: {
@@ -33,8 +33,8 @@ export const metadata: Metadata = {
   description: SITE_DESCRIPTION,
   keywords: [
     "antiques", "mother-of-pearl furniture", "Islamic antiques", "European antiques",
-    "luxury furniture", "Damascus furniture", "antique collector", "rare antiques",
-    "Abou Sobhi Al-Tinawi", "Muhammad Harb", "Damascene art", "custom furniture",
+    "luxury furniture", "Levantine furniture", "antique collector", "rare antiques",
+    "Abou Sobhi Al-Tinawi", "Muhammad Harb", "Levantine art", "custom furniture",
   ],
   metadataBase: new URL("https://theorientgates.com"),
   manifest: "/site.webmanifest",
@@ -89,7 +89,7 @@ const organizationJsonLd = {
   sameAs: ["https://instagram.com/theorientgates"],
   foundingDate: "1870",
   description:
-    "Four generations of the Harb family — Damascene artists and collectors since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare antiques and handcrafted mother-of-pearl furniture, by appointment in Damascus, Beirut, Rome, and Brooklyn.",
+    "Four generations of the Harb family — Levantine artists and collectors since the time of Abou Sobhi Al-Tinawi (Muhammad Harb). Rare antiques and handcrafted mother-of-pearl furniture, by appointment in Beirut, Rome, and Brooklyn.",
 };
 
 // WebSite schema — enables Google sitelinks search box and signals canonical brand name.
@@ -104,7 +104,7 @@ const websiteJsonLd = {
 };
 
 // LocalBusiness / Place entities for each city — helps local search
-// ("antiques dealer Brooklyn", "Damascene furniture Beirut", etc.).
+// ("antiques dealer Brooklyn", "Levantine furniture Beirut", etc.).
 const locationsJsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -153,22 +153,6 @@ const locationsJsonLd = {
         addressCountry: "IT",
       },
       telephone: "+39-327-7772780",
-      url: "https://theorientgates.com/contact",
-      priceRange: "$$$$",
-      areaServed: "Worldwide",
-    },
-    {
-      "@type": "LocalBusiness",
-      "@id": "https://theorientgates.com/#damascus",
-      name: "The Orient Gates · Damascus",
-      parentOrganization: { "@type": "Organization", name: "The Orient Gates LLC" },
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: "Bab Sharqi",
-        addressLocality: "Damascus",
-        addressCountry: "SY",
-      },
-      telephone: "+963-93-3465733",
       url: "https://theorientgates.com/contact",
       priceRange: "$$$$",
       areaServed: "Worldwide",

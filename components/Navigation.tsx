@@ -139,7 +139,7 @@ export default function Navigation() {
             scrolled ? "h-0 opacity-0" : "h-7 opacity-100"
           }`}
         >
-          <span>Four Generations of Damascene Artistry &mdash; Rare Antiques & Mother-of-Pearl</span>
+          <span>Four Generations of Levantine Artistry &mdash; Rare Antiques & Mother-of-Pearl</span>
         </div>
 
         <div className="max-w-[1600px] mx-auto px-5 lg:px-12">

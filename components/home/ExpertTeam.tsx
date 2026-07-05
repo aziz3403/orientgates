@@ -8,7 +8,7 @@ const team = [
     name: "The Founding Family",
     title: "Principal & Director",
     specialization: "Mother-of-Pearl Furniture, Levantine Decorative Arts",
-    experience: "5th generation. Over 30 years of personal expertise in authentication, sourcing, and conservation of Damascene furniture and Islamic decorative arts.",
+    experience: "5th generation. Over 30 years of personal expertise in authentication, sourcing, and conservation of Levantine furniture and Islamic decorative arts.",
     image: "/images/team-1.jpg",
   },
   {
@@ -29,7 +29,7 @@ const team = [
     name: "Master Craftsman",
     title: "Head of Workshop",
     specialization: "Mother-of-Pearl Inlay, Conservation, Custom Commissions",
-    experience: "Trained in Damascus in the traditional atelier system. 25+ years mastering the art of shell inlay, geometric pattern design, and antique furniture conservation.",
+    experience: "Trained in the traditional Levantine atelier system. 25+ years mastering the art of shell inlay, geometric pattern design, and antique furniture conservation.",
     image: "/images/team-4.jpg",
   },
 ];

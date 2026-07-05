@@ -4,7 +4,7 @@ import DesignersView from "./DesignersView";
 export const metadata: Metadata = {
   title: "For Designers & Collectors · Private Acquisition Advisory",
   description:
-    "Trusted sourcing, authentication, valuation, and white-glove delivery for interior designers, galleries, hotels, and private collectors. Four generations of Damascene expertise.",
+    "Trusted sourcing, authentication, valuation, and white-glove delivery for interior designers, galleries, hotels, and private collectors. Four generations of Levantine expertise.",
   alternates: { canonical: "https://theorientgates.com/designers-collectors" },
   openGraph: {
     title: "For Designers & Collectors · The Orient Gates",

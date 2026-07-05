@@ -70,7 +70,7 @@ body {
 
   /* ═══ MASHRABIYA — Octagonal Lattice Screen ═══
      Interlocking octagons and squares, the carved wooden
-     screens of Cairo and Damascus */
+     screens of Cairo and the Levant */
   .pattern-mashrabiya {
     background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(184,151,47,0.14)' fill='none' stroke-width='0.6'%3E%3Cpath d='M16 0L0 16L0 64L16 80L64 80L80 64L80 16L64 0Z'/%3E%3Cpath d='M24 8L8 24L8 56L24 72L56 72L72 56L72 24L56 8Z' stroke='rgba(184,151,47,0.08)'/%3E%3Cpath d='M32 16L16 32L16 48L32 64L48 64L64 48L64 32L48 16Z' stroke='rgba(184,151,47,0.06)'/%3E%3Cline x1='16' y1='0' x2='0' y2='16' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='64' y1='0' x2='80' y2='16' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='0' y1='64' x2='16' y2='80' stroke='rgba(184,151,47,0.1)'/%3E%3Cline x1='80' y1='64' x2='64' y2='80' stroke='rgba(184,151,47,0.1)'/%3E%3Crect x='36' y='36' width='8' height='8' transform='rotate(45 40 40)' stroke='rgba(184,151,47,0.12)'/%3E%3C/g%3E%3C/svg%3E");
     background-size: 80px 80px;

@@ -53,7 +53,7 @@ export default function TrustSection() {
             {
               number: "4",
               label: "Generations of the Harb Family",
-              text: "Four generations of Damascene knowledge in authentication, sourcing, and master craftsmanship.",
+              text: "Four generations of Levantine knowledge in authentication, sourcing, and master craftsmanship.",
             },
             {
               number: "1000+",

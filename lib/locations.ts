@@ -1,4 +1,4 @@
-// Single source of truth for the four Orient Gates locations.
+// Single source of truth for the three Orient Gates locations.
 // Imported by Footer, Contact page, layout meta, etc.
 
 export interface Location {
@@ -32,13 +32,6 @@ export const locations: Location[] = [
     address: "Piazza Santa Maria, Trastevere, Rome",
     whatsapp: "393277772780",
     whatsappDisplay: "+39 327 777 2780",
-  },
-  {
-    city: "Damascus",
-    country: "Syria",
-    address: "Bab Sharqi, Old Damascus",
-    whatsapp: "963933465733",
-    whatsappDisplay: "+963 93 346 5733",
   },
 ];
 

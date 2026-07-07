@@ -47,7 +47,7 @@ export default function Footer() {
               <p className="text-[13px] text-warm-gray/70 leading-[1.8] max-w-sm font-sans">
                 Four generations of the Harb family — Damascene artists and
                 collectors since the era of Abou Sobhi Al-Tinawi. By
-                appointment in Damascus, Beirut, Rome, and Brooklyn.
+                appointment in Beirut, Rome, and Brooklyn.
               </p>
               <div className="flex gap-6 mt-10">
                 <a

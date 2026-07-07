@@ -79,7 +79,10 @@ export async function POST(req: NextRequest) {
     cancel_url: `${origin}/checkout`,
     billing_address_collection: "required",
     shipping_address_collection: {
-      // Worldwide white-glove shipping — accept everywhere Stripe supports
+      // Explicit ship-to allowlist. Deliberately EXCLUDES all sanctioned or
+      // high-risk jurisdictions (Cuba, Iran, North Korea, Syria, Russia,
+      // Crimea/Donetsk/Luhansk) — Stripe Checkout rejects any address
+      // outside this list, so no order can be placed to those regions.
       allowed_countries: [
         "US","CA","GB","FR","IT","DE","ES","NL","BE","CH","AT","DK","SE","NO","FI","IE","PT","GR",
         "AU","NZ","JP","SG","HK","AE","SA","QA","KW","BH","OM","JO","LB","IL","TR","EG",

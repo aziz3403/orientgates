@@ -31,7 +31,7 @@ const generations = [
     name: "Aziz Harb",
     epithet: "The fourth generation",
     description:
-      "I (Aziz) carry the work now — same eye, same hands, same patience — with showrooms by appointment in Damascus, Beirut, Rome, and Brooklyn.",
+      "I (Aziz) carry the work now — same eye, same hands, same patience — with showrooms by appointment in Beirut, Rome, and Brooklyn.",
   },
 ];
 
@@ -125,10 +125,10 @@ export default function HeritagePage() {
 
               <AnimateIn delay={200}>
                 <p className="text-warm-gray leading-relaxed mb-6">
-                  Four generations later, the same family still works from the same
-                  neighbourhood. We grew up inside one of the historic Damascene
-                  houses of Bab Sharqi — courtyard homes named by UNESCO as
-                  cultural heritage for their carved wood, coloured glass, and
+                  Four generations later, the same family still carries the same
+                  eye. We grew up inside one of the historic Damascene houses
+                  of Bab Sharqi — courtyard homes named by UNESCO as cultural
+                  heritage for their carved wood, coloured glass, and
                   mother-of-pearl inlay. Living inside what is effectively a
                   museum shaped everything we make and everything we choose.
                 </p>
@@ -138,7 +138,7 @@ export default function HeritagePage() {
                 <p className="text-warm-gray leading-relaxed">
                   My grandfather Tawfik built the practice into a house. My father
                   Fawaz brought it abroad. I — Aziz — carry it now, with showrooms
-                  by appointment in Damascus, Beirut, Rome, and Brooklyn. The
+                  by appointment in Beirut, Rome, and Brooklyn. The
                   pieces we present have been chosen with the same eye that
                   guided four generations before us.
                 </p>

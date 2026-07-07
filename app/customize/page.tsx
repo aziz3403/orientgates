@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bespoke · The Orient Gates",
     description:
-      "Commission custom mother-of-pearl furniture from our Damascene workshop — built to your specifications.",
+      "Commission custom mother-of-pearl furniture from our family workshop — built to your specifications.",
     url: "https://theorientgates.com/customize",
     type: "website",
   },

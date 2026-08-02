@@ -1,3 +1,4 @@
+import { guarded } from "@/lib/api-guard";
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 
@@ -5,7 +6,7 @@ import { createSupabaseAdmin } from "@/lib/supabase/server";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-export async function GET(req: NextRequest) {
+async function handleGET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const showHandled = searchParams.get("handled") === "true";
   const sb = createSupabaseAdmin();
@@ -16,7 +17,7 @@ export async function GET(req: NextRequest) {
   return NextResponse.json({ ok: true, inquiries: data || [] });
 }
 
-export async function PATCH(req: NextRequest) {
+async function handlePATCH(req: NextRequest) {
   const body = await req.json().catch(() => ({}));
   const id = body?.id as string | undefined;
   if (!id) return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
@@ -37,7 +38,7 @@ export async function PATCH(req: NextRequest) {
   return NextResponse.json({ ok: true, inquiry: data });
 }
 
-export async function DELETE(req: NextRequest) {
+async function handleDELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return NextResponse.json({ ok: false, error: "Missing id" }, { status: 400 });
@@ -46,3 +47,7 @@ export async function DELETE(req: NextRequest) {
   if (error) return NextResponse.json({ ok: false, error: error.message }, { status: 500 });
   return NextResponse.json({ ok: true });
 }
+
+export const GET = guarded(handleGET);
+export const PATCH = guarded(handlePATCH);
+export const DELETE = guarded(handleDELETE);

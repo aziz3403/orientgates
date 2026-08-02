@@ -1,3 +1,4 @@
+import { guarded } from "@/lib/api-guard";
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 import { toSupabase, fromSupabase, type SupabaseProduct } from "@/lib/supabase-format";
@@ -173,7 +174,7 @@ interface BulkReport {
   insertedTitles: string[];
 }
 
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   let body: { products?: unknown; dryRun?: boolean };
   try {
     body = await req.json();
@@ -254,7 +255,7 @@ export async function POST(req: NextRequest) {
 
 // Bulk-update a set of products by id with a shared patch of fields.
 // Body: { ids: string[], fields: { availability?, category?, subcategory?, featured? } }
-export async function PATCH(req: NextRequest) {
+async function handlePATCH(req: NextRequest) {
   let body: { ids?: unknown; fields?: unknown };
   try {
     body = await req.json();
@@ -317,3 +318,6 @@ export async function PATCH(req: NextRequest) {
   revalidatePublicProductPages();
   return NextResponse.json({ ok: true, updated: data?.length ?? 0 });
 }
+
+export const POST = guarded(handlePOST);
+export const PATCH = guarded(handlePATCH);

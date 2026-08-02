@@ -1,3 +1,4 @@
+import { guarded } from "@/lib/api-guard";
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 
@@ -28,7 +29,7 @@ function extFromMime(mime: string): string {
   return "bin";
 }
 
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   let form: FormData;
   try {
     form = await req.formData();
@@ -94,3 +95,5 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({ ok: true, urls, errors: errors.length ? errors : undefined });
 }
+
+export const POST = guarded(handlePOST);

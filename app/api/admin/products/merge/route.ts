@@ -1,3 +1,4 @@
+import { guarded } from "@/lib/api-guard";
 import { NextResponse, type NextRequest } from "next/server";
 import { createSupabaseAdmin } from "@/lib/supabase/server";
 import { fromSupabase, type SupabaseProduct } from "@/lib/supabase-format";
@@ -29,7 +30,7 @@ function dedupe<T>(arr: T[]): T[] {
   return out;
 }
 
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   let body: { keepId?: unknown; mergeIds?: unknown };
   try {
     body = await req.json();
@@ -127,3 +128,5 @@ export async function POST(req: NextRequest) {
     combinedImageCount: combinedImages.length,
   });
 }
+
+export const POST = guarded(handlePOST);

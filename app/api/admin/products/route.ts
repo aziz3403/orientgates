@@ -1,3 +1,4 @@
+import { guarded } from "@/lib/api-guard";
 import { NextResponse, type NextRequest } from "next/server";
 import {
   createSupabaseAdmin,
@@ -25,7 +26,7 @@ function bustCaches() {
   revalidatePublicProductPages();
 }
 
-export async function GET() {
+async function handleGET() {
   // Products are publicly readable, so the list uses the anon client — the
   // dashboard keeps working even when the service-role key is misconfigured.
   const sb = createSupabaseAnon();
@@ -40,7 +41,7 @@ export async function GET() {
   return NextResponse.json({ ok: true, products });
 }
 
-export async function POST(req: NextRequest) {
+async function handlePOST(req: NextRequest) {
   const mismatch = supabaseConfigMismatch();
   if (mismatch) {
     return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
@@ -70,7 +71,7 @@ export async function POST(req: NextRequest) {
   });
 }
 
-export async function PATCH(req: NextRequest) {
+async function handlePATCH(req: NextRequest) {
   const mismatch = supabaseConfigMismatch();
   if (mismatch) {
     return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
@@ -101,7 +102,7 @@ export async function PATCH(req: NextRequest) {
   });
 }
 
-export async function DELETE(req: NextRequest) {
+async function handleDELETE(req: NextRequest) {
   const mismatch = supabaseConfigMismatch();
   if (mismatch) {
     return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
@@ -122,3 +123,8 @@ export async function DELETE(req: NextRequest) {
   bustCaches();
   return NextResponse.json({ ok: true });
 }
+
+export const GET = guarded(handleGET);
+export const POST = guarded(handlePOST);
+export const PATCH = guarded(handlePATCH);
+export const DELETE = guarded(handleDELETE);

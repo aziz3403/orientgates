@@ -1,5 +1,9 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { createSupabaseAdmin } from "@/lib/supabase/server";
+import {
+  createSupabaseAdmin,
+  createSupabaseAnon,
+  supabaseConfigMismatch,
+} from "@/lib/supabase/server";
 import {
   fromSupabase,
   toSupabase,
@@ -22,7 +26,9 @@ function bustCaches() {
 }
 
 export async function GET() {
-  const sb = createSupabaseAdmin();
+  // Products are publicly readable, so the list uses the anon client — the
+  // dashboard keeps working even when the service-role key is misconfigured.
+  const sb = createSupabaseAnon();
   const { data, error } = await sb
     .from("products")
     .select("*")
@@ -35,6 +41,10 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const mismatch = supabaseConfigMismatch();
+  if (mismatch) {
+    return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
+  }
   const body = await req.json().catch(() => ({}));
   const product = body?.product as Product | undefined;
   if (!product || !product.id || !product.slug || !product.title) {
@@ -61,6 +71,10 @@ export async function POST(req: NextRequest) {
 }
 
 export async function PATCH(req: NextRequest) {
+  const mismatch = supabaseConfigMismatch();
+  if (mismatch) {
+    return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
+  }
   const body = await req.json().catch(() => ({}));
   const product = body?.product as Product | undefined;
   if (!product || !product.id) {
@@ -88,6 +102,10 @@ export async function PATCH(req: NextRequest) {
 }
 
 export async function DELETE(req: NextRequest) {
+  const mismatch = supabaseConfigMismatch();
+  if (mismatch) {
+    return NextResponse.json({ ok: false, error: mismatch }, { status: 500 });
+  }
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) {

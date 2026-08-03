@@ -39,3 +39,32 @@ export function createSupabaseAdmin(): SupabaseClient {
     auth: { persistSession: false, autoRefreshToken: false },
   });
 }
+
+// Supabase legacy API keys are JWTs carrying the project ref in their payload.
+// A key signed for one project is rejected by another with a bare
+// "Invalid API key", which the admin UI shows as an empty dashboard — so we
+// detect the cross-project mix-up up front and name both refs instead.
+function jwtProjectRef(jwt: string | undefined): string | null {
+  if (!jwt) return null;
+  const payload = jwt.split(".")[1];
+  if (!payload) return null;
+  try {
+    const parsed = JSON.parse(Buffer.from(payload, "base64url").toString("utf8"));
+    return typeof parsed?.ref === "string" ? parsed.ref : null;
+  } catch {
+    return null;
+  }
+}
+
+export function supabaseConfigMismatch(): string | null {
+  if (!URL || !SERVICE_ROLE) return null;
+  const urlRef = new globalThis.URL(URL).hostname.split(".")[0];
+  const keyRef = jwtProjectRef(SERVICE_ROLE);
+  if (!keyRef || keyRef === urlRef) return null;
+  return (
+    `SUPABASE_SERVICE_ROLE_KEY belongs to Supabase project "${keyRef}" but ` +
+    `NEXT_PUBLIC_SUPABASE_URL points at project "${urlRef}". Update ` +
+    `SUPABASE_SERVICE_ROLE_KEY to the service_role key of "${urlRef}" ` +
+    `(Supabase dashboard → Settings → API) and redeploy.`
+  );
+}
